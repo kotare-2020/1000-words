@@ -1,40 +1,47 @@
-
 import React from 'react'
 
+const geturl = "http://192.168.1.156:3000/api/"
+var clientsocket = new WebSocket("ws://192.168.1.156:3000/", "protocolOne")
 
-
-class chat extends React.Component {
+class SocketTest extends React.Component {
     state = {
-   
+        connected: false
     }
+    
     componentDidMount(){
-        $(function () {
-            var socket = io();
-            $('form').submit(function(){
-              socket.emit('chat message', $('#m').val());
-              $('#m').val('');
-              return false;
-            });
-            socket.on('chat message', function(msg){
-              $('#messages').append($('<li>').text(msg));
-              window.scrollTo(0, document.body.scrollHeight);
-            });
-          });
+      
+        clientsocket.onopen = (event) => {
+            clientsocket.send("Web client connected"); 
+            this.setState({connected: true})
+        }
+        
+        clientsocket.onmessage = (event) =>{
+
+                console.log(event.data);   
+          }
+        setInterval(() => {
+            if(clientsocket.readyState == WebSocket.CLOSED) this.setState({connected: false})
+        }, 500);
+    }
+    joingame = () => {
+        clientsocket.send(`join ${ document.getElementById("gamekey").value} please`); 
+
+    }
+    creategame = () => {
+        clientsocket.send("create"); 
     }
     render() {
         return (
             <>
-              <ul id="messages"></ul>
-<form action="">
-  <input id="m" autocomplete="off" /><button>Send</button>
-</form>
-
-
-                   
+            {this.state.connected ? <div>connected</div> : <div>connnection errerr!!!!!!</div>}
+            <button onClick={this.joingame}>join</button>
+            <input type="text" id="gamekey" placeholder="game key"/>
+            <button onClick={this.creategame}>create</button>
+                  this is the socket
             </>
         )
     }
 
 }
 
-export default chat
+export default SocketTest

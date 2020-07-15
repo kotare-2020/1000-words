@@ -29,7 +29,19 @@ i
 |post|api/rounds:id/|updates spesific found for game| returns round|
 
 ## request and response formats
-**GET `/v1/posts`**
+**POST `api/game/`**
+:request
+```json
+  {
+    "name": "rubin",
+  }
+```
+:response
+```json
+  {
+    "id": "1",
+  }
+```
 ## Separate client/server
 
 The boilerplate is also set up to host the client using `webpack-dev-server` with hot module reloading etc. To use this method, in one terminal run:

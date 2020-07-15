@@ -1,8 +1,11 @@
 import React from 'react'
+import Canvas from './canvas'
 
 const App = () => {
-  return (
-    <h1>React development has begun!</h1>
+  return (<>
+    <h1>Time to Draw!</h1>
+    <Canvas/>
+    </>
   )
 }
 

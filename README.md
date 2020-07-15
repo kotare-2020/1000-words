@@ -21,7 +21,7 @@ i
 | Method | Endpoint | Usage | Response |
 | --- | --- | --- | --- |
 |post|api/game/|creates a new game|returns game id|
-|get|api/game/|checks if game exists|returns|true / false|
+|get|api/game/|checks if game exists|returns true / false|
 |get|api/players:id/|get players of game|returns players in game|
 |post|api/players/|add player to player table|returns all players|
 |get|api/rounds:id/|get all rounds for that game| returns all round for game|

@@ -1,8 +1,12 @@
 import React from 'react'
+import SocketTest from "./SocketTest"
 
 const App = () => {
   return (
-    <h1>React development has begun!</h1>
+    <>
+    app
+    <SocketTest/>
+    </>
   )
 }
 

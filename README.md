@@ -4,9 +4,18 @@ i want the same as above for writing
 i 
 
 ## Data base
-### Game
+### game
 |game_id|host|
 |--|--|
+|1|rubin|
+### players
+|player_id|player_name|game_id|color|
+|--|--|--|--|
+|1|rubin|1|green|
+### rounds
+|player|write_1|draw_1|write_2|draw_2|write_3|draw_3|write_4|draw_4|write_5|draw_5|
+|--|--|--|--|--|--|--|--|--|--|--|
+|1|a naked sheep|draw_data|what it is|draw data|what it is|draw data|what it is|draw data|what it is|draw data|
 
 ## Separate client/server
 

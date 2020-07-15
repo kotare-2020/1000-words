@@ -22,8 +22,8 @@ i
 | --- | --- | --- | --- |
 |post|api/game/|creates a new game|returns game id|
 |get|api/game:id/|checks if game exists|returns true / false|
-|get|api/players:id/|get players of game|returns players in game|
-|post|api/players/|add player to player table|returns all players|
+|get|api/players:id/|get players of game|returns players in game group|
+|post|api/players/|add player to player table|returns players in game group|
 |get|api/rounds:id/|get all rounds for that game| returns all round for game|
 |get|api/rounds/:roundId:playerround|get spesific round & player draw/write|returns spesific round & player draw/write|
 |post|api/rounds:id/|updates spesific found for game| returns round|
@@ -70,20 +70,32 @@ i
   },
 ]
 ```
-**POST `api/game/`**
+**POST `api/players/`**
 
 :request
 ```json
-  {
-    "host": "rubin",
+   {
+    "player_name": "rubin",
+    "game_id": 1,
+    "color": "black",
   }
 ```
 :response
 ```json
   {
-    "id": 1,
-  }
+    "player_id": 1,
+    "player_name": "rubin",
+    "game_id": 1,
+    "color": "black",
+  },
+  {
+    "player_id": 2,
+    "player_name": "jayden",
+    "game_id": 1,
+    "color": "black",
+  },
 ```
+
 ## Separate client/server
 
 The boilerplate is also set up to host the client using `webpack-dev-server` with hot module reloading etc. To use this method, in one terminal run:

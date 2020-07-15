@@ -22,7 +22,10 @@ i
 | --- | --- | --- | --- |
 |post|api/game/|creates a new game|returns game id|
 |get|api/game/|checks if game exists|returns|true / false|
-|get|api/players/|get ammount of game|returns players in game|
+|get|api/players:id/|get players of game|returns players in game|
+|post|api/players/|add player to player table|returns all players|
+|get|api/rounds:id/get all rounds for that game| returns all round for game|
+|post|api/rounds:id/|updates spesific found for game| returns round|
 ## Separate client/server
 
 The boilerplate is also set up to host the client using `webpack-dev-server` with hot module reloading etc. To use this method, in one terminal run:

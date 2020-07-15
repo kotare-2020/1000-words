@@ -28,6 +28,8 @@ i
 |get|api/rounds/:roundId:playerround|get spesific round & player draw/write|returns spesific round & player draw/write|
 |post|api/rounds:id/|updates spesific found for game| returns round|
 
+## request and response formats
+**GET `/v1/posts`**
 ## Separate client/server
 
 The boilerplate is also set up to host the client using `webpack-dev-server` with hot module reloading etc. To use this method, in one terminal run:

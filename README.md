@@ -1,3 +1,8 @@
+#MVP 
+i want a space to draw witch then sends my drawing to someone else
+i want the same as above for writing
+i 
+
 # A starter webpack project for React
 
 This is a starter project that uses webpack to transpile and bundle ES6 React code. To use, consider these steps:

@@ -30,16 +30,58 @@ i
 
 ## request and response formats
 **POST `api/game/`**
+
 :request
 ```json
   {
-    "name": "rubin",
+    "host": "rubin",
   }
 ```
 :response
 ```json
   {
-    "id": "1",
+    "id": 1,
+  }
+```
+**get `api/game/:id`**
+
+:response
+```json
+  {
+    "game": true,
+  }
+```
+**get `api/players/:id`**
+
+:response
+```json
+[
+  {
+    "player_id": 1,
+    "player_name": "rubin",
+    "game_id": 1,
+    "color": "black",
+  },
+  {
+    "player_id": 2,
+    "player_name": "jayden",
+    "game_id": 1,
+    "color": "black",
+  },
+]
+```
+**POST `api/game/`**
+
+:request
+```json
+  {
+    "host": "rubin",
+  }
+```
+:response
+```json
+  {
+    "id": 1,
   }
 ```
 ## Separate client/server

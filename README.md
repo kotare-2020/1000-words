@@ -82,6 +82,7 @@ i
 ```
 :response
 ```json
+[
   {
     "player_id": 1,
     "player_name": "rubin",
@@ -94,8 +95,41 @@ i
     "game_id": 1,
     "color": "black",
   },
+]
 ```
+**get `api/rounds/:id`**
 
+:response
+```json
+[
+  {
+    "player": 1,
+    "write_1": "text",
+    "draw_1": {data},
+    "write_2": "text",
+    "draw_2": {data},
+    "write_3": "text",
+    "draw_3": {data},
+    "write_4": "text",
+    "draw_4": {data},
+    "write_5": "text",
+    "draw_5": {data},
+  },
+  {
+    "player": 2,
+    "write_1": "text",
+    "draw_1": {data},
+    "write_2": "text",
+    "draw_2": {data},
+    "write_3": "text",
+    "draw_3": {data},
+    "write_4": "text",
+    "draw_4": {data},
+    "write_5": "text",
+    "draw_5": {data},
+  },
+]
+```
 ## Separate client/server
 
 The boilerplate is also set up to host the client using `webpack-dev-server` with hot module reloading etc. To use this method, in one terminal run:

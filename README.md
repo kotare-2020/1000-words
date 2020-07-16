@@ -105,30 +105,70 @@ i
   {
     "player": 1,
     "write_1": "text",
-    "draw_1": {data},
+    "draw_1": [data],
     "write_2": "text",
-    "draw_2": {data},
+    "draw_2": [data],
     "write_3": "text",
-    "draw_3": {data},
+    "draw_3": [data],
     "write_4": "text",
-    "draw_4": {data},
+    "draw_4": [data],
     "write_5": "text",
-    "draw_5": {data},
+    "draw_5": [data],
   },
   {
     "player": 2,
     "write_1": "text",
-    "draw_1": {data},
+    "draw_1": [data],
     "write_2": "text",
-    "draw_2": {data},
+    "draw_2": [data],
     "write_3": "text",
-    "draw_3": {data},
+    "draw_3": [data],
     "write_4": "text",
-    "draw_4": {data},
+    "draw_4": [data],
     "write_5": "text",
-    "draw_5": {data},
+    "draw_5": [data],
   },
 ]
+```
+**get `api/rounds/:roundid:playerround`**
+
+:response
+```json
+  {
+    "player": 2,
+    "round": 2,
+    "data": [data] or "text", //depending on round
+  }
+
+
+```
+
+**POST `api/round/:id`**
+
+:request
+```json
+  {
+    "player": 2,
+    "round": 4,
+    "data": [data] or "text", //depending on round
+  }
+```
+:response
+```json
+    {
+    "player": 2,
+    "write_1": "text",
+    "draw_1": [data],
+    "write_2": "text",
+    "draw_2": [data],   //<-- where data should be
+    "write_3": "text",
+    "draw_3": [data],
+    "write_4": "text",
+    "draw_4": [data],
+    "write_5": "text",
+    "draw_5": [data],
+  },
+   
 ```
 ## Separate client/server
 

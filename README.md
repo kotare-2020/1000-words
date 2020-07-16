@@ -1,3 +1,7 @@
+### Trello: https://trello.com/b/j9MCTibC/1000-words
+
+### Stress Profile and Agreements doc: https://docs.google.com/document/d/1XDfl4KSXsNv2O1jlwnT4XwYGkYKWZhc1MwOkUoYMPxo/edit
+
 # MVP 
 
 ## Game
@@ -28,6 +32,8 @@ If no more rounds to play, render view with gallery of all drawings belonging to
 - Multiple colours
 
 - Timer
+
+
 
 # Data base
 ### game

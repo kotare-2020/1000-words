@@ -9,7 +9,7 @@
 
 - Join button: redirects to a new view with a form to input the game ID. Submitting the game ID redirects to a form asking for a user name before redirecting to a 'Player screen' ('lobby'), which will be displayed to all until the host starts the game.
 
-- Start button: redirects to view 'Write something' (form); View has 'Done' button. As soon as every player has hit the 'Done'button, the next view is rendered (each player view calls the db, filling up player-slots, db listens to all slots filling up (see Rubin for details)).
+- Start button: redirects to the view 'Write something' (form); View has a 'Done' button. As soon as every player has hit the 'Done'button on their screen, the next view is rendered (each player view calls the db, filling up player-slots, db listens to all slots filling up (see Rubin for details)). The next view will either be the Draw view, or the Gallery view.
 
 - Write Something - Done: Triggers a view with the previous player's written prompt; 'Done' button (for draw screen). 
 

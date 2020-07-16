@@ -1,5 +1,6 @@
 const path = require('path')
 const express = require('express')
+const request = require("superagent")
 
 const http = require('http');
 const WebSocket = require('ws');
@@ -29,12 +30,13 @@ const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 var id = 0;
 var lookup = {};
+
 wss.on('connection', (ws) => {
     console.log("some one connected")
-console.log("connected people ", wss.clients.size)
-ws.id = id++;
-lookup[ws.id] = ws;
-console.log("new user has an id of ", id)
+    console.log("connected people ", wss.clients.size)
+    ws.id = id++;
+    lookup[ws.id] = ws;
+    console.log("new user has an id of ", id)
 
     //connection is up, let's add a simple simple event
     ws.on('message', (message) => {
@@ -68,8 +70,36 @@ console.log("new user has an id of ", id)
         else if(createRX.test(message)){
             
             //this turns the message "join # please" into an array and gets the scond part
-            
             console.log("some one is trying to create a lobby")
+            var n = message.split(" ");
+
+            
+            //let lobbyId = myFunc(n[1],)
+            //console.log(lobbyId)
+            
+            console.log('host', n[1])
+            db.addHost(n[1])
+            .then(host => {
+                console.log({id: host[0]})
+                ws.send("lobby", (host[0]).toString())
+                //return {id: host[0]}
+                
+            })
+            .catch(error => {
+                // res.send(500).send("it broke")
+                console.log(error.message)
+            })
+            
+              //  ws.send( lobbyId)
+
+               
+                   
+                    
+            
+            // request
+            //     .post("/api/game")
+            //     .send({host: "hellothere"})
+            //     .catch(err => console.log(err))
             //this is where a DB lookup for that looby should be ###################### todo
         }
         else {
@@ -84,3 +114,21 @@ console.log("new user has an id of ", id)
 
 
 module.exports = server
+
+
+const db = require('./db/game')
+
+function myFunc (newHost) {
+    console.log('host', newHost)
+    db.addHost(newHost)
+    .then(host => {
+        console.log({id: host[0]})
+        ws.send( res)
+        return {id: host[0]}
+        
+    })
+    .catch(error => {
+        // res.send(500).send("it broke")
+        console.log(error.message)
+    })
+}

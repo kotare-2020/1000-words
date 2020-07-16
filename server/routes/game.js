@@ -3,13 +3,17 @@ const router = express.Router()
 
 const db = require('../db/game')
 
-router.get('/', (req, res) => {
-    db.getHost()
+router.get('/:id', (req, res) => {
+    console.log("get routes is being run")
+    console.log(req.params.id)
+    db.getHost(req.params.id)
         .then(user => {
-            res.send(user)
+            if(user.length > 0) res.send({game: true})
+            else res.send({game: false})
         })
         .catch(error => {
-            res.send(500).send(error.message)   
+            res.send(500).send("it broke :(")   
+            console.log(error.message)
         })
 })
 
@@ -18,10 +22,11 @@ router.post ('/', (req, res) => {
     const newHost = req.body
     db.addHost(newHost)
         .then(host => {
-            res.send(host)
+            res.send({id: host[0]})
         })
         .catch(error => {
-            res.send(500).send(error.messge)
+            res.send(500).send("it broke")
+            console.log(error.message)
         })
 })
 

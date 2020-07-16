@@ -6,25 +6,25 @@ module.exports = {
     addRound,
 }
 
-function getAllRounds(db = connection) {
-    return db('rounds').select()
+function getAllRounds(id, db = connection) {
+    return db('rounds')
+        .join("players", "rounds.player", "players.player_id")
+        .where('game_id', id)
 }
 
-function getSingleRound(round ,db = connection) {
-    return db('rounds').select(round)
+function getSingleRound(gameId, roundNum ,db = connection) {
+    return db('rounds')
+        .join("players", "rounds.player", "players.player_id")
+        .where('game_id', gameId)
+        .select('round' + roundNum, 'player_id')
 }
 
-function addRound(round ,db = connection) {
-    return db('rounds').insert({
-        write_1: round.write_1,
-        draw_1: round.draw_1,
-        write_1: round.write_2,
-        draw_1: round.draw_2,
-        write_1: round.write_3,
-        draw_1: round.draw_3,
-        write_1: round.write_4,
-        draw_1: round.draw_4,
-        write_1: round.write_5,
-        draw_1: round.draw_5,
-    })
+// expecting roundData = {roundNumber, roundInfo, player_id} from api
+
+function addRound(roundData ,db = connection) {
+    let obj = {}
+    obj['round' + roundData.roundNumber] = roundData.roundInfo
+    return db('rounds')
+    .where('player_id', roundData.player_id,)
+    .update(obj)
 }

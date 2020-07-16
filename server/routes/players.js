@@ -4,8 +4,6 @@ const router = express.Router()
 const db = require('../db/players')
 
 router.get('/:id', (req, res) => {
-    console.log(req.params.id);
-    
     db.getPlayers(req.params.id)
         .then(player => { 
             res.send(player)

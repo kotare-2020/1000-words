@@ -15,8 +15,8 @@ class Canvas extends React.Component {
         select.addEventListener('change', function () {
             mode = select.value;
         });
-        var width = window.innerWidth ;
-        var height = window.innerHeight - 25;
+        var width = 500 ;
+        var height = 500 ;
         // first we need Konva core things: stage and layer
        
        //stage is our drawing space
@@ -86,7 +86,7 @@ class Canvas extends React.Component {
                 >
                     Save
           </button>
-          <div id="container"></div>
+          <div id="container" className="center"></div>
             </>
         )
     }

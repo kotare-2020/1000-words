@@ -62,10 +62,10 @@ If no more rounds to play, render view with gallery of all drawings belonging to
 
 # pages and api calls
 |host join|create game|join game|palyer lobby|writing|drawing/canvas|gallary|
-|--|--|--|--|--|--|--|--|
-|none|POST api/game|GET api/game/:id|Web sockets|--|--|--|--|
-|--|--|GET api/players/:id|--|--|--|--|--|
-|--|--|POST api/players/:id|--|--|--|--|--|
+|--|--|--|--|--|--|--|
+|none|POST api/game|GET api/game/:id|Web sockets|--|--|--|
+|--|--|GET api/players/:id|--|--|--|--|
+|--|--|POST api/players/:id|--|--|--|--|
 
 ## request and response formats
 **POST `api/game/`** 

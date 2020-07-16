@@ -2,7 +2,7 @@
 exports.seed = function(knex) {
   // Deletes ALL existing entries
   return knex('rounds').del()
-    .playeren(function () {
+    .then(function () {
       // Inserts seed entries
       return knex('rounds').insert([
         {player: 1, write_1: 'a naked sheep', 

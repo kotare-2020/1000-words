@@ -1,11 +1,18 @@
 import React from 'react'
-import IoSocketTest from "./IoSocketTest"
+
+import Canvas from './canvas'
+import ViewSpace from './ViewSpace'
+
+import SocketTest from "./SocketTest"
+import Drawing from './Drawing'
+
 
 const App = () => {
-  return (
-    <>
-    app
-    <IoSocketTest/>
+
+  return (<>
+    <h1>Time to Draw!</h1>
+    <Drawing/>
+    {/* <SocketTest/> */}
     </>
   )
 }

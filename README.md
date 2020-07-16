@@ -44,7 +44,7 @@ Timer
 |get|api/players:id/|get players of game|returns players in game group|
 |post|api/players/|add player to player table|returns players in game group|
 |get|api/rounds:id/|get all rounds for that game| returns all round for game|
-|get|api/rounds/:roundId:playerround|get spesific round & player draw/write|returns spesific round & player draw/write|
+|get|api/rounds/:gameId:roundnum|get spesific round & player draw/write|returns spesific round & player draw/write|
 |post|api/rounds:id/|updates spesific found for game| returns round|
 
 ## request and response formats
@@ -149,13 +149,13 @@ Timer
   },
 ]
 ```
-**get `api/rounds/:roundid:playerround`**
+**get `api/rounds/:gameid:roundnum`**
 
 :response
 ```json
   {
-    "player": 2,
-    "round": 2,
+    "gameid": 2,
+    "roundnum": 2,
     "data": [data] or "text", //depending on round
   }
 

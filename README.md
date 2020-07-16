@@ -1,6 +1,9 @@
-### Trello: https://trello.com/b/j9MCTibC/1000-words
+# 1000 Words
 
-### Stress Profile and Agreements doc: https://docs.google.com/document/d/1XDfl4KSXsNv2O1jlwnT4XwYGkYKWZhc1MwOkUoYMPxo/edit
+## Links 
+[Trello](https://trello.com/b/j9MCTibC/1000-words)
+
+[Stress Profile and Agreements doc](https://docs.google.com/document/d/1XDfl4KSXsNv2O1jlwnT4XwYGkYKWZhc1MwOkUoYMPxo/edit)
 
 # MVP 
 
@@ -25,6 +28,15 @@
 Alternate between the two views every time the db slots fill up on 'Done', until player.length has been reached.
 
 If no more rounds to play, render view with gallery of all drawings belonging to the player's own prompt.
+
+# WireFrame and components
+Wireframe: 
+![alt text](./server/public/images/1000wordswireframe_02.jpg "WireFrame")
+
+# MoodBoard
+MoodBoard: 
+![alt text](./server/public/images/1000WordsMoodBoard.jpg "WireFrame")
+
 
 # STRETCH
 - Splash page 

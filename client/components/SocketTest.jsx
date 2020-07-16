@@ -25,18 +25,18 @@ class SocketTest extends React.Component {
     }
     joingame = () => {
         clientsocket.send(`join ${ document.getElementById("gamekey").value} please`); 
-
     }
     creategame = () => {
-        clientsocket.send("create"); 
+        clientsocket.send(`create ${document.getElementById("name").value}`); 
     }
     render() {
         return (
             <>
             {this.state.connected ? <div>connected</div> : <div>connnection errerr!!!!!!</div>}
             <button onClick={this.joingame}>join</button>
-            <input type="text" id="gamekey" placeholder="game key"/>
+            <input type="text" id="gamekey" placeholder="game key"/><br></br>
             <button onClick={this.creategame}>create</button>
+            <input type="text" id="name" placeholder="name"/>
                   this is the socket
             </>
         )

@@ -1,11 +1,12 @@
 # MVP 
 
 ## Game
+
+- Number of players: minimum - 4; maximum - 10
+
 - Entry frame: One button to create game ("Host"); one button to join hosted game ("Join")
 
 - Host button: redirects to a new view with a form to identify number of players; generates game ID; view has "Start" button
-
-- Minimum number of players: 4; Maximum number of players: 10
 
 - Join button: redirects to a new view with a form to input the game ID. Submitting the game ID redirects to a form asking for a user name before redirecting to a 'Player screen' ('lobby'), which will be displayed to all until the host starts the game.
 

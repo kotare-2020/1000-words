@@ -1,11 +1,11 @@
 import React from 'react'
-import SocketTest from "./SocketTest"
+import IoSocketTest from "./IoSocketTest"
 
 const App = () => {
   return (
     <>
     app
-    <SocketTest/>
+    <IoSocketTest/>
     </>
   )
 }

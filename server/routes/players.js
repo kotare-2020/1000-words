@@ -3,7 +3,7 @@ const router = express.Router()
 
 const db = require('../db/players')
 
-router.get('/players', (req, res) => {
+router.get('/', (req, res) => {
     db.getPlayers()
         .then(player => {
             res.send(player)
@@ -13,7 +13,7 @@ router.get('/players', (req, res) => {
         })
 })
 
-router.post('/players', (req, res) => {
+router.post('/', (req, res) => {
     const newPlayer = req.body
     db.addPlayer(newPlayer)
         .then(user => {

@@ -1,7 +1,21 @@
 # MVP 
+
+## Game
+Entry frame: One button to create game ("Host"); one button to join hosted game ("Join")
+Host button: redirects to a new view with a form to identify number of players; generates game ID; view has "Start" button
+Join button: redirects to a new view with a form to input the game ID. Submitting the game ID redirects to a form asking for a user name before redirecting to a 'Player screen' ('lobby'), which will be displayed to all until the host starts the game.
+Number of players: minimum 4; maximum 10
+Start button: redirects to view 'Write something' (form); View has 'Done' button. As soon as every player has hit the 'Done'button, the next view is rendered (each player view calls the db, filling up player-slots, db listens to all slots filling up (see Rubin for details))
+Write Something - Done: Triggers a view with the previous player's written prompt; 'Done' button (for draw screen). 
+Alternate between the two views every time the db slots fill up on 'Done', until player.length has been reached. If no more rounds to play, render view with gallery of all drawings belonging to the player's own prompt.
 i want a space to draw witch then sends my drawing to someone else
 i want the same as above for writing
 i 
+
+# STRETCH
+Splash page 
+Multiple colours
+Timer
 
 # Data base
 ### game

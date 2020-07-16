@@ -14,9 +14,9 @@ const app = express()
 app.use(express.json())
 app.use(express.static(path.join(__dirname, './public')))
 
-server.use('/api/game', game)
-server.use('/api/players', players)
-server.use('/api/rounds', rounds)
+app.use('/api/game', game)
+app.use('/api/players', players)
+app.use('/api/rounds', rounds)
 
 const broadcastRegex = /^broad\:/;
 const joinRX = /^join/;

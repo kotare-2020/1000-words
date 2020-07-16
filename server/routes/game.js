@@ -14,6 +14,7 @@ router.get('/', (req, res) => {
 })
 
 router.post ('/', (req, res) => {
+    console.log("post routes is being run")
     const newHost = req.body
     db.addHost(newHost)
         .then(host => {

@@ -5,11 +5,18 @@ const http = require('http');
 const WebSocket = require('ws');
 const { WSAEWOULDBLOCK } = require('constants');
 
+const game = require("./routes/game")
+const players = require("./routes/players")
+const rounds = require("./routes/rounds")
+
 const app = express()
 
 app.use(express.json())
 app.use(express.static(path.join(__dirname, './public')))
 
+app.use('/api/game', game)
+app.use('/api/players', players)
+app.use('/api/rounds', rounds)
 
 const broadcastRegex = /^broad\:/;
 const joinRX = /^join/;

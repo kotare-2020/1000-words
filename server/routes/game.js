@@ -3,7 +3,7 @@ const router = express.Router()
 
 const db = require('../db/game')
 
-router.get('/game', (req, res) => {
+router.get('/', (req, res) => {
     db.getHost()
         .then(user => {
             res.send(user)
@@ -13,7 +13,8 @@ router.get('/game', (req, res) => {
         })
 })
 
-router.post ('/game', (req, res) => {
+router.post ('/', (req, res) => {
+    console.log("post routes is being run")
     const newHost = req.body
     db.addHost(newHost)
         .then(host => {

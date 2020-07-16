@@ -60,9 +60,16 @@ If no more rounds to play, render view with gallery of all drawings belonging to
 |get|api/rounds/:roundId:playerround|get spesific round & player draw/write|returns spesific round & player draw/write|
 |post|api/rounds:id/|updates spesific found for game| returns round|
 
-## request and response formats
-**POST `api/game/`**
+# pages and api calls
+|host join|create game|join game|palyer lobby|writing|drawing/canvas|gallary|
+|--|--|--|--|--|--|--|
+|none|POST api/game|GET api/game/:id|Web sockets|--|--|--|
+|--|--|GET api/players/:id|--|--|--|--|
+|--|--|POST api/players/:id|--|--|--|--|
 
+## request and response formats
+**POST `api/game/`** 
+create game
 :request
 ```json
   {
@@ -76,7 +83,7 @@ If no more rounds to play, render view with gallery of all drawings belonging to
   }
 ```
 **get `api/game/:id`**
-
+join game
 :response
 ```json
   {
@@ -84,7 +91,7 @@ If no more rounds to play, render view with gallery of all drawings belonging to
   }
 ```
 **get `api/players/:id`**
-
+join game
 :response
 ```json
 [
@@ -103,7 +110,7 @@ If no more rounds to play, render view with gallery of all drawings belonging to
 ]
 ```
 **POST `api/players/`**
-
+join game
 :request
 ```json
    {

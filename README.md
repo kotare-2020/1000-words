@@ -18,9 +18,11 @@ Alternate between the two views every time the db slots fill up on 'Done', until
 If no more rounds to play, render view with gallery of all drawings belonging to the player's own prompt.
 
 # STRETCH
-Splash page 
-Multiple colours
-Timer
+- Splash page 
+
+- Multiple colours
+
+- Timer
 
 # Data base
 ### game

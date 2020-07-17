@@ -24,8 +24,9 @@ export function addPlayerApi(player) {
         })
 }
 
-export function getGameIdApi() {
+export function getGameIdApi(id) {
+    console.log(`${game}/${id}`)
     return request  
-        .get(game)
-        then(res => res.body)
+        .get(`${game}/${id}`)
+        // .then(res => res.body)
 }

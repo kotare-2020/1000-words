@@ -11,8 +11,8 @@ const HostJoin = () => {
             <div>
                 {/* <div className="navlin"><Link to="apis" onClick={this.scrollto}>APIs</Link></div> */}
 
-                <button type="button" className="HostJoin-HostButton"><Link to="/CreateGame">Host</Link></button>
-                <button type="button" className="HostJoin-JoinButton"><Link to="/JoinGame">Join</Link></button>
+                <Link to="/create"><button type="button" className="HostJoin-HostButton">Host</button></Link>
+                <Link to="/join"> <button type="button" className="HostJoin-JoinButton">Join</button></Link>
             </div>
         </>
     )

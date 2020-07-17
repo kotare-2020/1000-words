@@ -11,7 +11,7 @@ class Drawing extends React.Component {
     return (
       <>
         <h1>Writing goes here!</h1>
-        <div className = "control-container center">
+        <div className= "control-container center">
           <Canvas />
         </div>
         <button>Done</button>

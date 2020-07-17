@@ -1,8 +1,8 @@
 import request from 'superagent'
 
-const game = 'http://localhost:3000/api/game'
-const players = 'http://localhost:3000/api/players'
-const round = 'http://localhost:3000/api/rounds'
+const game = '/api/game'
+const players = '/api/players'
+const round = '/api/rounds'
 
 export function addHostApi(host) {
     console.log('from addHostApi')

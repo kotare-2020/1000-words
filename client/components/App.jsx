@@ -10,8 +10,9 @@ import HostLobby from "./HostLobby"
 import Game from "./Game"
 
 class App extends React.Component {
-
+colors = ["#ff8f8f", "#ffbe86", "#ff9437", "#ffcc98", "#d7ff98", "#85ff9f", "#85fff4", "#91a9ff", "#c591ff", "#ffb5f3", "#ff6e6e"]
   componentDidMount(){
+    document.body.style.backgroundColor = this.colors[Math.floor(Math.random()* this.colors.length)]
     socket.on('connect', () => {
 
       console.log("connected to websocket server")
@@ -19,7 +20,7 @@ class App extends React.Component {
       socket.on("disconnect", () => {
         console.log("connection to websocket server was lost")
       })
-      
+    
     });
   }
   
@@ -30,7 +31,7 @@ class App extends React.Component {
     return (
 
       <>
-
+      <div id="wrapper">
         <Router>
           dev menu <Link to="/">home</Link> | <Link to="/lobby">lobby</Link> | <Link to="/canvas">canvas</Link>
           <Route exact path="/" component={HostJoin} />
@@ -43,6 +44,7 @@ class App extends React.Component {
           {/* <Route exact path="/apis" component={APIs} /> */}
 
         </Router>
+        </div>
       </>
     )
   }

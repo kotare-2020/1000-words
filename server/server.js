@@ -25,21 +25,25 @@ io.on('connection', function(socket){
     io.emit('welcome')
     socket.on('disconnect', () => {
         console.log('user disconnected')
-        socket.broadcast.emit('roomleave', socket.id);
+        socket.broadcast.emit('roomleave', socket.nickname);
         
     })
 
 
     socket.on("join", res => {
-        
+        socket.emit("lobby", res)
         console.log(socket.id, "join", res)
         io.to(res).emit("newlobbymemeber", socket.nickname);
         socket.join(res);
         
         //get every one in room and tell new user
         io.in(res).clients((err , clients) => {
-            console.log(socket.nickname)
-            io.to(socket.id).emit("joinlobby", clients)
+            console.log(clients)
+            console.log(io.sockets.connected[clients[0]].nickname)
+            console.log()
+
+            
+            io.to(socket.id).emit("joinlobby", clients.map((singleClient, i) => io.sockets.connected[clients[i]].nickname))
         });
         
     })
@@ -48,7 +52,7 @@ io.on('connection', function(socket){
         console.log(`set ${socket.id}'s nickname to ${nickname}`)
         console.log(socket.nickname)
     })
-
+    
 
     socket.on("create", res => {
         console.log(socket.id, "create", res)

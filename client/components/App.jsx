@@ -3,16 +3,19 @@ import React from 'react'
 import Canvas from './canvas'
 import ViewSpace from './ViewSpace'
 
-import SocketTest from "./SocketTest"
+// import IoSocketTest from "./IoSocketTest"
 import Drawing from './Drawing'
+
+import PlayerLobby from "./PlayerLobby"
 
 
 const App = () => {
 
   return (<>
     <h1>Time to Draw!</h1>
-    <Drawing/>
-    {/* <SocketTest/> */}
+    {/* <IoSocketTest/> */}
+    <PlayerLobby/>
+    
     </>
   )
 }

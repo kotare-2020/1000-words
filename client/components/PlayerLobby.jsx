@@ -6,7 +6,7 @@ class PlayerLobby extends React.Component {
         players: [],
     }
     componentDidMount(){
-        socket.emit("join", "test")
+       
         socket.on("error", res => {
             console.log("err", res)
            // alert(`error ocured: ${res}`)

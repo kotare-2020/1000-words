@@ -30,7 +30,8 @@ class JoinGame extends React.Component {
                                      
                                 )
                                 .then(() => {
-                                    console.log("can switch to next stage")
+                                    socket.emit('send-nickname', document.getElementById("name").value)
+                                    socket.emit("join", document.getElementById("gameid").value)
                                 document.getElementById("next").click()
                                 })
                                 .catch(err => {

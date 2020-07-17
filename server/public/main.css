@@ -203,7 +203,16 @@ input[type=text]:hover{
     text-align: center;
     width: 30%;
     margin-left: 2.5%;
-    margin-bottom: 2%;
+    margin-bottom: 1%;
     font-size: 5em;
    float: left;
+}
+.gametitle {
+    font-size: 4em;
+    margin-bottom: -0.7em;
+   
+}
+.gameInfoWrap{
+    text-align: center;
+    margin-bottom: -3%;
 }

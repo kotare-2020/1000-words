@@ -1,12 +1,14 @@
 import React from 'react'
+import { HashRouter as Router, Route, Link, Redirect } from "react-router-dom"
+
 
 class PlayerLobby extends React.Component {
     state = {
         connected: false,
         players: [],
-        lobby: 0,
+        lobby: "error",
+        
     }
-    
     componentDidMount(){
        
         socket.on("error", res => {
@@ -38,6 +40,9 @@ class PlayerLobby extends React.Component {
                 players: newlist
             })
         })
+       socket.on("gamestart", res => {
+        document.getElementById("gamestart").click()
+       })
        
     }
     
@@ -45,17 +50,18 @@ class PlayerLobby extends React.Component {
         return (
             <>
             <br></br>
-            Game code: {this.state.lobby}
-
-            
+            <div className="gameInfoWrap">
+            <div className="gametitle">Game code: {this.state.lobby}</div>
+            {(this.state.players.length >= 5) ? <h1>Waiting for host to start</h1> : <h1>Currently waiting for players...</h1>}
+            </div>
             <br></br>
             {this.state.players.map((elem, i) => {
                 return (<div key={i} className="nametag">{elem}</div>)
             })}
-        
+
             <br></br>
-           
             
+            <Link to="/game" id="gamestart"></Link>
             </>
         )
     }

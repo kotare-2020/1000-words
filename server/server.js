@@ -14,8 +14,8 @@ app.use(express.json())
 app.use(express.static(path.join(__dirname, './public')))
 
 app.use("/api/game", game)
-app.use("/api/game", players)
-app.use("/api/game", rounds)
+app.use("/api/players", players)
+app.use("/api/rounds", rounds)
 
 io.on('connection', function(socket){
    

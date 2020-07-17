@@ -5,8 +5,8 @@ class PlayerLobby extends React.Component {
         connected: false,
         players: [],
         lobby: 0,
-        
     }
+    
     componentDidMount(){
        
         socket.on("error", res => {
@@ -45,14 +45,14 @@ class PlayerLobby extends React.Component {
         return (
             <>
             <br></br>
-            list of users in lobby {this.state.lobby}
+            Game code: {this.state.lobby}
 
-            <ul>
             
+            <br></br>
             {this.state.players.map((elem, i) => {
-                return (<li key={i}>{elem}</li>)
+                return (<div key={i} className="nametag">{elem}</div>)
             })}
-            </ul>
+        
             <br></br>
            
             

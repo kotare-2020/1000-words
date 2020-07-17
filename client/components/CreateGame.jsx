@@ -39,7 +39,7 @@ class CreateGame extends React.Component {
     render() {
     return(
     <>
-    <div>
+    <div className="CreateGame-Container">
           <label>Enter Your Username!</label>
           <input id="hostName" onChange={this.handleChange} name="userName" type="text"></input>
           </div>

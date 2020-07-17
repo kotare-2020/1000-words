@@ -24,15 +24,17 @@ class CreateGame extends React.Component {
     render() {
     return(
     <>
+    <div className="CreateGame-Container">
     <h1>Enter Your Username!</h1>
     <form onSubmit={this.handleSubmit}>
-          <input onChange={this.handleChange} name="userName" type="text">
+          <input onChange={this.handleChange} name="userName" type="text" className="CreateGame-Input">
 
           </input>
-          <input type="submit" value="Create New Game!">
+          <input type="submit" value="Create New Game!" className="CreateGame-NewGameButton">
           {this.state.handleSubmit && <><HostLobby /></> }
           </input>
         </form>
+        </div>
     </>
         )
     }

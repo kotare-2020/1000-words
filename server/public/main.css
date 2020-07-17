@@ -1,5 +1,22 @@
 /* --- Index --- */
 
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Amatic SC', cursive;
+    /* background-color: #F0F0F0; */
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
 .control-container {
     border: red solid 2px;
     width: 520px;
@@ -15,16 +32,76 @@
 .center {
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
 }
+
 
 /* --- Components --- */
 
 /* --- HostJoin --- */
 
+.HostJoin-Container {
+    background-color: #efcf62;
+    height: 1000px;
+    width: auto;
+    padding: 2em;
+    font-size: 2em;
+    font-family: 'Amatic SC', cursive;
+    text-align: -webkit-center;
+}
+
 .HostJoin-HostButton {
-    background-color: #00AEEF;
+    background-color: #3aadda;
+    font-family: 'Amatic SC', cursive;
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 4px;
+    font-size: 1em;
+    max-width: 50vw;
 }
 
 .HostJoin-JoinButton {
-    background-color: #EC008C;
+    background-color: #f7bdbc;
+    font-family: 'Amatic SC', cursive;
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 4px;
+    font-size: 1em;
+    max-width: 50vw;
+}
+
+/* --- CreateGame --- */
+
+.CreateGame-Container {
+    background-color: #efcf62;
+    height: 1000px;
+    width: auto;
+    padding: 2em;
+    font-size: 2em;
+    font-family: 'Amatic SC', cursive;
+    text-align: -webkit-center;
+}
+
+.CreateGame-NewGameButton {
+    background-color: #88c083;
+    font-family: 'Amatic SC', cursive;
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 4px;
+    font-size: 1em;
+    max-width: 50vw;
+}
+
+.CreateGame-Input {
+    background-color: #F0F0F0;
+    font-family: 'Amatic SC', cursive;
+    border: none;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 4px;
+    font-size: 1em;
+    max-width: 50vw;
 }

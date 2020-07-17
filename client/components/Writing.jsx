@@ -21,7 +21,7 @@ class Writing extends React.Component {
         return (
             <>
                 <textarea name="writing" rows="5" cols="80" className="Writing_textInput center">The cat was playing in the garden.</textarea>
-                <div className="center">
+                <div className="control-container center">
                 <ViewSpace />
                 </div>
                 <button onClick={this.handleClick} className="Writing_button center">DONE</button>

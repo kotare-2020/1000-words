@@ -7,7 +7,7 @@ body {
     font-family: 'Amatic SC', cursive;
     background-image: url("./images/background2.png");
     background-size: 40%;
-    
+    animation: 60s linear 1s infinite running bgSlide
     /* background-color: #F0F0F0; */
 }
 
@@ -179,4 +179,12 @@ input[type=text]:hover{
     margin-left: auto;
     margin-right: auto;
     margin-top: 5vh;
+}
+@keyframes bgSlide {
+    0%{
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: -66.7% 399%;  /* 67% 399%*/
+    }
 }

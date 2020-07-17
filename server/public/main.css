@@ -5,6 +5,9 @@ body {
     padding: 0;
     overflow: hidden;
     font-family: 'Amatic SC', cursive;
+    background-image: url("./images/background2.png");
+    background-size: 40%;
+    
     /* background-color: #F0F0F0; */
 }
 
@@ -45,8 +48,8 @@ label {
 /* --- HostJoin --- */
 
 .HostJoin-Container {
-    background-color: #efcf62;
-    height: 1000px;
+   
+    height: 100vw;
     width: auto;
     padding: 2em;
     font-size: 2em;
@@ -108,4 +111,72 @@ label {
     border-radius: 4px;
     font-size: 1em;
     max-width: 50vw;
+}
+#wrapper {
+    background-color: rgba(255, 255, 255, 0.418);
+    width: 100vw;
+    height: 100vh;
+}
+.button {
+    transition: transform 0.2s;
+}
+.button:hover {
+    transform: scale(1.1)
+}
+input[type=text]{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+   height: 7vh;
+   transition: transform 0.2s;
+    /* box-shadow: none !important; }
+    :-webkit-autofill { color: #fff !important; 
+    
+        border: 0px solid #fff !important;
+  border-radius: 0px !important;
+  box-sizing: border-box !important; */
+
+  box-shadow: 0px 0px 21px 1px rgba(0,0,0,0.35);
+  padding: 12px 20px!important;
+ 
+  box-sizing: border-box!important;
+  border: none!important;
+  background-color: #ffffff!important;
+
+}
+input:focus, textarea:focus, select:focus{
+    /* outline: none; */
+    transform: scale(1.02)
+}
+input[type=text]:hover{
+    transform: scale(1.02)
+}
+
+.inputtitle {
+    margin-left: 10%;
+    
+}
+.inputWraper{
+    margin-top: 20vh;
+}
+.inputWraperb{
+    margin-top: 5vh;
+}
+.join-button {
+    box-shadow: 0px 0px 21px 1px rgba(0,0,0,0.35);
+    background-color: #3aadda;
+    font-family: 'Amatic SC', cursive;
+    width: 30vw;
+    height: 5vh;
+    border: none;
+    padding: 10px;
+    margin: 10px;
+  
+    font-size: 1.5em;
+    max-width: 50vw;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5vh;
 }

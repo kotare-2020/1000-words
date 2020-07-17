@@ -53,16 +53,18 @@ class JoinGame extends React.Component {
     render() {
         return (
             <>
-                <div>
-                    <label>game id</label>
+         
+                <div className="inputWraper">
+                    <label className="inputtitle"><b>game id</b></label><br></br>
                     <input id="gameid" type="text" name="lobby" placeholder="Game id" />
                 </div>
-                <div>
-                    <label>User Name</label>
+                <div className="inputWraperb">
+                    <label className="inputtitle"><b>User Name</b></label><br></br>
                     <input id="name" type="text" name="player" placeholder="Name" />
                 </div>
-                <button onClick={this.validategame}>Join</button>
+                <div onClick={this.validategame} className="join-button button ">Join</div>
                 <Link to="/lobby" ><div id="next" style={{display: "none"}}>to lobby</div></Link>
+               
             </>
         );
     }

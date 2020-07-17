@@ -45,8 +45,7 @@ class CreateGame extends React.Component {
           </div>
           <div>
           {/* <input type="submit" value="Create New Game!"></input> */}
-          <button onClick={this.createHost}><Link to="/createLobby">to create game lobby</Link></button>
-          
+          <button onClick={this.createHost}><Link to="/createLobby">to create game lobby</Link></button>    
     </div>
     </>
         )

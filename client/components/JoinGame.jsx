@@ -1,5 +1,5 @@
 import React from 'react'
-import {getGameIdApi} from "../apis/apis"
+import {getGameIdApi, getPlayersInlobby} from "../apis/apis"
 import { HashRouter as Router, Route, Link, Redirect } from "react-router-dom"
 
 class JoinGame extends React.Component {
@@ -7,6 +7,9 @@ class JoinGame extends React.Component {
     state = {
         realgame: false,
     }
+componentDidMount(){
+    getPlayersInlobby(document.getElementById("gameid").value)
+}
 
     validategame = () => {
         console.log(document.getElementById("gameid").value)

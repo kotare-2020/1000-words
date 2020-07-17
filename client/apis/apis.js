@@ -10,7 +10,7 @@ export function addHostApi(host) {
         .post(game)
         .send(host)
         .then(res => {
-            return req.body
+            return res.body
         })
 }
 
@@ -20,7 +20,7 @@ export function addPlayerApi(player) {
         .post(players)
         .send(player)
         .then(res => {
-            return req.body
+            return res.body
         })
 }
 
@@ -29,4 +29,10 @@ export function getGameIdApi(id) {
     return request  
         .get(`${game}/${id}`)
         // .then(res => res.body)
+}
+
+export function getPlayersInlobby(id) {
+    console.log(`${players}/${id}`)
+    return request
+        .get(`${players}/${id}`)
 }

@@ -10,7 +10,7 @@ export function addHostApi(host) {
         .post(game)
         .send(host)
         .then(res => {
-            return req.body
+            return res.body
         })
 }
 
@@ -20,7 +20,7 @@ export function addPlayerApi(player) {
         .post(players)
         .send(player)
         .then(res => {
-            return req.body
+            return res.body
         })
 }
 

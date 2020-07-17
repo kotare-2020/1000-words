@@ -29,6 +29,7 @@ Alternate between the two views every time the db slots fill up on 'Done', until
 
 If no more rounds to play, render view with gallery of all drawings belonging to the player's own prompt.
 
+
 # WireFrame and components
 Wireframe: 
 ![alt text](./server/public/images/1000wordswireframe_02.jpg "WireFrame")
@@ -44,8 +45,6 @@ MoodBoard:
 - Multiple colours
 
 - Timer
-
-
 
 # Data base
 ### game
@@ -82,6 +81,9 @@ MoodBoard:
 ## request and response formats
 **POST `api/game/`** 
 create game
+|get|api/rounds/:gameId:roundnum|get spesific round & player draw/write|returns spesific round & player draw/write|
+|post|api/rounds:id/|updates spesific found for game| returns round|
+
 :request
 ```json
   {
@@ -188,6 +190,98 @@ join game
   {
     "player": 2,
     "round": 2,
+    "data": [data] or "text", //depending on round
+  }
+
+    "game": true,
+  }
+```
+**get `api/players/:id`**
+
+:response
+```json
+[
+  {
+    "player_id": 1,
+    "player_name": "rubin",
+    "game_id": 1,
+    "color": "black",
+  },
+  {
+    "player_id": 2,
+    "player_name": "jayden",
+    "game_id": 1,
+    "color": "black",
+  },
+]
+```
+**POST `api/players/`**
+
+:request
+```json
+   {
+    "player_name": "rubin",
+    "game_id": 1,
+    "color": "black",
+  }
+```
+:response
+```json
+[
+  {
+    "player_id": 1,
+    "player_name": "rubin",
+    "game_id": 1,
+    "color": "black",
+  },
+  {
+    "player_id": 2,
+    "player_name": "jayden",
+    "game_id": 1,
+    "color": "black",
+  },
+]
+```
+**get `api/rounds/:id`**
+
+:response
+```json
+[
+  {
+    "player": 1,
+    "write_1": "text",
+    "draw_1": [data],
+    "write_2": "text",
+    "draw_2": [data],
+    "write_3": "text",
+    "draw_3": [data],
+    "write_4": "text",
+    "draw_4": [data],
+    "write_5": "text",
+    "draw_5": [data],
+  },
+  {
+    "player": 2,
+    "write_1": "text",
+    "draw_1": [data],
+    "write_2": "text",
+    "draw_2": [data],
+    "write_3": "text",
+    "draw_3": [data],
+    "write_4": "text",
+    "draw_4": [data],
+    "write_5": "text",
+    "draw_5": [data],
+  },
+]
+```
+**get `api/rounds/:gameid:roundnum`**
+
+:response
+```json
+  {
+    "gameid": 2,
+    "roundnum": 2,
     "data": [data] or "text", //depending on round
   }
 

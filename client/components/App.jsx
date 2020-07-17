@@ -7,6 +7,7 @@ import JoinGame from "./JoinGame"
 import PlayerLobby from "./PlayerLobby"
 import drawcanvas from "./canvas"
 import HostLobby from "./HostLobby"
+import Game from "./Game"
 
 const App = () => {
 
@@ -20,7 +21,8 @@ const App = () => {
           <Route exact path="/join" component={JoinGame} />
           <Route exact path="/lobby" component={PlayerLobby} />
           <Route exact path="/canvas" component={drawcanvas} />
-          <Route exact path="/createlobby" component={HostLobby} />
+          <Route exact path="/createLobby" component={HostLobby} />
+          <Route exact path="/game" component={Game} />
           {/* <Route exact path="/apis" component={APIs} /> */}
   
     </Router>

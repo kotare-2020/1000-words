@@ -1,0 +1,30 @@
+/* --- Index --- */
+
+.control-container {
+    border: red solid 2px;
+    width: 520px;
+    padding: 10px;
+}
+
+#container {
+    border: black solid 2px;
+    height: 500px;
+    width: 500px;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Components --- */
+
+/* --- HostJoin --- */
+
+.HostJoin-HostButton {
+    background-color: #00AEEF;
+}
+
+.HostJoin-JoinButton {
+    background-color: #EC008C;
+}

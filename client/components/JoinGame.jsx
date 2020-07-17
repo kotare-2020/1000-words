@@ -9,17 +9,17 @@ class JoinGame extends React.Component {
   };
 
   validategame = () => {
-    console.log(document.getElementById("gameid").value);
+    // console.log(document.getElementById("gameid").value);
     if (document.getElementById("gameid").value !== "") {
       getGameIdApi(document.getElementById("gameid").value)
         .then((res) => {
-          console.log(res.body);
+        //   console.log(res.body);
           if (res.body.game) {
-            console.log("game exists");
+            // console.log("game exists");
             this.setState({ realgame: true });
             getPlayersInlobby(document.getElementById("gameid").value).then(
               (data) => {
-                console.log(data.body.length);
+                // console.log(data.body.length);
                 if (data.body.length < 10) {
                   addPlayerApi({
                     player_name: document.getElementById("name").value,

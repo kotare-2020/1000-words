@@ -35,6 +35,8 @@ router.patch('/round/:id', (req, res) => {
             res.sendStatus(200)
         })
         .catch(error => {
+            console.log(error.message);
+            
             res.status(500).send(error)
         })
 })

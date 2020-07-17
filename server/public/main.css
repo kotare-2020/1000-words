@@ -1,3 +1,5 @@
+/* --- Index --- */
+
 .control-container {
     border: red solid 2px;
     width: 520px;
@@ -23,4 +25,13 @@
 .writing_button {
     height: 40px;
     width: 80px
+}
+
+.HostJoin-HostButton {
+    background-color: #00AEEF;
+}
+
+.HostJoin-JoinButton {
+    background-color: #EC008C;
+
 }

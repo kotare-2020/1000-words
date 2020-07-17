@@ -4,6 +4,7 @@ class PlayerLobby extends React.Component {
     state = {
         connected: false,
         players: [],
+        lobby: 0,
     }
     componentDidMount(){
        
@@ -19,7 +20,11 @@ class PlayerLobby extends React.Component {
                 players: [...this.state.players, ...res]
             })
         })
-
+        socket.on("lobby", res => {
+           this.setState({
+               lobby: res
+           })
+        })
         socket.on("newlobbymemeber", res => {
             this.setState({
                 players: [...this.state.players, res]
@@ -39,9 +44,10 @@ class PlayerLobby extends React.Component {
         return (
             <>
             <br></br>
-            list of users in lobby
+            list of users in lobby {this.state.lobby}
+
             <ul>
-              
+            
             {this.state.players.map((elem, i) => {
                 return (<li key={i}>{elem}</li>)
             })}

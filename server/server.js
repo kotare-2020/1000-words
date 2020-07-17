@@ -27,24 +27,26 @@ io.on('connection', function(socket){
         console.log('user disconnected')
         socket.broadcast.emit('roomleave', socket.id);
         
-        
     })
 
 
     socket.on("join", res => {
-
+        
         console.log(socket.id, "join", res)
-        io.to(res).emit("newlobbymemeber", socket.id);
+        io.to(res).emit("newlobbymemeber", socket.nickname);
         socket.join(res);
         
-
-
         //get every one in room and tell new user
         io.in(res).clients((err , clients) => {
-            console.log(clients)
+            console.log(socket.nickname)
             io.to(socket.id).emit("joinlobby", clients)
         });
         
+    })
+    socket.on('send-nickname', nickname => {
+        socket.nickname = nickname
+        console.log(`set ${socket.id}'s nickname to ${nickname}`)
+        console.log(socket.nickname)
     })
 
 

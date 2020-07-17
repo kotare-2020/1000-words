@@ -1,5 +1,7 @@
 import React from 'react'
 import HostLobby from './HostLobby'
+import { addHostApi, addPlayerApi} from '../apis/apis'
+import { HashRouter as Router, Route, Link, Redirect } from "react-router-dom";
 
 class CreateGame extends React.Component {
 
@@ -21,18 +23,31 @@ class CreateGame extends React.Component {
         })
       }
 
+      createHost = () => {
+        addHostApi({
+          host: document.getElementById('hostName').value
+        }).then((res) => {
+          console.log(res);
+          
+            // addPlayerApi
+        })
+        .catch(error => {
+          console.log(error);
+      })
+      }
+
     render() {
     return(
     <>
-    <h1>Enter Your Username!</h1>
-    <form onSubmit={this.handleSubmit}>
-          <input onChange={this.handleChange} name="userName" type="text">
-
-          </input>
-          <input type="submit" value="Create New Game!">
-          {this.state.handleSubmit && <><HostLobby /></> }
-          </input>
-        </form>
+    <div>
+          <label>Enter Your Username!</label>
+          <input id="hostName" onChange={this.handleChange} name="userName" type="text"></input>
+          </div>
+          <div>
+          {/* <input type="submit" value="Create New Game!"></input> */}
+          <button onClick={this.createHost}><Link to="/createLobby">to create game lobby</Link></button>
+          
+    </div>
     </>
         )
     }

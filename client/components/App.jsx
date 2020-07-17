@@ -20,7 +20,7 @@ const App = () => {
           <Route exact path="/join" component={JoinGame} />
           <Route exact path="/lobby" component={PlayerLobby} />
           <Route exact path="/canvas" component={drawcanvas} />
-          <Route exact path="/createlobby" component={HostLobby} />
+          <Route exact path="/createLobby" component={HostLobby} />
           {/* <Route exact path="/apis" component={APIs} /> */}
   
     </Router>

@@ -25,6 +25,6 @@ function addRound(roundData ,db = connection) {
     let obj = {}
     obj['round' + roundData.roundNumber] = roundData.roundInfo
     return db('rounds')
-    .where('player_id', roundData.player_id,)
+    .where('player', roundData.player_id,)
     .update(obj)
 }

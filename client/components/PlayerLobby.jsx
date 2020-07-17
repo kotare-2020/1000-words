@@ -5,6 +5,7 @@ class PlayerLobby extends React.Component {
         connected: false,
         players: [],
         lobby: 0,
+        
     }
     componentDidMount(){
        

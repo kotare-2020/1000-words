@@ -4,8 +4,7 @@ import { HashRouter as Router, Route, Link, Redirect } from "react-router-dom";
 
 class JoinGame extends React.Component {
     state = {
-
-
+        error: "no error",
     };
 
     validategame = () => {
@@ -35,25 +34,27 @@ class JoinGame extends React.Component {
                                 document.getElementById("next").click()
                                 })
                                 .catch(err => {
+                                    this.setState({  error: "DB error"  })
                                     console.log(err)
                                 })
                             }
-                            else alert("Lobby is full")
+                            else this.setState({  error: "Lobby is full"  })
 
                         })
 
                 }
-                else alert("that game dose not exist");
+                else this.setState({  error: "Lobby dose not exist"  })
             })
             .catch((err) => {
                 console.log(err);
             })
 
     };
+
     render() {
         return (
             <>
-         
+                {(this.state.error == "no error") ? "" : <div className="errorResponse"><h3>{this.state.error}</h3></div>} 
                 <div className="inputWraper">
                     <label className="inputtitle"><b>game id</b></label><br></br>
                     <input id="gameid" type="text" name="lobby" placeholder="Game id" />

@@ -25,13 +25,29 @@ io.on('connection', function(socket){
     io.emit('welcome')
     socket.on('disconnect', () => {
         console.log('user disconnected')
+        socket.broadcast.emit('roomleave', socket.id);
+        
+        
     })
+
+
     socket.on("join", res => {
+
         console.log(socket.id, "join", res)
+        io.to(res).emit("newlobbymemeber", socket.id);
         socket.join(res);
-        io.to(socket.id).emit("roomjoin", "move")
-            
+        
+
+
+        //get every one in room and tell new user
+        io.in(res).clients((err , clients) => {
+            console.log(clients)
+            io.to(socket.id).emit("joinlobby", clients)
+        });
+        
     })
+
+
     socket.on("create", res => {
         console.log(socket.id, "create", res)
         socket.join(res);

@@ -18,7 +18,7 @@ class JoinGame extends React.Component {
                 if (res.body.game) {
                     getPlayersInlobby(document.getElementById("gameid").value)
                         .then((data) => {
-
+                            
 
                             if (data.body.length < 10) {
                                 addPlayerApi(

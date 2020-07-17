@@ -17,6 +17,10 @@ h1 {
     font-size: 2.5em;
 }
 
+label {
+    font-size: 2.5em;
+}
+
 .control-container {
     border: red solid 2px;
     width: 520px;

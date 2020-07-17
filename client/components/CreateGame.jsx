@@ -41,11 +41,9 @@ class CreateGame extends React.Component {
     <>
     <div className="CreateGame-Container">
           <label>Enter Your Username!</label>
-          <input id="hostName" onChange={this.handleChange} name="userName" type="text"></input>
-          </div>
-          <div>
+          <input className="CreateGame-Input" id="hostName" onChange={this.handleChange} name="userName" type="text"></input>
           {/* <input type="submit" value="Create New Game!"></input> */}
-          <button onClick={this.createHost}><Link to="/createLobby">to create game lobby</Link></button>    
+          <button  className="CreateGame-NewGameButton" onClick={this.createHost}><Link to="/createLobby">to create game lobby</Link></button>    
     </div>
     </>
         )

@@ -5,7 +5,7 @@ import { HashRouter as Router, Route, Link, Redirect } from "react-router-dom"
 class HostLobby extends React.Component {
     state = {
         connected: false,
-        players: ["1", "2", "3", "4"],
+        players: [],
         lobby: "error",
         
     }

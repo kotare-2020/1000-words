@@ -86,7 +86,9 @@ class Canvas extends React.Component {
                 >
                     Save
           </button>
+          <div className="control-container center">
           <div id="container" className="center"></div>
+          </div>
             </>
         )
     }

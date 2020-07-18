@@ -1,24 +1,16 @@
 import React from 'react'
+import { HashRouter as Router, Route, Link, Redirect } from "react-router-dom"
+
 
 class PlayerLobby extends React.Component {
     state = {
         connected: false,
         players: [],
+        lobby: "error",
+        
     }
     componentDidMount(){
-        
-        socket.on('connect', () => {
-            socket.emit("join", "test")
-            this.setState({
-                connected: true
-            })
-            socket.on("disconnect", () => {
-                this.setState({
-                    connected: false
-                })
-            })
-            console.log("it seems we have a connection")
-          });
+       
         socket.on("error", res => {
             console.log("err", res)
            // alert(`error ocured: ${res}`)
@@ -31,7 +23,11 @@ class PlayerLobby extends React.Component {
                 players: [...this.state.players, ...res]
             })
         })
-
+        socket.on("lobby", res => {
+           this.setState({
+               lobby: res
+           })
+        })
         socket.on("newlobbymemeber", res => {
             this.setState({
                 players: [...this.state.players, res]
@@ -44,21 +40,28 @@ class PlayerLobby extends React.Component {
                 players: newlist
             })
         })
+       socket.on("gamestart", res => {
+        document.getElementById("gamestart").click()
+       })
        
     }
     
     render() {
         return (
             <>
-            <ul>
-              
+            <br></br>
+            <div className="gameInfoWrap">
+            <div className="gametitle">Game code: {this.state.lobby}</div>
+            {(this.state.players.length >= 5) ? <h1>Waiting for host to start</h1> : <h1>Currently waiting for players...</h1>}
+            </div>
+            <br></br>
             {this.state.players.map((elem, i) => {
-                return (<li key={i}>{elem}</li>)
+                return (<div key={i} className="nametag">{elem}</div>)
             })}
-            </ul>
-            this is the test component<br></br>
-            {this.state.connected ? <>connected</> : <>connection broke</>}<br></br>
+
+            <br></br>
             
+            <Link to="/game" id="gamestart"></Link>
             </>
         )
     }

@@ -32,3 +32,4 @@ class Writing extends React.Component {
 }
 
 export default Writing
+

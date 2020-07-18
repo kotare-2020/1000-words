@@ -13,6 +13,7 @@ import Canvas from './canvas'
 import drawcanvas from "./canvas"
 import SocketTest from "./SocketTest"
 import Game from "./Game"
+import Gallery from "./Gallery"
 
 class App extends React.Component {
 
@@ -48,10 +49,10 @@ class App extends React.Component {
           <Route exact path="/canvas" component={drawcanvas} />
           <Route exact path="/hostLobby" component={HostLobby} />
           <Route exact path="/game" component={Game} />
+          <Route exact path="/gallery" component={Gallery} />
           {/* <Route exact path="/api" component={APIs} /> */}
 
         </Router>
-
         
       </>
     )

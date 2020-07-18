@@ -243,3 +243,53 @@ input[type=text]:hover{
     text-align: center;
     margin-bottom: -3%;
 }
+
+.gallery-image-container {
+    position: relative;
+    width: 300px;
+    height: 432px;
+}
+
+.gallery-image {
+    width: 300px;
+    height: 400px;
+}
+
+.gallery-image-nav {
+    width: 50px;
+    height: 30px;
+    position: absolute;
+    top: calc(200px - 15px);
+    cursor: pointer;
+    border: none;
+    color: white;
+    background-color: black;
+    opacity: 0.3;
+    transition: opacity 0.2s;
+}
+.gallery-image-nav:hover {
+    opacity: 0.8;
+}
+
+.gallery-image-next {
+    left: calc(300px - 50px);
+}
+
+.gallery-image-prev {
+    left: 0;
+}
+
+.gallery-image-text {
+    background-color: white;
+    opacity: 0.8;
+    color: black;
+    height: 32px;
+    font-size: 24px;
+    padding: 4px 4px;
+
+    position: absolute;
+    top: calc(400px);
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}

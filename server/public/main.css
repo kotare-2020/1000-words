@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    height: 100vh;
     font-family: 'Amatic SC', cursive;
     /* background-image: url("./images/background2.png");
     background-size: 40%;

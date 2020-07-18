@@ -48,9 +48,17 @@ label {
     height: 100vh;
 } */
 
+.Writing_textInput {
+    height: 70px;
+    width: 400px
+}
+
 /* --- Components --- */
 
-/* --- HostJoin --- */
+.writing_button {
+    height: 40px;
+    width: 80px
+}
 
 .HostJoin-Container {
    
@@ -79,6 +87,7 @@ label {
 }
 
 .HostJoin-JoinButton {
+
     background-color: #f7bdbc;
     font-family: 'Amatic SC', cursive;
     border: none;

@@ -40,9 +40,11 @@ class PlayerLobby extends React.Component {
                 players: newlist
             })
         })
-       socket.on("gamestart", res => {
-        document.getElementById("gamestart").click()
-       })
+        socket.on("gamestart", res => {
+            console.log("recived game start", res)
+         document.getElementById("gamestart").click()
+        })
+       
        
     }
     

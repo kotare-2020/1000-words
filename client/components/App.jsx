@@ -39,7 +39,7 @@ class App extends React.Component {
 
       <div id="wrapper">
         <Router>
-          dev menu <Link to="/">home</Link> | <Link to="/lobby">lobby</Link> | <Link to="/canvas">canvas</Link>
+          dev menu | <Link to="/">home</Link> | <Link to="/game">game</Link> | <Link to="/canvas">canvas</Link> |
           <Route exact path="/" component={HostJoin} />
           <Route exact path="/create" component={CreateGame} />
           <Route exact path="/join" component={JoinGame} />

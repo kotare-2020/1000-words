@@ -42,17 +42,12 @@ label {
     text-align: center;
 }
 
-<<<<<<< HEAD
 .Writing_textInput {
     height: 70px;
     width: 400px
 }
-||||||| b34fd8f
-/* --- Components --- */
-=======
 
 /* --- Components --- */
->>>>>>> a4137e6e3630879abfb9cf5dc8c9603c3dce40ab
 
 .writing_button {
     height: 40px;
@@ -81,12 +76,7 @@ label {
 }
 
 .HostJoin-JoinButton {
-<<<<<<< HEAD
-    background-color: #EC008C;
 
-||||||| b34fd8f
-    background-color: #EC008C;
-=======
     background-color: #f7bdbc;
     font-family: 'Amatic SC', cursive;
     border: none;
@@ -233,5 +223,4 @@ input[type=text]:hover{
 .gameInfoWrap{
     text-align: center;
     margin-bottom: -3%;
->>>>>>> a4137e6e3630879abfb9cf5dc8c9603c3dce40ab
 }

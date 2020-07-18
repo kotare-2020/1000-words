@@ -2,6 +2,8 @@ import React from "react";
 import { getGameIdApi, getPlayersInlobby, addPlayerApi } from "../api/api";
 import { HashRouter as Router, Route, Link, Redirect } from "react-router-dom";
 import { setPlayerId } from "../actions/playerId";
+import { setGameId } from '../actions/gameId'
+import { connect } from 'react-redux'
 
 class JoinGame extends React.Component {
     state = {
@@ -110,4 +112,4 @@ class JoinGame extends React.Component {
     }
 }
 
-export default JoinGame;
+export default connect()(JoinGame)

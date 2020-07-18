@@ -26,9 +26,9 @@ class CreateGame extends React.Component {
           host: document.getElementById('hostName').value
         }).then((res) => {
           console.log(res);
-          console.log(res.id);
           
           this.props.dispatch(setGameId(res.id))
+          console.log(res.id);
 
           socket.emit('send-nickname', document.getElementById("hostName").value)
           socket.emit("join", res.id)
@@ -56,6 +56,10 @@ class CreateGame extends React.Component {
     </>
         )
     }
+}
+
+const mapStateToProps = (state) => {
+  gameId: state.gameId
 }
 
 export default connect ()(CreateGame) 

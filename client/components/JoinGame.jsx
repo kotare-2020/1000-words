@@ -29,14 +29,14 @@ class JoinGame extends React.Component {
 
         return getGameIdApi(gameId)
             .then((res) => {   
-                if (res.body.game) {
+                if (res.body.game !== false) {
                     return this.getPlayersInLobby()
                 } else {
-                    throw new Error("Lobby does not exist")
+                    return Promise.reject(new Error("Lobby does not exist"))
                 }
             })
             .catch(() => {
-                console.log(err);
+                return Promise.reject(new Error("Lobby does not exist"))
             })
     }
 
@@ -52,7 +52,7 @@ class JoinGame extends React.Component {
                 }
             })
             .catch(() => {
-                console.log(err);
+                throw new Error("Lobby is full")
             })
     }
 
@@ -78,8 +78,7 @@ class JoinGame extends React.Component {
 
     validategame = () => {
         const { gameId, name} = this.state
-
-        getGameIdApi(gameId)
+        this.getGameId(gameId)
             .then(() => {
                 this.props.dispatch(setGameId(gameId))
                 socket.emit('send-nickname', name)

@@ -94,14 +94,14 @@ class JoinGame extends React.Component {
         return (
             <React.Fragment>
                 {(this.state.error == "no error") ? "" : <div className="errorResponse"><h3>{this.state.error}</h3></div>} 
-                <div className="inputWraper">
-                    <label className="inputtitle"><b>game id</b></label><br></br>
+                {/* <div className="inputWraper"> */}
+                    <div className="inputtitle">game id</div>
                     <input id="gameid" type="text" name="lobby" placeholder="Game id" onChange={this.updateGameId}/>
-                </div>
-                <div className="inputWraperb">
-                    <label className="inputtitle"><b>User Name</b></label><br></br>
+                {/* </div> */}
+                {/* <div className="inputWraperb"> */}
+                    <div className="inputtitle">User Name</div>
                     <input id="name" type="text" name="player" placeholder="Name"  onChange={this.updateName}/>
-                </div>
+                {/* </div> */}
                 <div onClick={this.validategame} className="join-button button ">Join</div>
                
             </React.Fragment>

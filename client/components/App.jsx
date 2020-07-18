@@ -16,7 +16,7 @@ import Game from "./Game"
 
 class App extends React.Component {
 
-  colors = ["#F5BAB8", "#88BF7B", "#EECB5C", "#6CB2E2", "#4469B1", "#E08064", "#A192BD"]
+  colors = ["#EECB5C", "#4469B1"]
   // ["#ff8f8f", "#ffbe86", "#ff9437", "#ffcc98", "#d7ff98", "#85ff9f", "#85fff4", "#91a9ff", "#c591ff", "#ffb5f3", "#ff6e6e"]
 
   componentDidMount() {
@@ -40,15 +40,21 @@ class App extends React.Component {
 
       
         <Router>
-          dev menu | <Link to="/">home</Link> | <Link to="/game">game</Link> | <Link to="/canvas">canvas</Link> |
-          <Route exact path="/" component={HostJoin} />
-          <Route exact path="/create" component={CreateGame} />
-          <Route exact path="/join" component={JoinGame} />
-          <Route exact path="/lobby" component={PlayerLobby} />
-          <Route exact path="/canvas" component={drawcanvas} />
-          <Route exact path="/hostLobby" component={HostLobby} />
-          <Route exact path="/game" component={Game} />
-          {/* <Route exact path="/api" component={APIs} /> */}
+          <div className="dev-menu">
+            dev menu | <Link to="/">home</Link> | <Link to="/game">game</Link> | <Link to="/canvas">canvas</Link> |
+          </div>
+          <div className="game-screen">
+            <div className="game-content">
+              <Route exact path="/" component={HostJoin} />
+              <Route exact path="/create" component={CreateGame} />
+              <Route exact path="/join" component={JoinGame} />
+              <Route exact path="/lobby" component={PlayerLobby} />
+              <Route exact path="/canvas" component={drawcanvas} />
+              <Route exact path="/hostLobby" component={HostLobby} />
+              <Route exact path="/game" component={Game} />
+            </div>
+          </div>
+          {/* <Route exact path="/apis" component={APIs} /> */}
 
         </Router>
 

@@ -17,8 +17,8 @@ class Canvas extends React.Component {
         var select = document.getElementById('tool');
         // console.log(select)
 
-        var width = 500 ;
-        var height = 500 ;
+        var width = 300 ;
+        var height = 400 ;
         // first we need Konva core things: stage and layer
        
        //stage is our drawing space
@@ -75,8 +75,9 @@ class Canvas extends React.Component {
         return (
             <>
 
-    
+            <div className="flex-center">
                 <button
+                    className="button"
                     onClick={() => {
                         localStorage.setItem(
                             "drawing", this.stage.toJSON()
@@ -84,7 +85,9 @@ class Canvas extends React.Component {
                     }}
                 >
                     Save
-          </button>
+                </button>
+
+            </div>
           <div className="control-container center">
           <div id="container" className="center"></div>
           </div>

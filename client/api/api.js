@@ -37,3 +37,18 @@ export function getPlayersInlobby(id) {
     return request
         .get(`${players}/${id}`)
 }
+
+export function addUserText(text, round, playerId) {
+    return request 
+        .post(players)
+        .send({
+            text,
+            round,
+            playerId, 
+        })
+}
+
+export function getAllPlayerRounds(playerId, gameId) {
+    return request
+        .get(`/api/game/${gameId}/${playerId}`)
+}

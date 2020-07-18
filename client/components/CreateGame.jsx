@@ -1,6 +1,6 @@
 import React from 'react'
 import HostLobby from './HostLobby'
-import { addHostApi, addPlayerApi} from '../apis/apis'
+import { addHostApi, addPlayerApi} from '../api/api'
 import { HashRouter as Router, Route, Link, Redirect } from "react-router-dom";
 
 class CreateGame extends React.Component {

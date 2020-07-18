@@ -1,8 +1,8 @@
 import React from 'react'
 import ViewSpace from './ViewSpace'
-import { addUserTest } from "../apis/api"
+import { addUserTest } from "../api/api"
 import { connect } from "react-redux"
-import { getAllPlayerRounds } from '../apis/apis'
+import { getAllPlayerRounds } from '../api/api'
 
 class Writing extends React.Component {
 

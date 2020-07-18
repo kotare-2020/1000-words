@@ -75,8 +75,9 @@ class Canvas extends React.Component {
         return (
             <>
 
-    
+            <div className="flex-center">
                 <button
+                    className="button"
                     onClick={() => {
                         localStorage.setItem(
                             "drawing", this.stage.toJSON()
@@ -84,7 +85,9 @@ class Canvas extends React.Component {
                     }}
                 >
                     Save
-          </button>
+                </button>
+
+            </div>
           <div className="control-container center">
           <div id="container" className="center"></div>
           </div>

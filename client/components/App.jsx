@@ -48,7 +48,7 @@ class App extends React.Component {
           <Route exact path="/canvas" component={drawcanvas} />
           <Route exact path="/hostLobby" component={HostLobby} />
           <Route exact path="/game" component={Game} />
-          {/* <Route exact path="/apis" component={APIs} /> */}
+          {/* <Route exact path="/api" component={APIs} /> */}
 
         </Router>
 

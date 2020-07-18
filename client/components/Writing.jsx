@@ -2,11 +2,18 @@ import React from 'react'
 import ViewSpace from './ViewSpace'
 import { addUserTest } from "../api/api"
 import { connect } from "react-redux"
+import { getAllPlayerRounds } from '../apis/apis'
 
 class Writing extends React.Component {
 
     state = {
         userText: ""
+    }
+
+    renderImage = () => {
+        const { playerId } = this.props.playerId
+        const { gameId } = this.props.gameId
+        return getAllPlayerRounds(playerId, gameId) 
     }
 
     handleClick = () => {
@@ -50,7 +57,8 @@ class Writing extends React.Component {
 const mapStateToProps = (state) => {
     return {
         playerId: state.playerId,
-        currentRound: state.currentRound
+        currentRound: state.currentRound,
+        gameId: state.gameId,
     }
 }
 

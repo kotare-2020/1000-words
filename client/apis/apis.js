@@ -47,3 +47,8 @@ export function addUserText(text, round, playerId) {
             playerId, 
         })
 }
+
+export function getAllPlayerRounds(playerId, gameId) {
+    return request
+        .get(`/api/game/${gameId}/${playerId}`)
+}

@@ -12,6 +12,7 @@ import Game from "./Game"
 class App extends React.Component {
 colors = ["#ff8f8f", "#ffbe86", "#ff9437", "#ffcc98", "#d7ff98", "#85ff9f", "#85fff4", "#91a9ff", "#c591ff", "#ffb5f3", "#ff6e6e"]
   componentDidMount(){
+   
     document.body.style.backgroundColor = this.colors[Math.floor(Math.random()* this.colors.length)]
     socket.on('connect', () => {
 
@@ -29,7 +30,7 @@ colors = ["#ff8f8f", "#ffbe86", "#ff9437", "#ffcc98", "#d7ff98", "#85ff9f", "#85
 
 
     return (
-
+      
       <>
       <div id="wrapper">
         <Router>
@@ -39,7 +40,7 @@ colors = ["#ff8f8f", "#ffbe86", "#ff9437", "#ffcc98", "#d7ff98", "#85ff9f", "#85
           <Route exact path="/join" component={JoinGame} />
           <Route exact path="/lobby" component={PlayerLobby} />
           <Route exact path="/canvas" component={drawcanvas} />
-          <Route exact path="/createLobby" component={HostLobby} />
+          <Route exact path="/hostLobby" component={HostLobby} />
           <Route exact path="/game" component={Game} />
           {/* <Route exact path="/apis" component={APIs} /> */}
 

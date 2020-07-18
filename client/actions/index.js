@@ -1,8 +1,8 @@
 export const ADD_HOST = "ADD_HOST"
 export const ADD_PLAYER = "ADD_PLAYER"
 
-import { addHostApi, getGameIdApi} from '../api/api'
-import { addPlayerApi } from '../api/api'
+import { addHostApi, getGameIdApi} from '../apis/apis'
+import { addPlayerApi } from '../apis/apis'
 
 export function addHost(host) {
     return {

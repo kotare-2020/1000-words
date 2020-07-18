@@ -1,6 +1,8 @@
 import React from 'react'
 import HostLobby from './HostLobby'
 import { addHostApi, addPlayerApi} from '../apis/apis'
+// import { connect } from 'react-redux'
+// import { setGameId } from '../actions/gameId'
 import { HashRouter as Router, Route, Link, Redirect } from "react-router-dom";
 
 class CreateGame extends React.Component {
@@ -26,7 +28,7 @@ class CreateGame extends React.Component {
           console.log(res);
           socket.emit('send-nickname', document.getElementById("hostName").value)
           socket.emit("join", res.id)
-        
+          // this.props.dispatch(setGameId(gameId))
          document.getElementById("gotolobby").click()
             // addPlayerApi
         })
@@ -34,7 +36,7 @@ class CreateGame extends React.Component {
           console.log(error);
       })
       }
-
+        
     render() {
     return(
     <>
@@ -46,12 +48,14 @@ class CreateGame extends React.Component {
           <button  className="CreateGame-NewGameButton" onClick={this.createHost}>Create</button>    
           <Link to="/hostLobby" id="gotolobby"></Link>
           
-         
-        
     </div>
     </>
         )
     }
 }
+// const mapStateToProps = (state) => {
+//   gameId: state.gameId
+// }
 
 export default CreateGame
+// export default connect()(CreateGame)

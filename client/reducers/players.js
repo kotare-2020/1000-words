@@ -1,6 +1,6 @@
 import { ADD_PLAYER } from "../actions"
 
-initialState = []
+const initialState = []
 
 const reducer = (state = initialState, action) => {
     switch(action.type) {

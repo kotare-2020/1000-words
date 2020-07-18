@@ -56,7 +56,9 @@ io.on('connection', function(socket){
         console.log("admin is starting game", res)
         io.to(res).emit("gamestart", "go");
     })
-
+    socket.on("imdone", res => {
+        
+    })
     socket.on("create", res => {
         console.log(socket.id, "create", res)
         socket.join(res);

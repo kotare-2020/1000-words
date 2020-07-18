@@ -26,7 +26,7 @@ class JoinGame extends React.Component {
                                         game_id: document.getElementById("gameid").value,
                                         color: "black",
                                     }
-                                     
+                                    
                                 )
                                 .then(() => {
                                     socket.emit('send-nickname', document.getElementById("name").value)

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import game from './game'
+import game from './gameId'
 import players from './players'
 import rounds from './rounds'
 import currentRound from "./currentRound"

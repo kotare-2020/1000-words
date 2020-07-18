@@ -8,7 +8,7 @@ module.exports = {
 function addHost(player, db = connection) {
     console.log("data base: adding player to game table", player)
     return db('game')
-    .insert({ host: player })
+    .insert( player )
 }
 
 function getHost(id, db = connection) {

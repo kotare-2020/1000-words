@@ -52,7 +52,10 @@ io.on('connection', function(socket){
         console.log(`set ${socket.id}'s nickname to ${nickname}`)
         console.log(socket.nickname)
     })
-    
+    socket.on("gamestart", res => {
+        console.log("admin is starting game", res)
+        io.to(res).emit("gamestart", "go");
+    })
 
     socket.on("create", res => {
         console.log(socket.id, "create", res)

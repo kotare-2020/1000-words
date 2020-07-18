@@ -16,7 +16,8 @@ import Game from "./Game"
 
 class App extends React.Component {
 
-  colors = ["#ff8f8f", "#ffbe86", "#ff9437", "#ffcc98", "#d7ff98", "#85ff9f", "#85fff4", "#91a9ff", "#c591ff", "#ffb5f3", "#ff6e6e"]
+  colors = ["#F5BAB8", "#88BF7B", "#EECB5C", "#6CB2E2", "#4469B1", "#E08064", "#A192BD"]
+  // ["#ff8f8f", "#ffbe86", "#ff9437", "#ffcc98", "#d7ff98", "#85ff9f", "#85fff4", "#91a9ff", "#c591ff", "#ffb5f3", "#ff6e6e"]
 
   componentDidMount() {
     document.body.style.backgroundColor = this.colors[Math.floor(Math.random() * this.colors.length)]
@@ -34,28 +35,24 @@ class App extends React.Component {
 
 
     return (
-
+      
       <>
-        <div id="wrapper">
-          <Router>
-            dev menu <Link to="/">home</Link> | <Link to="/lobby">lobby</Link> | <Link to="/canvas">canvas</Link>
 
+      
+        <Router>
+          dev menu | <Link to="/">home</Link> | <Link to="/game">game</Link> | <Link to="/canvas">canvas</Link> |
+          <Route exact path="/" component={HostJoin} />
+          <Route exact path="/create" component={CreateGame} />
+          <Route exact path="/join" component={JoinGame} />
+          <Route exact path="/lobby" component={PlayerLobby} />
+          <Route exact path="/canvas" component={drawcanvas} />
+          <Route exact path="/hostLobby" component={HostLobby} />
+          <Route exact path="/game" component={Game} />
+          {/* <Route exact path="/apis" component={APIs} /> */}
 
-            {/* <h1>Time to Draw!</h1>
-          <Writing JSON="this" />
-          <Drawing /> */}
+        </Router>
 
-            <Route exact path="/" component={HostJoin} />
-            <Route exact path="/create" component={CreateGame} />
-            <Route exact path="/join" component={JoinGame} />
-            <Route exact path="/lobby" component={PlayerLobby} />
-            <Route exact path="/canvas" component={drawcanvas} />
-            <Route exact path="/createLobby" component={HostLobby} />
-            <Route exact path="/game" component={Game} />
-            {/* <Route exact path="/apis" component={APIs} /> */}
-
-          </Router>
-        </div>
+        
       </>
     )
   }

@@ -7,15 +7,17 @@ import Drawing from './Drawing'
 class Game extends React.Component {
 
     state = {
-        
+
     }
 
 render() {
     return(
-        <>
+       
+        <div className="gamewrap">
         <Writing/>
-        {/* <Drawing/> */}
-        </>
+        <Drawing/>
+        </div>
+       
     )
 }
 }

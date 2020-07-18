@@ -79,6 +79,7 @@ class JoinGame extends React.Component {
 
         getGameIdApi(gameId)
             .then(() => {
+                this.props.dispatch(setGameId(gameId))
                 socket.emit('send-nickname', name)
                 socket.emit("join", gameId)
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { getGameIdApi, getPlayersInlobby, addPlayerApi } from "../apis/apis";
+import { getGameIdApi, getPlayersInlobby, addPlayerApi } from "../api/api";
 import { HashRouter as Router, Route, Link, Redirect } from "react-router-dom";
 import { setPlayerId } from "../actions/playerId";
 

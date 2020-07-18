@@ -7,7 +7,8 @@ class CreateGame extends React.Component {
 
     state = {
         userName: '',
-        hostLobby: false
+        hostLobby: false,
+        redirect: false,
     }
 
     handleChange = () => {
@@ -16,19 +17,17 @@ class CreateGame extends React.Component {
         })
       }
 
-      handleSubmit = (event) => {
-        event.preventDefault()
-        this.setState({
-            hostLobby: true
-        })
-      }
-
+      
       createHost = () => {
+        
         addHostApi({
           host: document.getElementById('hostName').value
         }).then((res) => {
           console.log(res);
-          
+          socket.emit('send-nickname', document.getElementById("hostName").value)
+          socket.emit("join", res.id)
+        
+         document.getElementById("gotolobby").click()
             // addPlayerApi
         })
         .catch(error => {
@@ -40,10 +39,15 @@ class CreateGame extends React.Component {
     return(
     <>
     <div className="CreateGame-Container">
+       
           <label>Enter Your Username!</label>
           <input className="CreateGame-Input" id="hostName" onChange={this.handleChange} name="userName" type="text"></input>
           {/* <input type="submit" value="Create New Game!"></input> */}
-          <button  className="CreateGame-NewGameButton" onClick={this.createHost}><Link to="/createLobby">to create game lobby</Link></button>    
+          <button  className="CreateGame-NewGameButton" onClick={this.createHost}>Create</button>    
+          <Link to="/hostLobby" id="gotolobby"></Link>
+          
+         
+        
     </div>
     </>
         )

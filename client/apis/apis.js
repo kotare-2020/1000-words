@@ -6,6 +6,7 @@ const round = '/api/rounds'
 
 export function addHostApi(host) {
     console.log('from addHostApi')
+    console.log(host)
     return request
         .post(game)
         .send(host)

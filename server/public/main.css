@@ -25,16 +25,36 @@ label {
     font-size: 2em;
 }
 
+.game-screen {
+    top: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dev-menu {
+    z-index: 9999;
+    position: absolute;
+    top: 0;
+}
+
+.game-content {
+
+}
+
 .control-container {
     border: red solid 2px;
-    width: 520px;
-    padding: 10px;
+    width: 320px;
+    padding:  15px 10px;
 }
 
 #container {
     border: black solid 2px;
-    height: 500px;
-    width: 500px;
+    height: 400px;
+    width: 300px;
 }
 
 .center {
@@ -74,6 +94,12 @@ label {
     background-size: 60%;
     animation: 120s linear 1s infinite running bgSlide;
 
+}
+
+@media only screen and (max-width: 600px) {
+    .HostJoin-Container {
+        background-size: 100%;
+    }
 }
 
 .HostJoin-HostButton {

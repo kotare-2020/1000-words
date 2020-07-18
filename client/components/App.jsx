@@ -10,7 +10,8 @@ import HostLobby from "./HostLobby"
 import Game from "./Game"
 
 class App extends React.Component {
-colors = ["#ff8f8f", "#ffbe86", "#ff9437", "#ffcc98", "#d7ff98", "#85ff9f", "#85fff4", "#91a9ff", "#c591ff", "#ffb5f3", "#ff6e6e"]
+colors = ["#F5BAB8", "#88BF7B", "#EECB5C", "#6CB2E2", "#4469B1", "#E08064", "#A192BD"]
+// ["#ff8f8f", "#ffbe86", "#ff9437", "#ffcc98", "#d7ff98", "#85ff9f", "#85fff4", "#91a9ff", "#c591ff", "#ffb5f3", "#ff6e6e"]
   componentDidMount(){
     document.body.style.backgroundColor = this.colors[Math.floor(Math.random()* this.colors.length)]
     socket.on('connect', () => {
@@ -31,7 +32,7 @@ colors = ["#ff8f8f", "#ffbe86", "#ff9437", "#ffcc98", "#d7ff98", "#85ff9f", "#85
     return (
 
       <>
-      <div id="wrapper">
+      {/* <div id="wrapper"> */}
         <Router>
           dev menu <Link to="/">home</Link> | <Link to="/lobby">lobby</Link> | <Link to="/canvas">canvas</Link>
           <Route exact path="/" component={HostJoin} />
@@ -44,7 +45,7 @@ colors = ["#ff8f8f", "#ffbe86", "#ff9437", "#ffcc98", "#d7ff98", "#85ff9f", "#85
           {/* <Route exact path="/apis" component={APIs} /> */}
 
         </Router>
-        </div>
+        {/* </div> */}
       </>
     )
   }

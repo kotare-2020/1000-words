@@ -5,9 +5,9 @@ body {
     padding: 0;
     overflow: hidden;
     font-family: 'Amatic SC', cursive;
-    background-image: url("./images/background2.png");
+    /* background-image: url("./images/background2.png");
     background-size: 40%;
-    animation: 60s linear 1s infinite running bgSlide
+    animation: 60s linear 1s infinite running bgSlide */
     /* background-color: #F0F0F0; */
 }
 
@@ -21,7 +21,7 @@ h1 {
 }
 
 label {
-    font-size: 2.5em;
+    font-size: 2em;
 }
 
 .control-container {
@@ -42,6 +42,11 @@ label {
     text-align: center;
 }
 
+/* #wrapper {
+    background-color: rgba(255, 255, 255, 0.418);
+    width: 100vw;
+    height: 100vh;
+} */
 
 /* --- Components --- */
 
@@ -49,12 +54,17 @@ label {
 
 .HostJoin-Container {
    
-    height: 100vw;
+    height: 100vh;
     width: auto;
     padding: 2em;
     font-size: 2em;
     font-family: 'Amatic SC', cursive;
     text-align: -webkit-center;
+
+    background-image: url("./images/background2.png");
+    background-size: 60%;
+    animation: 120s linear 1s infinite running bgSlide;
+
 }
 
 .HostJoin-HostButton {
@@ -82,13 +92,15 @@ label {
 /* --- CreateGame --- */
 
 .CreateGame-Container {
-    background-color: #efcf62;
+    /* background-color: #efcf62; */
     height: 1000px;
     width: auto;
     padding: 2em;
-    font-size: 2em;
+    /* font-size: 2em; */
     font-family: 'Amatic SC', cursive;
     text-align: -webkit-center;
+
+    margin-top: 20vh;
 }
 
 .CreateGame-NewGameButton {
@@ -112,17 +124,22 @@ label {
     font-size: 1em;
     max-width: 50vw;
 }
-#wrapper {
-    background-color: rgba(255, 255, 255, 0.418);
-    width: 100vw;
-    height: 100vh;
-}
+
 .button {
     transition: transform 0.2s;
+    font-family: 'Amatic SC', cursive;
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 4px;
+    font-size: 1em;
+    max-width: 50vw;
 }
+
 .button:hover {
     transform: scale(1.1)
 }
+
 input[type=text]{
     display: block;
     margin-left: auto;
@@ -137,7 +154,7 @@ input[type=text]{
   border-radius: 0px !important;
   box-sizing: border-box !important; */
 
-  box-shadow: 0px 0px 21px 1px rgba(0,0,0,0.35);
+  /* box-shadow: 0px 0px 21px 1px rgba(0,0,0,0.35); */
   padding: 12px 20px!important;
  
   box-sizing: border-box!important;
@@ -164,7 +181,7 @@ input[type=text]:hover{
     margin-top: 5vh;
 }
 .join-button {
-    box-shadow: 0px 0px 21px 1px rgba(0,0,0,0.35);
+    /* box-shadow: 0px 0px 21px 1px rgba(0,0,0,0.35); */
     background-color: #3aadda;
     font-family: 'Amatic SC', cursive;
     width: 30vw;
@@ -189,7 +206,7 @@ input[type=text]:hover{
     }
 }
 .errorResponse{
-    box-shadow: 0px 0px 31px 5px rgba(0,0,0,0.65);
+    /* box-shadow: 0px 0px 31px 5px rgba(0,0,0,0.65); */
     text-align: center;
     max-width: 500px;
     height: 60px;

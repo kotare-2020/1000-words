@@ -1,6 +1,6 @@
 import React from 'react'
 import ViewSpace from './ViewSpace'
-import { addUserTest } from "../api/api"
+import { addUserTest } from "../apis/api"
 import { connect } from "react-redux"
 import { getAllPlayerRounds } from '../apis/apis'
 

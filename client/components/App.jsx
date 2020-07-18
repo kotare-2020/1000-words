@@ -17,7 +17,7 @@ import Gallery from "./Gallery"
 
 class App extends React.Component {
 
-  colors = ["#F5BAB8", "#88BF7B", "#EECB5C", "#6CB2E2", "#4469B1", "#E08064", "#A192BD"]
+  colors = ["#EECB5C", "#4469B1"]
   // ["#ff8f8f", "#ffbe86", "#ff9437", "#ffcc98", "#d7ff98", "#85ff9f", "#85fff4", "#91a9ff", "#c591ff", "#ffb5f3", "#ff6e6e"]
 
   componentDidMount() {

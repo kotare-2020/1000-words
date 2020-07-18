@@ -6,6 +6,7 @@ body {
     overflow: hidden;
     height: 100vh;
     font-family: 'Amatic SC', cursive;
+    font-size: 16px;
     /* background-image: url("./images/background2.png");
     background-size: 40%;
     animation: 60s linear 1s infinite running bgSlide */
@@ -25,22 +26,47 @@ label {
     font-size: 2em;
 }
 
+.game-screen {
+    top: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dev-menu {
+    z-index: 1000;
+    position: absolute;
+    top: 0;
+}
+
+.game-content {
+    width: 100%;
+}
+
 .control-container {
     border: red solid 2px;
-    width: 520px;
-    padding: 10px;
+    width: 320px;
+    padding:  15px 10px;
 }
 
 #container {
     border: black solid 2px;
-    height: 500px;
-    width: 500px;
+    height: 400px;
+    width: 300px;
 }
 
 .center {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
 }
 
 /* #wrapper {
@@ -74,6 +100,14 @@ label {
     background-size: 60%;
     animation: 120s linear 1s infinite running bgSlide;
 
+    z-index: 1001;
+
+}
+
+@media only screen and (max-width: 600px) {
+    .HostJoin-Container {
+        background-size: 100%;
+    }
 }
 
 .HostJoin-HostButton {
@@ -103,14 +137,11 @@ label {
 
 .CreateGame-Container {
     /* background-color: #efcf62; */
-    height: 1000px;
     width: auto;
-    padding: 2em;
     /* font-size: 2em; */
     font-family: 'Amatic SC', cursive;
     text-align: -webkit-center;
 
-    margin-top: 20vh;
 }
 
 .CreateGame-NewGameButton {
@@ -120,8 +151,8 @@ label {
     padding: 10px;
     margin: 10px;
     border-radius: 4px;
-    font-size: 1em;
-    max-width: 50vw;
+    font-size: 1.25rem;
+    max-width: 300px;
 }
 
 .CreateGame-Input {
@@ -129,21 +160,28 @@ label {
     font-family: 'Amatic SC', cursive;
     border: none;
     padding: 5px;
-    margin: 10px;
     border-radius: 4px;
-    font-size: 1em;
-    max-width: 50vw;
+    font-size: 1.25rem;
+    max-width: 300px;
+    margin-bottom: 1rem;
+}
+
+.CreateGame-Title {
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
 }
 
 .button {
     transition: transform 0.2s;
     font-family: 'Amatic SC', cursive;
     border: none;
-    padding: 10px;
+    padding: 5px 10px;
     margin: 10px;
     border-radius: 4px;
-    font-size: 1em;
+    font-size: 1.25rem;
     max-width: 50vw;
+    cursor: pointer;
 }
 
 .button:hover {
@@ -182,14 +220,17 @@ input[type=text]:hover{
 
 .inputtitle {
     margin-left: 10%;
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
     
 }
-.inputWraper{
+/* .inputWraper{
     margin-top: 20vh;
 }
 .inputWraperb{
     margin-top: 5vh;
-}
+} */
 .join-button {
     /* box-shadow: 0px 0px 21px 1px rgba(0,0,0,0.35); */
     background-color: #3aadda;
@@ -200,7 +241,7 @@ input[type=text]:hover{
     padding: 10px;
     margin: 10px;
   
-    font-size: 1.5em;
+    font-size: 1.5rem;
     max-width: 50vw;
     text-align: center;
     margin-left: auto;
@@ -292,4 +333,17 @@ input[type=text]:hover{
     width: 100%;
     box-sizing: border-box;
     text-align: center;
+}
+}
+
+.mb1 {
+    margin-bottom: .25rem;
+}
+
+.mb2 {
+    margin-bottom: .5rem;
+}
+
+.mb3 {
+    margin-bottom: 1rem;
 }

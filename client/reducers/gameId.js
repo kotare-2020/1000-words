@@ -1,9 +1,11 @@
-initialState = []
+import { SET_GAME_ID } from '../actions/gameId'
+
+const initialState = 0
 
 const reducer = (state = initialState, action) => {
     switch(action.type) {
-        case 'ADD_HOST':
-            return [...state, action.host]
+        case SET_GAME_ID:
+            return action.gameId
         default:
             return state
     }

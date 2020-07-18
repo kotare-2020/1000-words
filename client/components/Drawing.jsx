@@ -5,9 +5,9 @@ import Canvas from './Canvas'
 
 class Drawing extends React.Component {
 
+
+  
   render() {
-
-
     return (
       <>
         <h1>Writing goes here!</h1>

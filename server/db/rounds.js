@@ -2,8 +2,9 @@ const connection = require('./connection')
 
 module.exports = {
     getAllRounds,
-    getSingleRound,
+    // getSingleRound,
     addRound,
+    getSinglePlayer,
 }
 
 function getAllRounds(id, db = connection) {
@@ -12,11 +13,18 @@ function getAllRounds(id, db = connection) {
         .where('game_id', id)
 }
 
-function getSingleRound(gameId, roundNum ,db = connection) {
+// function getSingleRound(gameId, roundNum ,db = connection) {
+//     return db('rounds')
+//         .join("players", "rounds.player", "players.player_id")
+//         .where('game_id', gameId)
+//         .select('round' + roundNum, 'player_id')
+// }
+
+function getSinglePlayer(gameId, playerId ,db = connection) {
     return db('rounds')
         .join("players", "rounds.player", "players.player_id")
         .where('game_id', gameId)
-        .select('round' + roundNum, 'player_id')
+        .where('player', playerId)
 }
 
 // expecting roundData = {roundNumber, roundInfo, player_id} from api

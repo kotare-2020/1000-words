@@ -13,8 +13,20 @@ router.get('/:id', (req, res) => {
         })
 })
 
-router.get('/:gameId/:roundNum', (req, res) => {
-    db.getSingleRound(req.params.gameId, req.params.roundNum)
+// router.get('/:gameId/:roundNum', (req, res) => {
+//     db.getSingleRound(req.params.gameId, req.params.roundNum)
+//         .then(round => {
+//             res.send(round)
+//         })
+//         .catch(error => {
+//             console.log(error.message);
+            
+//             res.status(500).send(error.messge)
+//         })
+// })
+
+router.get('/:gameId/:playerId', (req, res) => {
+    db.getSinglePlayer(req.params.gameId, req.params.playerId)
         .then(round => {
             res.send(round)
         })

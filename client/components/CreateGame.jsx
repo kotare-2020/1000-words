@@ -25,11 +25,25 @@ class CreateGame extends React.Component {
         addHostApi({
           host: document.getElementById('hostName').value
         }).then((res) => {
-          console.log(res);
-          socket.emit('send-nickname', document.getElementById("hostName").value)
-          socket.emit("join", res.id)
-          this.props.dispatch(setGameId(res.id))
-         document.getElementById("gotolobby").click()
+          addPlayerApi(
+            {
+                player_name: document.getElementById("hostName").value,
+                game_id: res.id,
+                color: "black",
+            })
+            .then(() => {
+              console.log(res);
+              socket.emit('send-nickname', document.getElementById("hostName").value)
+              socket.emit("join", res.id)
+    
+              this.props.dispatch(setGameId(res.id))
+             document.getElementById("gotolobby").click()
+            })
+            .catch(err => {
+              console.log(err)
+            })
+
+        
           
         })
         .catch(error => {

@@ -11,7 +11,7 @@ class Game extends React.Component {
 
     state = {
         gameid: this.props.gameId,       //fix this later
-        round: 2,
+        round: 1,
         done: false,
         finnished: [],
     }

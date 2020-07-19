@@ -21,6 +21,7 @@ export function addPlayerApi(player) {
         .post(players)
         .send(player)
         .then(res => {
+            console.log(res.body)
             return res.body
         })
 }
@@ -39,9 +40,11 @@ export function getPlayersInlobby(id) {
 }
 
 export function addRoundDataApi(data) {
+    console.log(data);
+    console.log("this is from the api");
     return request 
-        .patch(`${round}/${id}`)
-        .send(data)
+        .patch(`${round}/${data.gameId}`)
+        .send(data.dbdata)
         .then(res => {
             return res.body
         })

@@ -1,11 +1,11 @@
-import { ADD_PLAYER } from "../actions"
+import { SET_PLAYERS } from "../actions/players"
 
 const initialState = []
 
 const reducer = (state = initialState, action) => {
     switch(action.type) {
-        case ADD_PLAYER:
-            return [...state,action.player]
+        case SET_PLAYERS:
+            return action.players
         default: 
         return state
     }

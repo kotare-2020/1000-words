@@ -11,7 +11,6 @@ class Canvas extends React.Component {
 
     componentDidMount() {
         var select = document.getElementById('tool');
-        // console.log(select)
         select.addEventListener('change', function () {
             mode = select.value;
         });

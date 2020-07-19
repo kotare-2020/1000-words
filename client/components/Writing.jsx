@@ -18,22 +18,18 @@ class Writing extends React.Component {
     handleClick = () => {
         // send input 
         console.log(this.props.JSON)
-    }
-
-    Instructions = () => {
-        if (this.props.JSON != undefined) {
-            return "Describe what you see!"
-        } else {
-            return "Write anything you can think of!"
-        }
+        this.postToDataBase()
     }
 
     postToDataBase = () => {
         addRoundDataApi({
+            gameId: this.props.gameId,
+            dbdata: {
             roundNumber: this.props.roundNumber,
             roundInfo: this.state.writing,
-            player_id: this.props.player_id,
-        })
+            playerId: this.props.playerId,
+        }
+    })
         .catch((error) => {
             console.log(error)
         })
@@ -43,7 +39,7 @@ class Writing extends React.Component {
         console.log(this.props.JSON)
         return (
             <>
-                <textarea name="writing" rows="5" cols="80" className="Writing_textInput center" onChange={this.handleChange}>The cat was playing in the garden.</textarea>
+                <textarea name="writing" rows="5" cols="50" className="Writing_textInput center" onChange={this.handleChange}>The cat was playing in the garden.</textarea>
                 <div className="control-container center">
                 <ViewSpace />
                 </div>
@@ -58,7 +54,8 @@ const mapStateToProps = (state) => {
     return {
         gameId: state.game,
         roundNumber: state.currentRound,
-        player_id: state.playerId,
+        playerId: state.playerId,
+        currentRound: state.currentRound,
     }
 }
 

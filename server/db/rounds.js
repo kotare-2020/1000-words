@@ -30,6 +30,6 @@ function addRound(roundData ,db = connection) {
             console.log(obj);
         }
     return db('rounds')
-    .where('player', roundData.player_id,)
+    .where('player', roundData.playerId,)
     .update(obj)
 }

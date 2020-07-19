@@ -21,11 +21,19 @@ class Game extends React.Component {
         socket.emit("imdone", this.state.gameid)
     }
     componentDidMount(){
+        if(this.state.gameid == 0) this.props.history.push("/")
         socket.on("playerfinnished", res => {
             console.log(`user ${res} finnished`)
             this.setState({
-                finnished: [this.state.finnished, ... res]
+                finnished: [...this.state.finnished, res]
             })
+            if(this.props.players.length == this.state.finnished.length) {
+                this.setState({
+                    round: this.state.round + 1,
+                    done: false,
+                    finnished: [],
+                })
+            }
         })
     }
 
@@ -71,7 +79,8 @@ class GameScreen extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        gameId: state.game
+        players: state.players,
+        gameId: state.game,
     }
 }
 

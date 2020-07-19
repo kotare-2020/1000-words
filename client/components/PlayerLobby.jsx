@@ -37,7 +37,7 @@ class PlayerLobby extends React.Component {
         })
         socket.on("roomleave", res => {
             let newlist = this.state.players.filter(elem => elem != res)
-
+            
             this.setState({
                 players: newlist
             })
@@ -47,7 +47,10 @@ class PlayerLobby extends React.Component {
             console.log("recived game start", res)
             document.getElementById("gamestart").click()
         })
-
+        setTimeout(() => {
+            console.log(this.state.lobby)
+            if(this.state.lobby == "error") this.props.history.push("/")
+        }, 100);
 
     }
 

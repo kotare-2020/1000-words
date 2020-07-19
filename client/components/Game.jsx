@@ -62,7 +62,7 @@ class Game extends React.Component {
 class GameScreen extends React.Component {
    
     render() {
-        console.log(this.userfinnished)
+        //console.log(this.userfinnished)
       
         if (this.props.isDone) {
             return <div><h2>Your all done!</h2><p>waiting on other players</p></div>

@@ -21,6 +21,7 @@ export function addPlayerApi(player) {
         .post(players)
         .send(player)
         .then(res => {
+            console.log(res.body)
             return res.body
         })
 }

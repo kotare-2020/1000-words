@@ -4,6 +4,7 @@ module.exports = {
     getAllRounds,
     getSingleRound,
     addRound,
+    createRound,
 }
 
 function getAllRounds(id, db = connection) {
@@ -32,4 +33,8 @@ function addRound(roundData ,db = connection) {
     return db('rounds')
     .where('player', roundData.playerId,)
     .update(obj)
+}
+function createRound(GameId, playerId, db = connection) {
+    return db("rounds")
+    .insert({player: playerId})
 }

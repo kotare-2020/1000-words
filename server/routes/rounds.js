@@ -42,4 +42,16 @@ router.patch('/:id', (req, res) => {
         })
 })
 
+router.post('/:gameId', (req, res) => {
+    console.log(`route recived`, req.body)
+    db.createRound(req.params.gameId, req.body.player)
+        .then(round => {
+            res.send(round)
+        })
+        .catch(error => {
+            console.log(error.message);
+            
+            res.status(500).send(error.messge)
+        })
+})
 module.exports = router

@@ -60,9 +60,26 @@ label {
     text-align: center;
 }
 
+.flex-center {
+    display: flex;
+    justify-content: center;
+}
+
 .Writing_textInput {
     height: 70px;
     width: 400px
+}
+
+.button {
+    transition: transform 0.2s;
+    font-family: 'Amatic SC', cursive;
+    border: none;
+    padding: 5px 10px;
+    margin: 10px;
+    border-radius: 4px;
+    font-size: 1.25rem;
+    max-width: 50vw;
+    cursor: pointer;
 }
 
 /* --- Components --- */
@@ -77,6 +94,7 @@ label {
     height: 100vh;
     width: auto;
     padding: 1.5em;
+    padding-top: 5em;
     font-size: 2em;
     font-family: 'Amatic SC', cursive;
     text-align: -webkit-center;
@@ -179,14 +197,13 @@ input[type=text]:hover{
 }
 
 .inputtitle {
-    margin-left: 10%;
-    
+    margin-left: 10%;   
 }
 .inputWraper{
-    margin-top: 20vh;
+    margin-bottom: 2rem;
 }
 .inputWraperb{
-    margin-top: 5vh;
+    margin-bottom: 2rem;
 }
 .join-button {
     background-color: #3aadda;

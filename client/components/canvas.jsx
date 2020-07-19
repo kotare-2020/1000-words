@@ -10,25 +10,25 @@ class Canvas extends React.Component {
 
 
     componentDidMount() {
-        var width = 300 ;
-        var height = 400 ;
+        var width = 300;
+        var height = 400;
         // first we need Konva core things: stage and layer
-       
-       //stage is our drawing space
+
+        //stage is our drawing space
         this.stage = new Konva.Stage({
             container: 'container',
             width: width,
             height: height,
         })
-    
+
         //layer is our drawing layer on top of stage
         var layer = new Konva.Layer();
         this.stage.add(layer);
-    
+
         var isPaint = false;
         var mode = 'brush';
         var lastLine;
-    
+
         this.stage.on('mousedown touchstart', (e) => {
             isPaint = true;
             var pos = this.stage.getPointerPosition();
@@ -41,14 +41,14 @@ class Canvas extends React.Component {
             });
             layer.add(lastLine);
         });
-    
+
         this.stage.on('mouseup touchend', () => {
             isPaint = false;
             console.log(this.stage.toJSON())
         });
-    
+
         // and core function - drawing
-        this.stage.on('mousemove touchmove',  () => {
+        this.stage.on('mousemove touchmove', () => {
             if (!isPaint) {
                 return;
             }
@@ -58,26 +58,26 @@ class Canvas extends React.Component {
             layer.batchDraw();
         });
     }
-    
-    
-    
+
+
+
     render() {
 
 
         return (
             <>
-                <button
-                    onClick={() => {
-                        localStorage.setItem(
-                            "drawing", this.stage.toJSON()
-                        );
-                    }}
-                >
-                    Save
-          </button>
-          <div className="control-container center">
-          <div id="container" className="center"></div>
-          </div>
+                <div className="control-container center">
+                    <div id="container" className="center"></div>
+                </div>
+                <div className="flex-center">
+                    <button
+                        onClick={() => {
+                            localStorage.setItem(
+                                "drawing", this.stage.toJSON()
+                            );
+                        }}
+                    >Save</button>
+                </div>
             </>
         )
     }

@@ -9,16 +9,7 @@ class Writing extends React.Component {
         console.log(this.props.JSON)
     }
 
-    Instructions = () => {
-        if (this.props.JSON != undefined) {
-            return "Describe what you see!"
-        } else {
-            return "Write anything you can think of!"
-        }
-    }
-
     render() {
-        console.log(this.props.JSON)
         return (
             <>
 
@@ -37,6 +28,7 @@ const mapStateToProps = (state) => {
 return { 
     gameId: state.gameId,
     currentRound: state.currentRound,
+    playerId: state.playerId
 }
 }
 export default connect(mapStateToProps)(Writing)

@@ -34,6 +34,20 @@ If no more rounds to play, render view with gallery of all drawings belonging to
 Wireframe: 
 ![alt text](./server/public/images/1000wordswireframe_02.jpg "WireFrame")
 
+### Views (Client Side)
+  | name | purpose |
+  | --- | --- |
+  | Canvas | Component that represents a player's drawing space as well as a drawing's viewspace |
+  | CreateGame | Component that lets the host identify themselves with a username and initiate the players' lobby |
+  | Drawing | Component representing the drawing round of the game, letting a player draw as well as displaying the most recent prompt from Writing |
+  | Gallery | Component displayed after all rounds have been played, outputting all evolutions of players' initial written prompts |
+  | Game | Component that controls the rendering of the alternating views of Writing and Drawing |
+  | HostJoin | Landing page component allowing a player to either host or join a game |
+  | HostLobby | Component that is displaying all joining players as they join, as well as the start game button for the host |
+  | JoinGame | Component that lets a player enter their username as well as the game id for the game they would like to join|
+  | PlayerLobby | Component that is displaying all joining players as they join |
+  
+
 # MoodBoard
 MoodBoard: 
 ![alt text](./server/public/images/1000WordsMoodBoard.jpg "WireFrame")

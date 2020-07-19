@@ -1,10 +1,12 @@
-
+import { connect } from 'react-redux'
 import React from 'react'
 
 
 class Canvas extends React.Component {
 
-
+    state = {
+        canvas: ""
+    }
 
     // stage = null
 
@@ -44,7 +46,8 @@ class Canvas extends React.Component {
 
         this.stage.on('mouseup touchend', () => {
             isPaint = false;
-            console.log(this.stage.toJSON())
+            console.log(this.stage.toJSON()) // this will be where the change is
+            this.props.saveDrawing(this.stage.toJSON())
         });
 
         // and core function - drawing
@@ -84,4 +87,4 @@ class Canvas extends React.Component {
 }
 
 
-export default Canvas
+export default connect ()(Canvas) 

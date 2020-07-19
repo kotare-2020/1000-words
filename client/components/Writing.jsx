@@ -1,5 +1,6 @@
 import React from 'react'
 import ViewSpace from './ViewSpace'
+import { connect } from 'react-redux'
 
 class Writing extends React.Component {
 
@@ -20,7 +21,8 @@ class Writing extends React.Component {
         console.log(this.props.JSON)
         return (
             <>
-                <textarea name="writing" rows="5" cols="80" className="Writing_textInput center">The cat was playing in the garden.</textarea>
+
+                <textarea name="writing" rows="5" cols="50" className="Writing_textInput center">The cat was playing in the garden.</textarea>
                 <div className="control-container center">
                 <ViewSpace />
                 </div>
@@ -30,5 +32,12 @@ class Writing extends React.Component {
     }
 
 }
-export default Writing
+
+const mapStateToProps = (state) => {
+return { 
+    gameId: state.gameId,
+    currentRound: state.currentRound,
+}
+}
+export default connect(mapStateToProps)(Writing)
 

@@ -14,9 +14,10 @@ import drawcanvas from "./canvas"
 import SocketTest from "./SocketTest"
 import Game from "./Game"
 
+
 class App extends React.Component {
 
-  colors = ["#EECB5C", "#4469B1", "#6CB2E2", "#88BF7B", "#F5BAB8"]
+  colors = ["#EECB5C", "#4469B1"]
 
   componentDidMount() {
     document.body.style.backgroundColor = this.colors[Math.floor(Math.random() * this.colors.length)]
@@ -40,7 +41,7 @@ class App extends React.Component {
 
         <Router>
           <div className="dev-menu">
-            dev menu | <Link to="/">home</Link> | <Link to="/game">game</Link> | <Link to="/canvas">canvas</Link> |
+            dev menu | <Link to="/">home</Link> | <Link to="/game">game</Link> | <Link to="/canvas">canvas</Link> | <Link to="/Writing">Writing</Link> | <Link to="/Drawing">Drawing</Link>
           </div>
           <div className="game-screen">
             <div className="game-content">
@@ -51,6 +52,9 @@ class App extends React.Component {
               <Route exact path="/canvas" component={drawcanvas} />
               <Route exact path="/hostLobby" component={HostLobby} />
               <Route exact path="/game" component={Game} />
+              <Route exact path="/Writing" component={Writing} />
+              <Route exact path="/Drawing" component={Drawing} />
+
               {/* <Route exact path="/apis" component={APIs} /> */}
             </div>
           </div>

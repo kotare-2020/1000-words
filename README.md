@@ -5,6 +5,8 @@
 
 [Stress Profile and Agreements doc](https://docs.google.com/document/d/1XDfl4KSXsNv2O1jlwnT4XwYGkYKWZhc1MwOkUoYMPxo/edit)
 
+[Heroku] (https://one-thousand-words-game.herokuapp.com/#/)
+
 # MVP 
 
 ## Game

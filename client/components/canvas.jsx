@@ -10,11 +10,6 @@ class Canvas extends React.Component {
 
 
     componentDidMount() {
-        var select = document.getElementById('tool');
-        // console.log(select)
-        select.addEventListener('change', function () {
-            mode = select.value;
-        });
         var width = 300 ;
         var height = 400 ;
         // first we need Konva core things: stage and layer
@@ -71,12 +66,6 @@ class Canvas extends React.Component {
 
         return (
             <>
-
-                Tool:
-                <select id="tool">
-                    <option value="brush">Brush</option>
-                    <option value="eraser">Eraser</option>
-                </select>
                 <button
                     onClick={() => {
                         localStorage.setItem(

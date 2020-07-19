@@ -4,9 +4,13 @@ import Canvas from './Canvas'
 
 
 class Drawing extends React.Component {
-
+  handleClick=()=>{
+    this.props.ready()
+  }
+  componentDidMount(){
+    console.log(this.props)
+  }
   render() {
-
 
     return (
       <>
@@ -14,7 +18,7 @@ class Drawing extends React.Component {
         <div className = "control-container center">
           <Canvas />
         </div>
-        <button>Done</button>
+        <button onClick={this.handleClick}>Done</button>
       </>
     )
   }

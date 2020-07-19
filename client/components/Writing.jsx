@@ -7,8 +7,9 @@ class Writing extends React.Component {
     handleClick = () => {
         // send input 
         console.log(this.props.JSON)
+        this.props.ready()
     }
-
+    
     Instructions = () => {
         if (this.props.JSON != undefined) {
             return "Describe what you see!"

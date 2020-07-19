@@ -14,12 +14,12 @@ class Game extends React.Component {
         done: false,
         finnished: [],
     }
-
     userfinnished = () => {
-
+        console.log("this user clicked done")
         this.setState({ done: true })
         socket.emit("imdone", this.state.gameid)
     }
+  
     componentDidMount(){
         if(this.state.gameid == 0) this.props.history.push("/")
         socket.on("playerfinnished", res => {
@@ -49,7 +49,7 @@ class Game extends React.Component {
                         {/* <p onClick={this.userfinnished}>simulate done</p> */}
                         <span><h1>{`Round ${this.state.round} ${((this.state.round % 2) == 1) ? "write" : "draw"}`}</h1></span>
 
-                        <GameScreen isDone={this.state.done} currentRound={this.state.round} nowDone={this.userfinnished} />
+                        <GameScreen isDone={this.state.done} currentRound={this.state.round} nowDone={this.userfinnished}/>
 
                     </div>
                 </center>
@@ -59,8 +59,9 @@ class Game extends React.Component {
 }
 
 class GameScreen extends React.Component {
+   
     render() {
-
+        console.log(this.userfinnished)
       
         if (this.props.isDone) {
             return <div><h2>Your all done!</h2><p>waiting on other players</p></div>
@@ -72,8 +73,8 @@ class GameScreen extends React.Component {
 
 
         return this.props.currentRound % 2 === 0
-            ? <Drawing />
-            : <Writing />
+            ? <Drawing ready={this.props.nowDone}/>
+            : <Writing ready={this.props.nowDone}/>
     }
 }
 

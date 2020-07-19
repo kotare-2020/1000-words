@@ -37,7 +37,7 @@ class PlayerLobby extends React.Component {
         })
         socket.on("roomleave", res => {
             let newlist = this.state.players.filter(elem => elem != res)
-
+            
             this.setState({
                 players: newlist
             })

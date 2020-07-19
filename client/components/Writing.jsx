@@ -37,7 +37,6 @@ class Writing extends React.Component {
     }
 
     render() {
-        console.log(this.props.JSON)
         return (
             <>
                 <textarea name="writing" rows="5" cols="50" className="Writing_textInput center" onChange={this.handleChange}>The cat was playing in the garden.</textarea>

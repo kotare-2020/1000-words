@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import { incrementCurrentRound} from '../actions/currentRound'
 import Writing from './Writing'
 import Drawing from './Drawing'
+import { getPlayersInlobby } from '../apis/apis'
+import { setPlayerIdList } from '../actions/playerIdList'
 
 
 class Game extends React.Component {
@@ -13,6 +15,7 @@ class Game extends React.Component {
         round: 1,
         done: false,
         finnished: [],
+        playerPosition:"",
     }
     userfinnished = () => {
         console.log("this user clicked done")
@@ -21,6 +24,14 @@ class Game extends React.Component {
     }
   
     componentDidMount(){
+
+        getPlayersInlobby(this.props.gameId)
+        .then(playersInfo => playersInfo.body.map(playerInfo => playerInfo.player_id))
+        .then(playerIdList => this.props.dispatch(setPlayerIdList(playerIdList)))
+        .then(() => this.setState({
+            playerPosition: (this.props.playerIdList.indexOf(this.props.playerId))
+        }))
+
         if(this.state.gameid == 0) this.props.history.push("/")
         socket.on("playerfinnished", res => {
             console.log(`user ${res} finnished`)
@@ -87,7 +98,9 @@ class GameScreen extends React.Component {
 const mapStateToProps = (state) => {
     return {
         players: state.players,
+        playerId: state.playerId,
         gameId: state.game,
+        playerIdList: state.playerIdList
     }
 }
 

@@ -49,6 +49,7 @@ class HostLobby extends React.Component {
     startgame = () => {
         socket.emit("gamestart", this.state.lobby)
         document.getElementById("gamestart").click()
+        console.log("players = ", this.state.players)
         this.props.dispatch(setPlayers(this.state.players))
 
     }

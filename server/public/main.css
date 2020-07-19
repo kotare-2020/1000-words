@@ -99,7 +99,7 @@ label {
 /* --- CreateGame --- */
 
 .CreateGame-Container {
-    height: 1000px;
+    /* height: 1000px; */
     width: auto;
     padding: 2em;
     font-size: 2em;
@@ -128,11 +128,7 @@ label {
     font-size: 1em;
     max-width: 50vw;
 }
-#wrapper {
-    background-color: rgba(255, 255, 255, 0.418);
-    width: 100vw;
-    height: 100vh;
-}
+
 .button {
     transition: transform 0.2s;
 }

@@ -5,9 +5,7 @@ body {
     padding: 0;
     overflow-x: hidden;
     font-family: 'Amatic SC', cursive;
-    background-image: url("./images/background2.png");
-    background-size: 40%;
-    animation: 60s linear 1s infinite running bgSlide
+    font-size: 16px;
     /* background-color: #F0F0F0; */
 }
 
@@ -21,19 +19,39 @@ h1 {
 }
 
 label {
-    font-size: 2.5em;
+    font-size: 1.25em;
+}
+
+.game-screen {
+    top: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dev-menu {
+    z-index: 1000;
+    position: absolute;
+    top: 0;
+}
+
+.game-content {
+    width: 100%;
 }
 
 .control-container {
     border: red solid 2px;
-    width: 520px;
-    padding: 10px;
+    width: 320px;
+    padding:  15px 10px;
 }
 
 #container {
     border: black solid 2px;
-    height: 500px;
-    width: 500px;
+    height: 400px;
+    width: 300px;
 }
 
 .center {
@@ -42,9 +60,26 @@ label {
     text-align: center;
 }
 
+.flex-center {
+    display: flex;
+    justify-content: center;
+}
+
 .Writing_textInput {
     height: 70px;
     width: 400px
+}
+
+.button {
+    transition: transform 0.2s;
+    font-family: 'Amatic SC', cursive;
+    border: none;
+    padding: 5px 10px;
+    margin: 10px;
+    border-radius: 4px;
+    font-size: 1.25rem;
+    max-width: 50vw;
+    cursor: pointer;
 }
 
 /* --- Components --- */
@@ -56,12 +91,24 @@ label {
 
 .HostJoin-Container {
    
-    height: 100vw;
+    height: 100vh;
     width: auto;
-    padding: 2em;
+    padding: 1.5em;
+    padding-top: 5em;
     font-size: 2em;
     font-family: 'Amatic SC', cursive;
     text-align: -webkit-center;
+
+    background-image: url("./images/background2.png");
+    background-size: 60%;
+    animation: 120s linear 1s infinite running bgSlide;
+    /* opacity: 0.5; */
+}
+
+@media only screen and (max-width: 600px) {
+    .HostJoin-Container {
+        background-size: 100%;
+    }
 }
 
 .HostJoin-HostButton {
@@ -90,8 +137,7 @@ label {
 /* --- CreateGame --- */
 
 .CreateGame-Container {
-    background-color: #efcf62;
-    height: 1000px;
+    /* height: 1000px; */
     width: auto;
     padding: 2em;
     font-size: 2em;
@@ -120,17 +166,37 @@ label {
     font-size: 1em;
     max-width: 50vw;
 }
-#wrapper {
-    background-color: rgba(255, 255, 255, 0.418);
-    width: 100vw;
-    height: 100vh;
+
+/* --- HostLobby --- */
+
+.HostLobby-StartButton {
+    background-color: #88c083;
+    font-family: 'Amatic SC', cursive;
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 4px;
+    font-size: 1em;
+    max-width: 50vw;
 }
-.button {
+
+/* --- Game --- */
+
+.Game-h2 {
+
+}
+
+.Game-DoneButton {
+    padding: 1.5em;
+}
+
+
+/* .button {
     transition: transform 0.2s;
 }
 .button:hover {
     transform: scale(1.1)
-}
+} */
 input[type=text]{
     display: block;
     margin-left: auto;
@@ -138,14 +204,7 @@ input[type=text]{
     width: 80%;
    height: 7vh;
    transition: transform 0.2s;
-    /* box-shadow: none !important; }
-    :-webkit-autofill { color: #fff !important; 
-    
-        border: 0px solid #fff !important;
-  border-radius: 0px !important;
-  box-sizing: border-box !important; */
 
-  box-shadow: 0px 0px 21px 1px rgba(0,0,0,0.35);
   padding: 12px 20px!important;
  
   box-sizing: border-box!important;
@@ -163,16 +222,15 @@ input[type=text]:hover{
 
 .inputtitle {
     margin-left: 10%;
-    
+    font-size: 2em;   
 }
 .inputWraper{
-    margin-top: 20vh;
+    margin-bottom: 2rem;
 }
 .inputWraperb{
-    margin-top: 5vh;
+    margin-bottom: 2rem;
 }
 .join-button {
-    box-shadow: 0px 0px 21px 1px rgba(0,0,0,0.35);
     background-color: #3aadda;
     font-family: 'Amatic SC', cursive;
     width: 30vw;
@@ -197,7 +255,6 @@ input[type=text]:hover{
     }
 }
 .errorResponse{
-    box-shadow: 0px 0px 31px 5px rgba(0,0,0,0.65);
     text-align: center;
     max-width: 500px;
     height: 60px;
@@ -230,5 +287,5 @@ margin-left: auto;
 margin-right: auto;
 }
 .initalinput {
-
+    padding: 1.5em;
 }

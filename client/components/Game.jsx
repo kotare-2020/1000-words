@@ -28,7 +28,7 @@ class Game extends React.Component {
         return (
             <>
               
-                <h2>{`Your game: ${this.state.gameid}`}</h2>
+                <div className="Game-h2 center"><h2>{`Your game: ${this.state.gameid}`}</h2></div>
                 <center>
                     <div className="gamewrap">
                         {/* <p onClick={this.userfinnished}>simulate done</p> */}
@@ -52,7 +52,7 @@ class GameScreen extends React.Component {
         }
 
         if (this.props.currentRound === 1) {
-            return <><h2>Write somthing for someone to draw</h2><input type="textbox" className="initalinput" placeholder="a dog with a trumpet"></input><div onClick={this.props.nowDone}>Done</div></>
+            return <><h2>Write somthing for someone to draw</h2><input type="textbox" className="initalinput" placeholder="a dog with a trumpet"></input><div className="Game-DoneButton" onClick={this.props.nowDone}>Done</div></>
         }
 
 

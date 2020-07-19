@@ -5,9 +5,6 @@ body {
     padding: 0;
     overflow-x: hidden;
     font-family: 'Amatic SC', cursive;
-    background-image: url("./images/background2.png");
-    background-size: 40%;
-    animation: 60s linear 1s infinite running bgSlide
     /* background-color: #F0F0F0; */
 }
 
@@ -56,12 +53,23 @@ label {
 
 .HostJoin-Container {
    
-    height: 100vw;
+    height: 100vh;
     width: auto;
     padding: 2em;
     font-size: 2em;
     font-family: 'Amatic SC', cursive;
     text-align: -webkit-center;
+
+    background-image: url("./images/background2.png");
+    background-size: 60%;
+    animation: 120s linear 1s infinite running bgSlide;
+    /* opacity: 0.5; */
+}
+
+@media only screen and (max-width: 600px) {
+    .HostJoin-Container {
+        background-size: 100%;
+    }
 }
 
 .HostJoin-HostButton {

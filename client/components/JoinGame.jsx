@@ -1,6 +1,9 @@
 import React from "react";
 import { getGameIdApi, getPlayersInlobby, addPlayerApi } from "../apis/apis";
 import { HashRouter as Router, Route, Link, Redirect } from "react-router-dom";
+import { connect } from 'react-redux'
+import { setGameId } from '../actions/gameId'
+
 
 class JoinGame extends React.Component {
     state = {
@@ -27,8 +30,10 @@ class JoinGame extends React.Component {
                                         color: "black",
                                     }
                                     
+                                    
                                 )
                                 .then(() => {
+                                    this.props.dispatch(setGameId(document.getElementById("gameid").value))
                                     socket.emit('send-nickname', document.getElementById("name").value)
                                     socket.emit("join", document.getElementById("gameid").value)
                                 document.getElementById("next").click()
@@ -71,4 +76,4 @@ class JoinGame extends React.Component {
     }
 }
 
-export default JoinGame;
+export default connect()(JoinGame)

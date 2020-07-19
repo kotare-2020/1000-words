@@ -196,7 +196,7 @@ label {
     padding: 10px;
     margin: 10px;
     border-radius: 4px;
-    font-size: 1em;
+    font-size: 1.5em;
     max-width: 50vw;
 }
 
@@ -220,6 +220,7 @@ input[type=text]{
   box-sizing: border-box!important;
   border: none!important;
   background-color: #ffffff!important;
+  border-radius: 4px
 
 }
 input:focus, textarea:focus, select:focus{
@@ -285,6 +286,7 @@ input[type=text]:hover{
 .gametitle {
     font-size: 2.5em;
     margin-bottom: 1em;
+    margin-top: -3em;
    
 }
 .gameInfoWrap{
@@ -298,4 +300,5 @@ margin-right: auto;
 }
 .initalinput {
     padding: 1.5em;
+    border-radius: 4px
 }

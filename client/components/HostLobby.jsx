@@ -1,24 +1,23 @@
 import React from 'react'
 import { HashRouter as Router, Route, Link, Redirect } from "react-router-dom"
-
+import { connect } from 'react-redux'
+import { setPlayers } from '../actions/players'
 
 class HostLobby extends React.Component {
     state = {
         connected: false,
         players: ["dev", "dev", "dev", "dev"],
         lobby: "error",
-        
+
     }
-    componentDidMount(){
-      
+
+
+    componentDidMount() {
         socket.on("error", res => {
             console.log("err", res)
-           // alert(`error ocured: ${res}`)
+            // alert(`error ocured: ${res}`)
         })
         socket.on("joinlobby", res => {
-          
-            
-       
             this.setState({
                 players: [...this.state.players, ...res]
             })
@@ -36,40 +35,42 @@ class HostLobby extends React.Component {
         })
         socket.on("roomleave", res => {
             let newlist = this.state.players.filter(elem => elem != res)
-           
+
             this.setState({
                 players: newlist
             })
         })
-    //    socket.on("gamestart", res => {
-    //     document.getElementById("gamestart").click()
-    //    })
-        
+        //    socket.on("gamestart", res => {
+        //     document.getElementById("gamestart").click()
+        //    })
+
     }
     startgame = () => {
         socket.emit("gamestart", this.state.lobby)
         document.getElementById("gamestart").click()
+        this.props.dispatch(setPlayers(this.state.players))
+
     }
-    
+
 
     render() {
         return (
             <>
-            <br></br>
-            <div className="gameInfoWrap">
-            <div className="gametitle">Game code: {this.state.lobby}</div>
-            {(this.state.players.length >= 5) ? <button onClick={this.startgame}>start</button> : <h1>Currently waiting for players...</h1>}
-            </div>
-            <br></br>
-            {this.state.players.map((elem, i) => {
-                return (<div key={i} className="nametag">{elem}</div>)
-            })}
+                <br></br>
+                <div className="gameInfoWrap">
+                    <div className="gametitle">Game code: {this.state.lobby}</div>
+                    {(this.state.players.length >= 5) ? <button onClick={this.startgame}>start</button> : <h1>Currently waiting for players...</h1>}
+                </div>
+                <br></br>
+                {this.state.players.map((elem, i) => {
+                    return (<div key={i} className="nametag">{elem}</div>)
+                })}
 
-            <br></br>
-            
-            <Link to="/game" id="gamestart"></Link>
+                <br></br>
+
+                <Link to="/game" id="gamestart"></Link>
             </>
         )
     }
 }
-export default HostLobby
+export default connect()(HostLobby)

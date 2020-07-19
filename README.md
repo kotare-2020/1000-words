@@ -47,7 +47,9 @@ Wireframe:
   | HostJoin | Landing page component allowing a player to either host or join a game |
   | HostLobby | Component that is displaying all joining players as they join, as well as the start game button for the host |
   | JoinGame | Component that lets a player enter their username as well as the game id for the game they would like to join|
-  | PlayerLobby | Component that is displaying all joining players as they join |
+  | PlayerLobby | Component that is displaying all players as they join |
+  | ViewSpace | Component capturing what was drawn in the canvas space |
+  | Writing | Component that lets players write a prompt based on a drawing or at the beginning of the game |
   
 
 # MoodBoard

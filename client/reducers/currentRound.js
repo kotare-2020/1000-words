@@ -1,6 +1,6 @@
 import {INCREMENT_CURRENT_ROUND} from "../actions/currentRound"
 
-const initialState = 0
+const initialState = 1
 
 const reducer = (state = initialState, action) => {
 

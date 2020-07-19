@@ -1,10 +1,12 @@
-
+import { connect } from 'react-redux'
 import React from 'react'
 
 
 class Canvas extends React.Component {
 
-
+    state = {
+        canvas: ""
+    }
 
     // stage = null
 
@@ -33,7 +35,7 @@ class Canvas extends React.Component {
             isPaint = true;
             var pos = this.stage.getPointerPosition();
             lastLine = new Konva.Line({
-                stroke: '#DF4B26',
+                stroke: '#000000',
                 strokeWidth: 5,
                 globalCompositeOperation:
                     mode === 'brush' ? 'source-over' : 'destination-out',
@@ -44,7 +46,8 @@ class Canvas extends React.Component {
 
         this.stage.on('mouseup touchend', () => {
             isPaint = false;
-            console.log(this.stage.toJSON())
+            console.log(this.stage.toJSON()) // this will be where the change is
+            this.props.saveDrawing(this.stage.toJSON())
         });
 
         // and core function - drawing
@@ -70,7 +73,7 @@ class Canvas extends React.Component {
                     <div id="container" className="center"></div>
                 </div>
                 <div className="flex-center">
-                    <button
+                    <button className="Canvas-SaveButton"
                         onClick={() => {
                             localStorage.setItem(
                                 "drawing", this.stage.toJSON()
@@ -84,4 +87,4 @@ class Canvas extends React.Component {
 }
 
 
-export default Canvas
+export default connect ()(Canvas) 

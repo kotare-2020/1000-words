@@ -1,16 +1,53 @@
-
+import { connect } from 'react-redux'
+import { addroundDataApi } from '../apis/apis'
 import React from 'react'
 import Canvas from './Canvas'
 
 
 class Drawing extends React.Component {
+  state = {
+    drawing: ""
+}
   handleClick=()=>{
     this.props.ready()
   }
   componentDidMount(){
     console.log(this.props)
   }
+ 
+
+ 
+
+
+
+handleChange = (event) => {
+    this.setState({
+        drawing: event.target.value
+    })
+}
+
+handleClick = () => {
+    // send input 
+    console.log(this.props.JSON)
+    this.postToDataBase()
+}
+
+postToDataBase = () => {
+    addRoundDataApi({
+        gameId: this.props.gameId,
+        dbdata: {
+        roundNumber: this.props.roundNumber,
+        roundInfo: this.state.drawing,
+        playerId: this.props.playerId,
+    }
+})
+    .catch((error) => {
+        console.log(error)
+    })
+}
+
   render() {
+
 
     return (
       <>
@@ -25,4 +62,13 @@ class Drawing extends React.Component {
 
 }
 
-export default Drawing
+const mapStateToProps = (state) => {
+  return {
+      gameId: state.game,
+      roundNumber: state.currentRound,
+      playerId: state.playerId,
+      currentRound: state.currentRound,
+  }
+}
+
+export default connect (mapStateToProps)(Drawing) 

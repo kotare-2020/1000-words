@@ -55,7 +55,6 @@ class HostLobby extends React.Component {
     startgame = () => {
         socket.emit("gamestart", this.state.lobby)
         document.getElementById("gamestart").click()
-        console.log("players = ", this.state.players)
         this.props.dispatch(setPlayers(this.state.players))
 
     }
@@ -64,17 +63,15 @@ class HostLobby extends React.Component {
     render() {
         return (
             <>
-                <br></br>
-                <div className="gameInfoWrap">
-                    <div className="gametitle">Game code: {this.state.lobby}</div>
-                    {(this.state.players.length >= 5) ? <button onClick={this.startgame}>start</button> : <h1>Currently waiting for players...</h1>}
-                </div>
-                <br></br>
-                {this.state.players.map((elem, i) => {
-                    return (<div key={i} className="nametag">{elem}</div>)
-                })}
-
-                <br></br>
+            <br></br>
+            <div className="gameInfoWrap">
+            <div className="gametitle">Game code: {this.state.lobby}</div>
+            {(this.state.players.length >= 5) ? <button className="HostLobby-StartButton" onClick={this.startgame}>start</button> : <h1>Currently waiting for players...</h1>}
+            </div>
+            <br></br>
+            {this.state.players.map((elem, i) => {
+                return (<div key={i} className="nametag">{elem}</div>)
+            })}
 
                 <Link to="/game" id="gamestart"></Link>
             </>

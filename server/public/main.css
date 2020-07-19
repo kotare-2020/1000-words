@@ -45,7 +45,9 @@ label {
 .control-container {
     /* border: red solid 2px; */
     width: 320px;
-    padding:  15px 10px;
+    padding: 10px;
+    padding-left: 3px;
+    /* padding:  10px 10px; */
 }
 
 #container {
@@ -195,6 +197,19 @@ label {
     border: none;
     padding: 10px;
     margin: 10px;
+    border-radius: 4px;
+    font-size: 1.5em;
+    max-width: 50vw;
+}
+
+/* --- Canvas --- */
+
+.Drawing-DoneButton {
+    background-color: #88c083;
+    font-family: 'Amatic SC', cursive;
+    border: none;
+    padding: 10px;
+    margin: 5px;
     border-radius: 4px;
     font-size: 1.5em;
     max-width: 50vw;

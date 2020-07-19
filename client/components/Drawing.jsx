@@ -49,12 +49,14 @@ handleClick = () => {
   render() {
     return (
       <>
-        <h1>Writing goes here!</h1>
+      <div className="flex-center">
+        <h2>Draw This: Writing goes here!</h2>
+        </div>
         <div className = "control-container center">
           <Canvas saveDrawing={this.saveDrawing}/>
         </div>
         <div className="flex-center">
-        <button onClick={this.handleClick}>Done</button>
+        <button className="Drawing-DoneButton" onClick={this.handleClick}>Done</button>
         </div>
       </>
     )

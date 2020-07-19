@@ -16,7 +16,7 @@ import Game from "./Game"
 
 class App extends React.Component {
 
-  colors = ["#EECB5C", "#4469B1", "#6CB2E2", "#88BF7B", "#F5BAB8"]
+  colors = ["#EECB5C", "#4469B1"]
 
   componentDidMount() {
     document.body.style.backgroundColor = this.colors[Math.floor(Math.random() * this.colors.length)]

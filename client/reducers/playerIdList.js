@@ -1,6 +1,6 @@
 import { SET_PLAYER_ID_LIST } from "../actions/playerIdList"
 
-const initialState = 0
+const initialState = []
 
 const Reducer = (state = initialState, action) => {
     switch(action.type) {

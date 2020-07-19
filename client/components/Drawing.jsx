@@ -53,7 +53,9 @@ handleClick = () => {
         <div className = "control-container center">
           <Canvas saveDrawing={this.saveDrawing}/>
         </div>
+        <div className="flex-center">
         <button onClick={this.handleClick}>Done</button>
+        </div>
       </>
     )
   }

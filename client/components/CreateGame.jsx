@@ -1,6 +1,6 @@
 import React from 'react'
 import HostLobby from './HostLobby'
-import { addHostApi, addPlayerApi } from '../apis/apis'
+import { addHostApi, addPlayerApi, createRound} from '../apis/apis'
 import { connect } from 'react-redux'
 import { setGameId } from '../actions/gameId'
 import { HashRouter as Router, Route, Link, Redirect } from "react-router-dom";
@@ -33,6 +33,12 @@ class CreateGame extends React.Component {
           color: "black",
         })
         .then(playerId => {
+          createRound(
+            {
+                    game: document.getElementById("hostName").value,
+                    player: playerId
+            }
+        )
           socket.emit('send-nickname', document.getElementById("hostName").value)
           socket.emit("join", res.id)
 

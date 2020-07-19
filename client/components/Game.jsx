@@ -15,12 +15,20 @@ class Game extends React.Component {
         finnished: [],
     }
 
- 
     userfinnished = () => {
 
         this.setState({ done: true })
-        socket.emit("imdone", this.gameid)
+        socket.emit("imdone", this.state.gameid)
     }
+    componentDidMount(){
+        socket.on("playerfinnished", res => {
+            console.log(`user ${res} finnished`)
+            this.setState({
+                finnished: [this.state.finnished, ... res]
+            })
+        })
+    }
+
     
     render() {
 
@@ -53,7 +61,6 @@ class GameScreen extends React.Component {
         if (this.props.currentRound === 1) {
             return <><h2>Write somthing for someone to draw</h2><input type="textbox" className="initalinput" placeholder="a dog with a trumpet"></input><div onClick={this.props.nowDone}>Done</div></>
         }
-
 
 
         return this.props.currentRound % 2 === 0

@@ -10,7 +10,7 @@ class HostLobby extends React.Component {
         
     }
     componentDidMount(){
-       document.title = "Host Lobby"
+      
         socket.on("error", res => {
             console.log("err", res)
            // alert(`error ocured: ${res}`)
@@ -27,6 +27,7 @@ class HostLobby extends React.Component {
            this.setState({
                lobby: res
            })
+           document.title = "Host Lobby " + res
         })
         socket.on("newlobbymemeber", res => {
             this.setState({

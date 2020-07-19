@@ -5,6 +5,8 @@ import { updateRoundData } from '../actions/dataBase'
 
 import Writing from './Writing'
 import Drawing from './Drawing'
+import { getPlayersInlobby } from '../apis/apis'
+import { setPlayerIdList } from '../actions/playerIdList'
 
 
 class Game extends React.Component {
@@ -22,6 +24,12 @@ class Game extends React.Component {
     }
   
     componentDidMount(){
+
+        getPlayersInlobby(this.props.gameId)
+        .then(playersInfo => playersInfo.body.map(playerInfo => playerInfo.player_id))
+        .then(playerIdList => this.props.dispatch(setPlayerIdList(playerIdList)))
+        
+
         if(this.state.gameid == 0) this.props.history.push("/")
         socket.on("playerfinnished", res => {
             console.log(`user ${res} finnished`)
@@ -83,6 +91,7 @@ const mapStateToProps = (state) => {
     return {
         players: state.players,
         gameId: state.game,
+        // playerIdList: playerIdList
     }
 }
 

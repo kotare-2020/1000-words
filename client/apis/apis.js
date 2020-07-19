@@ -37,6 +37,8 @@ export function getPlayersInlobby(id) {
     console.log(`${players}/${id}`)
     return request
         .get(`${players}/${id}`)
+        // .then(res => res.body)
+
 }
 
 export function addRoundDataApi(data) {

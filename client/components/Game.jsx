@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { connect } from 'react-redux'
-import { updateRoundData } from '../actions/dataBase'
+import { incrementCurrentRound} from '../actions/currentRound'
 import Writing from './Writing'
 import Drawing from './Drawing'
 
@@ -27,14 +27,18 @@ class Game extends React.Component {
             this.setState({
                 finnished: [...this.state.finnished, res]
             })
-            if(this.props.players.length == this.state.finnished.length) {
+            console.log(this.props.players.length == this.state.finnished.length)
+            console.log(this.props.players.length, this.state.finnished.length)
+            if(this.props.players.length == this.state.finnished.length && this.props.players.length >= 5 ) {
+                console.log("all users done")
+                
+                this.props.dispatch(incrementCurrentRound())
                 this.setState({
                     round: this.state.round + 1,
                     done: false,
                     finnished: [],
-                   
                 })
-                this.props.dispatch(updateRoundData())
+                
             }
         })
     }

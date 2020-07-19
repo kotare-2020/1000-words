@@ -40,11 +40,19 @@ export function getPlayersInlobby(id) {
 }
 
 export function addRoundDataApi(data) {
-    console.log(data);
-    console.log("this is from the api");
     return request 
         .patch(`${round}/${data.gameId}`)
         .send(data.dbdata)
+        .then(res => {
+            return res.body
+        })
+}
+export function createRound(data) {
+    console.log(data);
+    console.log("this is from the api");
+    return request 
+        .post(`${round}/${data.game}`)
+        .send(data)
         .then(res => {
             return res.body
         })

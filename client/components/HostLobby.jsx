@@ -10,7 +10,7 @@ class HostLobby extends React.Component {
         lobby: "error",
 
     }
-
+    
 
     componentDidMount() {
        

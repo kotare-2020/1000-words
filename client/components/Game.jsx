@@ -2,7 +2,6 @@ import React from 'react'
 
 import { connect } from 'react-redux'
 import { updateRoundData } from '../actions/dataBase'
-
 import Writing from './Writing'
 import Drawing from './Drawing'
 
@@ -33,7 +32,9 @@ class Game extends React.Component {
                     round: this.state.round + 1,
                     done: false,
                     finnished: [],
+                   
                 })
+                this.props.dispatch(updateRoundData())
             }
         })
     }

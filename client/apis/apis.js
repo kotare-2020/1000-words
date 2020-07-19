@@ -37,3 +37,12 @@ export function getPlayersInlobby(id) {
     return request
         .get(`${players}/${id}`)
 }
+
+export function addRoundDataApi(data) {
+    return request 
+        .patch(`${round}/${id}`)
+        .send(data)
+        .then(res => {
+            return res.body
+        })
+}

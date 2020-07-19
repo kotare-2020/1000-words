@@ -4,6 +4,7 @@ import { addHostApi, addPlayerApi } from '../apis/apis'
 import { connect } from 'react-redux'
 import { setGameId } from '../actions/gameId'
 import { HashRouter as Router, Route, Link, Redirect } from "react-router-dom";
+import { setPlayerId }  from '../actions/playerId'
 
 class CreateGame extends React.Component {
 
@@ -31,12 +32,12 @@ class CreateGame extends React.Component {
           game_id: res.id,
           color: "black",
         })
-        .then(() => {
-          console.log(res);
+        .then(playerId => {
           socket.emit('send-nickname', document.getElementById("hostName").value)
           socket.emit("join", res.id)
 
           this.props.dispatch(setGameId(res.id))
+          this.props.dispatch(setPlayerId(playerId))
           document.getElementById("gotolobby").click()
         })
         .catch(err => {
@@ -69,9 +70,11 @@ class CreateGame extends React.Component {
 }
 const mapStateToProps = (state) => {
   return {
-    gameId: state.gameId
+    gameId: state.gameId,
+    playerId: state.playerId
   }
 }
 
 // export default CreateGame
 export default connect(mapStateToProps)(CreateGame)
+

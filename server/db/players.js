@@ -13,6 +13,11 @@ function addPlayer(player, db = connection) {
     })
 }
 
-function getPlayers(id, db = connection) {
-    return db('players').where('game_id', id)
+function getPlayers(gameId, db = connection) {
+    return db('players').where('game_id', gameId)
 }
+
+// function getPlayerId(gameId, playerName, db = connection){
+//     return db('players')
+//     .where('game_id', gameId)
+// }

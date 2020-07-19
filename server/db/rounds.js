@@ -23,7 +23,12 @@ function getSingleRound(gameId, roundNum ,db = connection) {
 
 function addRound(roundData ,db = connection) {
     let obj = {}
+    console.log("1st", obj);
     obj['round' + roundData.roundNumber] = roundData.roundInfo
+        if((roundData.roundNumber)%2 != 1) {
+            obj['round' + roundData.roundNumber] = JSON.stringify(roundData.roundInfo) 
+            console.log(obj);
+        }
     return db('rounds')
     .where('player', roundData.player_id,)
     .update(obj)

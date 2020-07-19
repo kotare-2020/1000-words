@@ -25,8 +25,9 @@ router.get('/:gameId/:roundNum', (req, res) => {
         })
 })
 
-router.patch('/round/:id', (req, res) => {
+router.patch('/:id', (req, res) => {
     const roundData = req.body
+    console.log('patch is hit');
     // const roundNumber = req.params.id
     db.addRound(roundData, 
         // roundNumber
@@ -35,7 +36,7 @@ router.patch('/round/:id', (req, res) => {
             res.sendStatus(200)
         })
         .catch(error => {
-            console.log(error.message);
+            console.log(error);
             
             res.status(500).send(error)
         })

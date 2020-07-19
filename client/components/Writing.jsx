@@ -18,6 +18,7 @@ class Writing extends React.Component {
     handleClick = () => {
         // send input 
         console.log(this.props.JSON)
+        this.props.ready()
         this.postToDataBase()
     }
 

@@ -57,7 +57,8 @@ io.on('connection', function(socket){
         io.to(res).emit("gamestart", "go");
     })
     socket.on("imdone", res => {
-        
+        console.log(`user ${socket.nickname} is done in lobby ${res}`)
+        io.to(res).emit("playerfinnished", socket.nickname);
     })
     socket.on("create", res => {
         console.log(socket.id, "create", res)

@@ -6,28 +6,30 @@ import { setPlayers } from '../actions/players'
 class HostLobby extends React.Component {
     state = {
         connected: false,
-        players: ["dev", "dev", "dev", "dev"],
+        players: [],
         lobby: "error",
 
     }
+
+
     componentDidMount() {
-        document.title = "Host Lobby"
+       
         socket.on("error", res => {
             console.log("err", res)
             // alert(`error ocured: ${res}`)
         })
         socket.on("joinlobby", res => {
-
-
-
             this.setState({
                 players: [...this.state.players, ...res]
             })
         })
         socket.on("lobby", res => {
-            this.setState({
-                lobby: res
-            })
+           this.setState({
+               lobby: res
+           })
+           document.title = "Host Lobby " + res
+         
+       
         })
         socket.on("newlobbymemeber", res => {
             this.setState({
@@ -41,6 +43,10 @@ class HostLobby extends React.Component {
                 players: newlist
             })
         })
+        setTimeout(() => {
+            console.log(this.state.lobby)
+            if(this.state.lobby == "error") this.props.history.push("/")
+        }, 100);
         //    socket.on("gamestart", res => {
         //     document.getElementById("gamestart").click()
         //    })

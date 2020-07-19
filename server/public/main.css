@@ -19,7 +19,7 @@ h1 {
 }
 
 label {
-    font-size: 1.5em;
+    font-size: 1.25em;
 }
 
 .game-screen {
@@ -221,7 +221,8 @@ input[type=text]:hover{
 }
 
 .inputtitle {
-    margin-left: 10%;   
+    margin-left: 10%;
+    font-size: 2em;   
 }
 .inputWraper{
     margin-bottom: 2rem;

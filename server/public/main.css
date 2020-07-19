@@ -22,16 +22,36 @@ label {
     font-size: 1.5em;
 }
 
+.game-screen {
+    top: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dev-menu {
+    z-index: 1000;
+    position: absolute;
+    top: 0;
+}
+
+.game-content {
+    width: 100%;
+}
+
 .control-container {
     border: red solid 2px;
-    width: 520px;
-    padding: 10px;
+    width: 320px;
+    padding:  15px 10px;
 }
 
 #container {
     border: black solid 2px;
-    height: 500px;
-    width: 500px;
+    height: 400px;
+    width: 300px;
 }
 
 .center {

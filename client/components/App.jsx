@@ -33,26 +33,28 @@ class App extends React.Component {
 
 
     return (
-      
+
       <>
-      
 
-      <div id="wrapper">
+
+
         <Router>
-          dev menu | <Link to="/">home</Link> | <Link to="/game">game</Link> | <Link to="/canvas">canvas</Link> | 
-    
-          <Route exact path="/" component={HostJoin} />
-          <Route exact path="/create" component={CreateGame} />
-          <Route exact path="/join" component={JoinGame} />
-          <Route exact path="/lobby" component={PlayerLobby} />
-          <Route exact path="/canvas" component={drawcanvas} />
-          <Route exact path="/hostLobby" component={HostLobby} />
-          <Route exact path="/game" component={Game} />
-          {/* <Route exact path="/apis" component={APIs} /> */}
-
+          <div className="dev-menu">
+            dev menu | <Link to="/">home</Link> | <Link to="/game">game</Link> | <Link to="/canvas">canvas</Link> |
+          </div>
+          <div className="game-screen">
+            <div className="game-content">
+              <Route exact path="/" component={HostJoin} />
+              <Route exact path="/create" component={CreateGame} />
+              <Route exact path="/join" component={JoinGame} />
+              <Route exact path="/lobby" component={PlayerLobby} />
+              <Route exact path="/canvas" component={drawcanvas} />
+              <Route exact path="/hostLobby" component={HostLobby} />
+              <Route exact path="/game" component={Game} />
+              {/* <Route exact path="/apis" component={APIs} /> */}
+            </div>
+          </div>
         </Router>
-
-        </div>
       </>
     )
   }

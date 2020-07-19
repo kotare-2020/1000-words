@@ -38,3 +38,14 @@ export function getPlayersInlobby(id) {
     return request
         .get(`${players}/${id}`)
 }
+
+export function addRoundDataApi(data) {
+    console.log(data);
+    console.log("this is from the api");
+    return request 
+        .patch(`${round}/${data.gameId}`)
+        .send(data.dbdata)
+        .then(res => {
+            return res.body
+        })
+}

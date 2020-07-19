@@ -65,10 +65,9 @@ class HostLobby extends React.Component {
     render() {
         return (
             <>
-            <br></br>
             <div className="gameInfoWrap">
             <div className="gametitle">Game code: {this.state.lobby}</div>
-            {(this.state.players.length >= 5) ? <button className="HostLobby-StartButton" onClick={this.startgame}>start</button> : <h1>Currently waiting for players...</h1>}
+            {(this.state.players.length >= 5) ? <button className="HostLobby-StartButton" onClick={this.startgame}>start</button> : <h2>Currently waiting for players...</h2>}
             </div>
             <br></br>
             {this.state.players.map((elem, i) => {

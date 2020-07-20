@@ -71,7 +71,7 @@ label {
     width: 400px
 }
 
-.button {
+button {
     transition: transform 0.2s;
     font-family: 'Amatic SC', cursive;
     border: none;

@@ -69,7 +69,7 @@ class Game extends React.Component {
                 <center>
                     <div className="gamewrap">
                         {/* <p onClick={this.userfinnished}>simulate done</p> */}
-                        <span><h1>{`Round ${this.state.round} ${((this.state.round % 2) == 1) ? "write" : "draw"}`}</h1></span>
+                        <span><h1 className="Game-h1-Round">{`Round ${this.state.round} ${((this.state.round % 2) == 1) ? "write" : "draw"}`}</h1></span>
 
                         <GameScreen isDone={this.state.done} currentRound={this.state.round} playerPosition={this.state.playerPosition} nowDone={this.userfinnished}/>
 

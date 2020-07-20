@@ -1,7 +1,8 @@
 import React from 'react'
-class ViewSpace extends React.Component {
+class GalleryImg extends React.Component {
     componentDidMount() {
-    
+        var width = 300;
+        var height = 400;
         var json =
             { 
                 "attrs": { "width": 300, "height": 400 }, "className": "Stage", "children": [{ "attrs": {}, "className": "Layer", "children": [{ "attrs": { "stroke": "#DF4B26", "strokeWidth": 5, "points": [
@@ -11,18 +12,19 @@ class ViewSpace extends React.Component {
             "className": "Line" 
             }] }] 
         }
-        var stage = Konva.Node.create(json, 'viewingSpace');
+        var stage = Konva.Node.create(this.props.data, 'viewingSpace2');
+ 
     }
     render() {
         return (
             <>
                 <div className=" Writing-box center">
                     <div id="container">
-                        <div id="viewingSpace" className="container center"></div>
+                        <div id="viewingSpace2" className="container center"></div>
                     </div>
                 </div>
             </>
         )
     }
 }
-export default ViewSpace
+export default GalleryImg

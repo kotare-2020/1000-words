@@ -8,6 +8,7 @@ module.exports = {
 }
 
 function getAllRounds(id, db = connection) {
+    console.log("get all rounds recived ", id)
     return db('rounds')
         .join("players", "rounds.player", "players.player_id")
         .where('game_id', id)

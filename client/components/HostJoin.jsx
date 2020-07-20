@@ -5,8 +5,8 @@ const HostJoin = () => {
         <>
             <div className="HostJoin-Container center">
                 <div>
-                    <h1>1000 Words</h1>
-                    <p>Host or Join a game!</p>
+                    <h1 className="HostJoin-h1">1000 Words</h1>
+                    <p className="HostJoin-p1">Host or Join a game!</p>
                 </div>
                 <div>
                     {/* <div className="navlin"><Link to="apis" onClick={this.scrollto}>APIs</Link></div> */}

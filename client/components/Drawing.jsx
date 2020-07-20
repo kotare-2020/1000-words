@@ -12,14 +12,14 @@ class Drawing extends React.Component {
 }
 handleClick = () => {
     console.log("user clicked done")
-    this.props.dispatch(updateRoundData({
-      gameId: this.props.gameId, 
-      dbdata: {
-        roundNumber: this.props.roundNumber,
-        playerId: this.props.playerId,
-        roundInfo: this.state.drawing,
-      }
-    }))
+    // this.props.dispatch(updateRoundData({
+    //   gameId: this.props.gameId, 
+    //   dbdata: {
+    //     roundNumber: this.props.roundNumber,
+    //     playerId: this.props.playerId,
+    //     roundInfo: this.state.drawing,
+    //   }
+    // }))
     this.props.ready()
      // this.postToDataBase()
   }
@@ -29,6 +29,7 @@ handleClick = () => {
   }
 
   saveDrawing = (drawing) => {
+    this.props.handleChange(drawing)
     this.setState({drawing: drawing})
   }
 

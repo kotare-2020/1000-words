@@ -33,7 +33,7 @@ class Game extends React.Component {
             playerPosition: (this.props.playerIdList.indexOf(this.props.playerId))
         }))
 
-     //   if(this.state.gameid == 0) this.props.history.push("/")
+       if(this.state.gameid == 0) this.props.history.push("/")
         socket.on("playerfinnished", res => {
             console.log(`user ${res} finnished`)
             this.setState({

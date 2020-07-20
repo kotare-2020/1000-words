@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 //import { fetchRounds } from '../actions/allRounds'
 import { getAllRounds, getPlayersInlobby} from "../apis/apis"
-import Viewspace from "./ViewSpace"
+import ViewSpace from "./ViewSpace"
 
 class Gallery extends React.Component {
   state = {
@@ -96,7 +96,7 @@ class Gallery extends React.Component {
   render() {
 
     return (
-      <div className="gallery-image-container">
+      <div className="gallery-image-container center">
         <center>
 
     
@@ -137,7 +137,7 @@ class UserCard extends React.Component {
    
     return(<div>
    
-      <h2>{this.props.users[this.props.round - 1 ]} wrote</h2>
+      <h2>{this.props.users[this.props.round - 1 ]} wrote:</h2>
       <p>{this.props.data}</p>
       </div>)
     }
@@ -147,14 +147,14 @@ class UserCard extends React.Component {
     if ((this.props.round % 2) == 0) {
       return (<div>
       
-        <h2>{this.props.users[this.props.round - 1]} drew it like this</h2>
+        <h2>{this.props.users[this.props.round - 1]} drew it like this:</h2>
         <p>{this.props.data}</p>
-        <Viewspace/>
+        {/* <ViewSpace/> */}
       </div>)
     }
     else {
       return (<div>
-        <h2>{this.props.users[this.props.round - 1]} thought it was</h2>
+        <h2>{this.props.users[this.props.round - 1]} thought it was:</h2>
         <p>{this.props.data}</p>
       </div>)
     }

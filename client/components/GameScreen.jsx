@@ -71,11 +71,11 @@ export class GameScreen extends React.Component {
         //console.log(this.userfinnished)
       
         if (this.props.isDone) {
-            return <div><h2>Your all done!</h2><p>waiting on other players</p></div>
+            return <div><h2>You're all done!</h2><p>waiting on other players</p></div>
         }
 
         if (this.props.currentRound === 1) {
-            return <><h2>Write somthing for someone to draw</h2><input onChange={(e) => this.handleChange(e.target.value)} type="textbox" className="initalinput" placeholder="a dog with a trumpet"></input><div className="Game-DoneButton" onClick={this.handleClick}>Done</div></>
+            return <><h2>Write something for another player to draw</h2><input onChange={(e) => this.handleChange(e.target.value)} type="textbox" className="initalinput" placeholder="a dog with a trumpet"></input><div className="Game-DoneButton" onClick={this.handleClick}>Done</div></>
         }
 
 

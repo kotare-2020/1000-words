@@ -70,10 +70,24 @@ label {
 
 .Writing_textInput {
     height: 70px;
-    width: 400px
+    max-width: 80vw;
 }
 
-.button {
+button {
+    transition: transform 0.2s;
+    font-family: 'Amatic SC', cursive;
+    border: none;
+    padding: 5px 10px;
+    margin: 10px;
+    border-radius: 4px;
+    font-size: 20pt;
+    max-width: 50vw;
+    cursor: pointer;
+    width: 300px;
+    height: 60px;
+}
+
+/* .button {
     transition: transform 0.2s;
     font-family: 'Amatic SC', cursive;
     border: none;
@@ -83,6 +97,10 @@ label {
     font-size: 1.25rem;
     max-width: 50vw;
     cursor: pointer;
+} */
+
+.green {
+    background-color: #88c083;
 }
 
 /* --- Components --- */
@@ -183,6 +201,15 @@ label {
     max-width: 50vw;
 }
 
+.HostLobby-players {
+    padding: 10px;
+    margin-bottom: 50px;
+}
+
+.start {
+    margin-top: 50px;
+}
+
 /* --- Game --- */
 
 .Game-DoneButton {
@@ -202,7 +229,7 @@ label {
     max-width: 50vw;
 }
 
-/* --- Canvas --- */
+/* --- Drawing --- */
 
 .Drawing-DoneButton {
     background-color: #88c083;
@@ -213,6 +240,13 @@ label {
     border-radius: 4px;
     font-size: 1.5em;
     max-width: 50vw;
+    width: 300px;
+}
+
+/* --- Writing --- */
+
+.Writing-box {
+    padding-left: 12px;
 }
 
 

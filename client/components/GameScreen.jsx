@@ -75,7 +75,7 @@ export class GameScreen extends React.Component {
         }
 
         if (this.props.currentRound === 1) {
-            return <><h2>Write somthing for someone to draw</h2><input onChange={(e) => this.handleChange(e.target.value)} type="textbox" className="initalinput" placeholder="a dog with a trumpet"></input><div className="Game-DoneButton" onClick={this.handleClick}>Done</div></>
+            return <><h2>Write somthing for someone to draw</h2><input onChange={(e) => this.handleChange(e.target.value)} type="textbox" className="initalinput" placeholder="a dog with a trumpet"></input><button className="green" onClick={this.handleClick}>Done</button></>
         }
 
 

@@ -42,7 +42,7 @@ class App extends React.Component {
 
         <Router>
           <div className="dev-menu">
-            dev menu | <Link to="/">home</Link> | <Link to="/game">game</Link> | <Link to="/canvas">canvas</Link> | <Link to="/Writing">Writing</Link> | <Link to="/Drawing">Drawing</Link>
+            dev menu | <Link to="/">home</Link> | <Link to="/game">game</Link> | <Link to="/canvas">canvas</Link> | <Link to="/Writing">Writing</Link> | <Link to="/Drawing">Drawing</Link> | <Link to="/Gallery">gallery</Link> 
           </div>
           <div className="game-screen">
             <div className="game-content">

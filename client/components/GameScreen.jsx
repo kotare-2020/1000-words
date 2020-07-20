@@ -1,7 +1,7 @@
 import React from 'react'
 import { updateRoundData } from '../actions/dataBase'
 import { connect } from 'react-redux'
-import { incrementCurrentRound} from '../actions/currentRound'
+import { incrementCurrentRound } from '../actions/currentRound'
 import Writing from './Writing'
 import Drawing from './Drawing'
 import { getPlayersInlobby } from '../apis/apis'
@@ -25,7 +25,7 @@ export class GameScreen extends React.Component {
         let positionNumber = this.props.playerPosition + (this.props.currentRound - 1)
         console.log('positionNumber:', positionNumber)
         console.log(positionNumber, 'vs', this.props.playerIdList.length);
-        if (positionNumber >= this.props.playerIdList.length){
+        if (positionNumber >= this.props.playerIdList.length) {
             console.log('wrap');
             return this.props.playerIdList[positionNumber - (this.props.playerIdList.length)]
         } else {
@@ -36,15 +36,15 @@ export class GameScreen extends React.Component {
 
     handleClick = () => {
         this.props.nowDone()
-      
+
         this.props.dispatch(updateRoundData({
-            gameId: this.props.gameId, 
+            gameId: this.props.gameId,
             dbdata: {
-              roundNumber: this.props.roundNumber,
-              playerId: this.props.playerId,
-              roundInfo: this.state.roundData,
+                roundNumber: this.props.roundNumber,
+                playerId: this.props.playerId,
+                roundInfo: this.state.roundData,
             }
-          }))
+        }))
     }
 
     roundDone = () => {
@@ -56,32 +56,39 @@ export class GameScreen extends React.Component {
 
 
         this.props.nowDone()
-      
+
         this.props.dispatch(updateRoundData({
-            gameId: this.props.gameId, 
+            gameId: this.props.gameId,
             dbdata: {
-              roundNumber: this.props.roundNumber,
-              playerId: playerToSendTo,
-              roundInfo: this.state.roundData,
+                roundNumber: this.props.roundNumber,
+                playerId: playerToSendTo,
+                roundInfo: this.state.roundData,
             }
-          }))
+        }))
     }
 
     render() {
         //console.log(this.userfinnished)
-      
+
         if (this.props.isDone) {
             return <div><h2>Your all done!</h2><p>waiting on other players</p></div>
         }
 
         if (this.props.currentRound === 1) {
-            return <><h2>Write somthing for someone to draw</h2><input onChange={(e) => this.handleChange(e.target.value)} type="textbox" className="initalinput" placeholder="a dog with a trumpet"></input><div className="Game-DoneButton" onClick={this.handleClick}>Done</div></>
+            return <>
+                <h2>Write somthing for someone to draw</h2>
+                <input onChange={(e) => this.handleChange(e.target.value)} type="textbox" className="initalinput" placeholder="a dog with a trumpet">
+                </input>
+                <div className="Game-DoneButton" onClick={this.handleClick}>
+                    Done
+                </div>
+            </>
         }
 
 
         return this.props.currentRound % 2 === 0
-            ? <Drawing handleChange={this.handleChange} ready={this.roundDone}/>
-            : <Writing handleChange={this.handleChange} ready={this.roundDone}/>
+            ? <Drawing handleChange={this.handleChange} ready={this.roundDone} />
+            : <Writing handleChange={this.handleChange} ready={this.roundDone} />
     }
 }
 

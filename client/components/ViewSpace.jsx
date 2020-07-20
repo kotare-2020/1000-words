@@ -1,6 +1,9 @@
 import React from 'react'
 class ViewSpace extends React.Component {
     componentDidMount() {
+
+
+        
         var width = 300;
         var height = 400;
         var json =

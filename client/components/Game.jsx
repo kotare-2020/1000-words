@@ -48,7 +48,7 @@ class Game extends React.Component {
                 console.log("all users done")
                 
                 this.props.dispatch(incrementCurrentRound())
-                
+
                 this.setState({
                     round: this.state.round + 1,
                     done: false,
@@ -57,6 +57,12 @@ class Game extends React.Component {
                 
             }
         })
+    }
+
+    componentDidUpdate() {
+        if(this.state.round > this.props.playerIdList.length) {
+            this.props.history.push("/Gallery")
+        }
     }
 
     
@@ -69,7 +75,7 @@ class Game extends React.Component {
                 <center>
                     <div className="gamewrap">
                         {/* <p onClick={this.userfinnished}>simulate done</p> */}
-                        <span><h1>{`Round ${this.state.round} ${((this.state.round % 2) == 1) ? "write" : "draw"}`}</h1></span>
+                        <span><h1 className="Game-h1-Round">{`Round ${this.state.round} ${((this.state.round % 2) == 1) ? "write" : "draw"}`}</h1></span>
 
                         <GameScreen isDone={this.state.done} currentRound={this.state.round} playerPosition={this.state.playerPosition} nowDone={this.userfinnished}/>
 

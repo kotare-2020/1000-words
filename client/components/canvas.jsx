@@ -72,7 +72,7 @@ class Canvas extends React.Component {
                 <div className="control-container center">
                     <div id="container" className="center"></div>
                 </div>
-                <div className="flex-center">
+                {/* <div className="flex-center">
                     <button className="Canvas-SaveButton"
                         onClick={() => {
                             localStorage.setItem(
@@ -80,7 +80,7 @@ class Canvas extends React.Component {
                             );
                         }}
                     >Save</button>
-                </div>
+                </div> */}
             </>
         )
     }

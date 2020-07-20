@@ -10,6 +10,7 @@ class HostLobby extends React.Component {
             "ben", "rubin", "nick", "marta", "andy"
         ],
         lobby: "error",
+        
 
     }
     
@@ -67,12 +68,17 @@ class HostLobby extends React.Component {
             <>
             <div className="gameInfoWrap">
             <div className="gametitle">Game code: {this.state.lobby}</div>
-            {(this.state.players.length >= 5) ? <button className="HostLobby-StartButton" onClick={this.startgame}>start</button> : <h2>Currently waiting for players...</h2>}
+           
             </div>
-            <br></br>
+            
+            <div className="HostLobby-players">
             {this.state.players.map((elem, i) => {
                 return (<div key={i} className="nametag">{elem}</div>)
             })}
+            </div>
+            <div className="center">
+             {(this.state.players.length >= 5) ? <button className="green start" onClick={this.startgame}>start</button> : <h2>Currently waiting for players...</h2>}
+             </div>
 
                 <Link to="/game" id="gamestart"></Link>
             </>

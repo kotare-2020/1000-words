@@ -39,11 +39,15 @@ class Writing extends React.Component {
     render() {
         return (
             <>
-                <textarea name="writing" rows="5" cols="50" className="Writing_textInput center" onChange={this.handleChange}>The cat was playing in the garden.</textarea>
+            <div className="center">
+                <textarea name="writing" rows="5" cols="50" className="Writing_textInput center" defaultValue="Describe what you see!" onChange={this.handleChange}></textarea>
+                </div>
                 <div className="control-container center">
                 <ViewSpace />
                 </div>
-                <button onClick={this.handleClick} className="Writing_button center">DONE</button>
+                <div className="center">
+                <button onClick={this.handleClick} className="Writing_button center green">DONE</button>
+                </div>
             </>
         )
     }

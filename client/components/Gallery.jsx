@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 //import { fetchRounds } from '../actions/allRounds'
 import { getAllRounds, getPlayersInlobby} from "../apis/apis"
+import Viewspace from "./ViewSpace"
 
 class Gallery extends React.Component {
   state = {
@@ -17,26 +18,20 @@ class Gallery extends React.Component {
   
   componentDidMount() {
 
-//this . state . index
-    setTimeout(() => {
-      // console.log(`the keuys are ${Object.keys(this.state.gamedata[0])} asf`)
-     let roundarr = []
-      for (const key of Object.keys(this.state.gamedata[this.state.index])) {
-       roundarr.push(this.state.gamedata[this.state.index][key])
-      }
-      roundarr.shift()
-        this.setState({
-          currentround: roundarr
-        })
-    }, 100);
-
-
-
     getAllRounds(this.state.gameid)
       .then(res => {
+        let roundarr = []
+       
+        for (const key of Object.keys(res[this.state.index])) {
+       
+         roundarr.push(res[this.state.index][key])
+        }
+        roundarr.shift()
         this.setState({
-          gamedata: res
+            currentround: roundarr,
+            gamedata: res,
         })
+        
       
       })
       .catch(err => {
@@ -51,6 +46,8 @@ class Gallery extends React.Component {
        usernames.push(user.player_name)
       })
       console.log(usernames)
+      console.log( usernames.concat(usernames))
+     
       this.setState({playersInGame: usernames})
   
     })
@@ -70,10 +67,30 @@ class Gallery extends React.Component {
        })
   }
   onPrev = () => {
+    let roundarr = []
+    for (const key of Object.keys(this.state.gamedata[this.state.index - 1])) {
+      roundarr.push(this.state.gamedata[this.state.index][key])
+     }
+     roundarr.shift()
+       this.setState({
+         currentround: roundarr,
+         index: this.state.index - 1
+       })
+  console.log("prev")
   
   }
   onNext = () => {
-    
+    let roundarr = []
+    console.log(this.state.index + 1)
+    for (const key of Object.keys(this.state.gamedata[this.state.index + 1])) {
+      roundarr.push(this.state.gamedata[this.state.index][key])
+     }
+     roundarr.shift()
+       this.setState({
+         currentround: roundarr,
+         index: this.state.index + 1
+       })
+    console.log("next")
   }
 
   render() {
@@ -81,15 +98,25 @@ class Gallery extends React.Component {
     return (
       <div className="gallery-image-container">
         <center>
+
     
-        {this.state.currentround.map((round, i) => {
-     
-          return <UserCard data={round} round={i + 1} users={this.state.playersInGame}/>
+        {console.log(Object.values(this.state.gamedata[this.state.index]).slice(1))}
+        {(Object.values(this.state.gamedata[this.state.index]).slice(1)).map((round, i) => {
+          
+          return <UserCard data={round} round={i + 1} users={this.state.playersInGame} index={this.state.index}/>
         }) }
+        {(this.state.index > 0) ? 
+        <button className="gallery-image-nav gallery-image-prev" onClick={this.onPrev}>{"<"}</button> 
+        : 
+        <button className="gallery-image-nav gallery-image-prev" disabled>{"<"}</button>
+        }
 
-
-        <button className="gallery-image-nav gallery-image-prev" onClick={this.onPrev}>{"<"}</button>
-        <button className="gallery-image-nav gallery-image-next" onClick={this.onNext}>{">"}</button>
+        {(this.state.index < this.state.playersInGame.length - 1) ? 
+        <button className="gallery-image-nav gallery-image-next" onClick={this.onNext}>{">"}</button> 
+        : 
+        <button className="gallery-image-nav gallery-image-next" disabled>{">"}</button>
+        }
+        
        
         </center>
       </div>
@@ -100,7 +127,8 @@ class Gallery extends React.Component {
 class UserCard extends React.Component {
 
   render() {
-  
+
+    {  console.log("index: ",this.props.index)}
     if(this.props.round == 1) {
    
     return(<div>
@@ -112,11 +140,12 @@ class UserCard extends React.Component {
     if(this.props.round > this.props.users.length) {
       return("")
     }
-    if ((this.props.round % 2) == 1) {
+    if ((this.props.round % 2) == 0) {
       return (<div>
       
         <h2>{this.props.users[this.props.round - 1]} drew it like this</h2>
         <p>{this.props.data}</p>
+        <Viewspace/>
       </div>)
     }
     else {

@@ -43,13 +43,16 @@ label {
 }
 
 .control-container {
-    border: red solid 2px;
+    /* border: red solid 2px; */
     width: 320px;
-    padding:  15px 10px;
+    padding: 10px;
+    padding-left: 3px;
+    /* padding:  10px 10px; */
 }
 
 #container {
     border: black solid 2px;
+    background-color: #fffef2;
     height: 400px;
     width: 300px;
 }
@@ -67,10 +70,24 @@ label {
 
 .Writing_textInput {
     height: 70px;
-    width: 400px
+    max-width: 80vw;
 }
 
-.button {
+button {
+    transition: transform 0.2s;
+    font-family: 'Amatic SC', cursive;
+    border: none;
+    padding: 5px 10px;
+    margin: 10px;
+    border-radius: 4px;
+    font-size: 20pt;
+    max-width: 50vw;
+    cursor: pointer;
+    width: 300px;
+    height: 60px;
+}
+
+/* .button {
     transition: transform 0.2s;
     font-family: 'Amatic SC', cursive;
     border: none;
@@ -80,6 +97,10 @@ label {
     font-size: 1.25rem;
     max-width: 50vw;
     cursor: pointer;
+} */
+
+.green {
+    background-color: #88c083;
 }
 
 /* --- Components --- */
@@ -180,14 +201,52 @@ label {
     max-width: 50vw;
 }
 
-/* --- Game --- */
-
-.Game-h2 {
-
+.HostLobby-players {
+    padding: 10px;
+    margin-bottom: 50px;
 }
+
+.start {
+    margin-top: 50px;
+}
+
+/* --- Game --- */
 
 .Game-DoneButton {
     padding: 1.5em;
+}
+
+/* --- Canvas --- */
+
+.Canvas-SaveButton {
+    background-color: #88c083;
+    font-family: 'Amatic SC', cursive;
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 4px;
+    font-size: 1.5em;
+    max-width: 50vw;
+}
+
+/* --- Drawing --- */
+
+.Drawing-DoneButton {
+    background-color: #88c083;
+    font-family: 'Amatic SC', cursive;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 4px;
+    font-size: 1.5em;
+    max-width: 50vw;
+    width: 300px;
+}
+
+/* --- Writing --- */
+
+.Writing-box {
+    padding-left: 12px;
 }
 
 
@@ -210,6 +269,7 @@ input[type=text]{
   box-sizing: border-box!important;
   border: none!important;
   background-color: #ffffff!important;
+  border-radius: 4px
 
 }
 input:focus, textarea:focus, select:focus{
@@ -231,7 +291,7 @@ input[type=text]:hover{
     margin-bottom: 2rem;
 }
 .join-button {
-    background-color: #3aadda;
+    background-color: #f7bdbc;
     font-family: 'Amatic SC', cursive;
     width: 30vw;
     height: 5vh;
@@ -269,12 +329,13 @@ input[type=text]:hover{
     width: 30%;
     margin-left: 2.5%;
     margin-bottom: 1%;
-    font-size: 5em;
+    font-size: 2em;
    float: left;
 }
 .gametitle {
-    font-size: 4em;
-    margin-bottom: -0.7em;
+    font-size: 2.5em;
+    margin-bottom: 1em;
+    margin-top: -3em;
    
 }
 .gameInfoWrap{
@@ -288,4 +349,5 @@ margin-right: auto;
 }
 .initalinput {
     padding: 1.5em;
+    border-radius: 4px
 }

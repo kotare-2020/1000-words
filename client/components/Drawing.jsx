@@ -2,32 +2,35 @@ import { connect } from 'react-redux'
 import { addRoundDataApi } from '../apis/apis'
 import React from 'react'
 import Canvas from './Canvas'
+import { updateRoundData } from '../actions/dataBase'
 
 
 class Drawing extends React.Component {
   state = {
-    drawing: ""
+    canvas: "",
+    drawing: null,
 }
-  handleClick=()=>{
+handleClick = () => {
     console.log("user clicked done")
+    this.props.dispatch(updateRoundData({
+      gameId: this.props.gameId, 
+      dbdata: {
+        roundNumber: this.props.roundNumber,
+        playerId: this.props.playerId,
+        roundInfo: this.state.drawing,
+      }
+    }))
     this.props.ready()
      // this.postToDataBase()
   }
+
   componentDidMount(){
     console.log(this.props)
   }
- 
 
- 
-
-
-
-handleChange = (event) => {
-    this.setState({
-        drawing: event.target.value
-    })
-}
-
+  saveDrawing = (drawing) => {
+    this.setState({drawing: drawing})
+  }
 
 // postToDataBase = () => {
 //     addRoundDataApi({
@@ -44,15 +47,17 @@ handleChange = (event) => {
 // }
 
   render() {
-
-
     return (
       <>
-        <h1>Writing goes here!</h1>
-        <div className = "control-container center">
-          <Canvas />
+      <div className="flex-center">
+        <h2>Draw This: Writing goes here!</h2>
         </div>
-        <button onClick={this.handleClick}>Done</button>
+        <div className = "control-container center">
+          <Canvas saveDrawing={this.saveDrawing}/>
+        </div>
+        <div className="flex-center">
+        <button className="Drawing-DoneButton" onClick={this.handleClick}>Done</button>
+        </div>
       </>
     )
   }

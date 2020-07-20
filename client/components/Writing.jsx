@@ -10,6 +10,8 @@ class Writing extends React.Component {
     }
 
     handleChange = (event) => {
+        this.props.handleChange(event.target.value)
+
         this.setState({
             writing: event.target.value
         })
@@ -19,32 +21,35 @@ class Writing extends React.Component {
         // send input 
         console.log(this.props.JSON)
         this.props.ready()
-        this.postToDataBase()
+        // this.postToDataBase()
     }
 
-    postToDataBase = () => {
-        addRoundDataApi({
-            gameId: this.props.gameId,
-            dbdata: {
-            roundNumber: this.props.roundNumber,
-            roundInfo: this.state.writing,
-            playerId: this.props.playerId,
-        }
-    })
-        .catch((error) => {
-            console.log(error)
-        })
-    }
+    // postToDataBase = () => {
+    //     addRoundDataApi({
+    //         gameId: this.props.gameId,
+    //         dbdata: {
+    //         roundNumber: this.props.roundNumber,
+    //         roundInfo: this.state.writing,
+    //         playerId: this.props.playerId,
+    //     }
+    // })
+    //     .catch((error) => {
+    //         console.log(error)
+    //     })
+    // }
 
     render() {
-        console.log(this.props.JSON)
         return (
             <>
-                <textarea name="writing" rows="5" cols="50" className="Writing_textInput center" onChange={this.handleChange}>The cat was playing in the garden.</textarea>
+            <div className="center">
+                <textarea name="writing" rows="5" cols="50" className="Writing_textInput center" defaultValue="Describe what you see!" onChange={this.handleChange}></textarea>
+                </div>
                 <div className="control-container center">
                 <ViewSpace />
                 </div>
-                <button onClick={this.handleClick} className="Writing_button center">DONE</button>
+                <div className="center">
+                <button onClick={this.handleClick} className="Writing_button center green">DONE</button>
+                </div>
             </>
         )
     }

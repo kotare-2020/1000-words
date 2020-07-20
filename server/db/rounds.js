@@ -28,7 +28,8 @@ function addRound(roundData ,db = connection) {
     console.log("1st", obj);
     obj['round' + roundData.roundNumber] = roundData.roundInfo
         if((roundData.roundNumber)%2 != 1) {
-            obj['round' + roundData.roundNumber] = JSON.stringify(roundData.roundInfo) 
+            obj['round' + roundData.roundNumber] = roundData.roundInfo
+            // obj['round' + roundData.roundNumber] = JSON.stringify(roundData.roundInfo) // this is the working code
             console.log(obj);
         }
     return db('rounds')

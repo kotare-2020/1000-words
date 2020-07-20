@@ -45,10 +45,9 @@ class Gallery extends React.Component {
       res.body.map(user=>{
        usernames.push(user.player_name)
       })
-      console.log(usernames)
-      console.log( usernames.concat(usernames))
+       
      
-      this.setState({playersInGame: usernames})
+      this.setState({playersInGame: usernames.concat(usernames)})
   
     })
     .catch(err => {
@@ -80,6 +79,7 @@ class Gallery extends React.Component {
   
   }
   onNext = () => {
+    window.scrollTo(0, 0);
     let roundarr = []
     console.log(this.state.index + 1)
     for (const key of Object.keys(this.state.gamedata[this.state.index + 1])) {
@@ -100,8 +100,12 @@ class Gallery extends React.Component {
         <center>
 
     
-        {console.log(Object.values(this.state.gamedata[this.state.index]).slice(1))}
+        {/* {console.log(Object.values(this.state.gamedata[this.state.index]).slice(1))} */}
+        
         {(Object.values(this.state.gamedata[this.state.index]).slice(1)).map((round, i) => {
+         
+          // console.log("array name: ", i)
+          console.log("array name+: ", i + ( this.state.index))
           
           return <UserCard data={round} round={i + 1} users={this.state.playersInGame} index={this.state.index}/>
         }) }
@@ -111,7 +115,7 @@ class Gallery extends React.Component {
         <button className="gallery-image-nav gallery-image-prev" disabled>{"<"}</button>
         }
 
-        {(this.state.index < this.state.playersInGame.length - 1) ? 
+        {(this.state.index < (this.state.playersInGame.length / 2) - 1) ? 
         <button className="gallery-image-nav gallery-image-next" onClick={this.onNext}>{">"}</button> 
         : 
         <button className="gallery-image-nav gallery-image-next" disabled>{">"}</button>
@@ -128,16 +132,16 @@ class UserCard extends React.Component {
 
   render() {
 
-    {  console.log("index: ",this.props.index)}
+    console.log(this.props.index)
     if(this.props.round == 1) {
    
     return(<div>
    
-      <h2>{this.props.users[this.props.round - 1]} wrote</h2>
+      <h2>{this.props.users[this.props.round - 1 ]} wrote</h2>
       <p>{this.props.data}</p>
       </div>)
     }
-    if(this.props.round > this.props.users.length) {
+    if(this.props.round > this.props.users.length / 2) {
       return("")
     }
     if ((this.props.round % 2) == 0) {

@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { updateRoundData } from '../actions/dataBase'
 import { connect } from 'react-redux'
 import { incrementCurrentRound} from '../actions/currentRound'
 import Writing from './Writing'
@@ -17,6 +17,7 @@ class Game extends React.Component {
         finnished: [],
         playerPosition:"",
     }
+
     userfinnished = () => {
         console.log("this user clicked done")
         this.setState({ done: true })
@@ -76,7 +77,29 @@ class Game extends React.Component {
 }
 
 class GameScreen extends React.Component {
-   
+
+    state = {
+        roundOneText: "",
+    }
+
+    handleChange = (event) => {
+        this.setState({
+            roundOneText: event.target.value
+        })
+    }
+
+    handleClick = () => {
+        this.props.nowDone()
+        this.props.dispatch(updateRoundData({
+            gameId: this.props.gameId, 
+            dbdata: {
+              roundNumber: this.props.roundNumber,
+              playerId: this.props.playerId,
+              roundInfo: this.state.roundOneText,
+            }
+          }))
+    }
+
     render() {
         //console.log(this.userfinnished)
       
@@ -85,7 +108,7 @@ class GameScreen extends React.Component {
         }
 
         if (this.props.currentRound === 1) {
-            return <><h2>Write somthing for someone to draw</h2><input type="textbox" className="initalinput" placeholder="a dog with a trumpet"></input><div className="Game-DoneButton" onClick={this.props.nowDone}>Done</div></>
+            return <><h2>Write somthing for someone to draw</h2><input onChange={this.handleChange} type="textbox" className="initalinput" placeholder="a dog with a trumpet"></input><div className="Game-DoneButton" onClick={this.handleClick}>Done</div></>
         }
 
 
@@ -100,6 +123,8 @@ const mapStateToProps = (state) => {
         players: state.players,
         playerId: state.playerId,
         gameId: state.game,
+        roundNumber: state.currentRound,
+        currentRound: state.currentRound,
         playerIdList: state.playerIdList
     }
 }

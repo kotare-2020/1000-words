@@ -33,7 +33,7 @@ class Game extends React.Component {
             playerPosition: (this.props.playerIdList.indexOf(this.props.playerId))
         }))
 
-        if(this.state.gameid == 0) this.props.history.push("/")
+     //   if(this.state.gameid == 0) this.props.history.push("/")
         socket.on("playerfinnished", res => {
             console.log(`user ${res} finnished`)
             this.setState({
@@ -65,7 +65,7 @@ class Game extends React.Component {
                 <center>
                     <div className="gamewrap">
                         {/* <p onClick={this.userfinnished}>simulate done</p> */}
-                        <span><h1>{`Round ${this.state.round} ${((this.state.round % 2) == 1) ? "write" : "draw"}`}</h1></span>
+                        <span><h1 className="Game-h1-Round">{`Round ${this.state.round} ${((this.state.round % 2) == 1) ? "write" : "draw"}`}</h1></span>
 
                         <GameScreen isDone={this.state.done} currentRound={this.state.round} nowDone={this.userfinnished}/>
 
@@ -108,7 +108,7 @@ class GameScreen extends React.Component {
         }
 
         if (this.props.currentRound === 1) {
-            return <><h2>Write somthing for someone to draw</h2><input onChange={this.handleChange} type="textbox" className="initalinput" placeholder="a dog with a trumpet"></input><div className="Game-DoneButton" onClick={this.handleClick}>Done</div></>
+            return <><h2>Write somthing for someone to draw</h2><input onChange={this.handleChange} type="textbox" className="initalinput" placeholder="a dog with a trumpet"></input><br></br><button className="green" onClick={this.handleClick}>Done</button></>
         }
 
 

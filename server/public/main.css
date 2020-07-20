@@ -216,6 +216,14 @@ button {
     padding: 1.5em;
 }
 
+.Game-Margin {
+    margin-top: -50px;
+}
+
+.Game-h1-Round {
+    margin: -20px;
+}
+
 /* --- Canvas --- */
 
 .Canvas-SaveButton {
@@ -349,5 +357,8 @@ margin-right: auto;
 }
 .initalinput {
     padding: 1.5em;
-    border-radius: 4px
+    border-radius: 4px;
+    border-style: none;
+    width: 50vw;
+    margin-bottom: 15px;
 }

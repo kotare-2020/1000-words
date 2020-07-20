@@ -10,6 +10,8 @@ class Writing extends React.Component {
     }
 
     handleChange = (event) => {
+        this.props.handleChange(event.target.value)
+
         this.setState({
             writing: event.target.value
         })
@@ -19,22 +21,22 @@ class Writing extends React.Component {
         // send input 
         console.log(this.props.JSON)
         this.props.ready()
-        this.postToDataBase()
+        // this.postToDataBase()
     }
 
-    postToDataBase = () => {
-        addRoundDataApi({
-            gameId: this.props.gameId,
-            dbdata: {
-            roundNumber: this.props.roundNumber,
-            roundInfo: this.state.writing,
-            playerId: this.props.playerId,
-        }
-    })
-        .catch((error) => {
-            console.log(error)
-        })
-    }
+    // postToDataBase = () => {
+    //     addRoundDataApi({
+    //         gameId: this.props.gameId,
+    //         dbdata: {
+    //         roundNumber: this.props.roundNumber,
+    //         roundInfo: this.state.writing,
+    //         playerId: this.props.playerId,
+    //     }
+    // })
+    //     .catch((error) => {
+    //         console.log(error)
+    //     })
+    // }
 
     render() {
         return (

@@ -35,6 +35,7 @@ class Game extends React.Component {
         }))
 
         if(this.state.gameid == 0) this.props.history.push("/")
+
         socket.on("playerfinnished", res => {
             console.log(`user ${res} finnished`)
             this.setState({
@@ -42,10 +43,12 @@ class Game extends React.Component {
             })
             console.log(this.props.players.length == this.state.finnished.length)
             console.log(this.props.players.length, this.state.finnished.length)
+
             if(this.props.players.length == this.state.finnished.length && this.props.players.length >= 5 ) {
                 console.log("all users done")
                 
                 this.props.dispatch(incrementCurrentRound())
+                
                 this.setState({
                     round: this.state.round + 1,
                     done: false,

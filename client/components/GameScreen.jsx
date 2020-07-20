@@ -11,44 +11,38 @@ import { setPlayerIdList } from '../actions/playerIdList'
 export class GameScreen extends React.Component {
 
     state = {
-        roundOneText: "",
+        roundData: "",
     }
 
-    handleChange = (event) => {
+    handleChange = (data) => {
         this.setState({
-            roundOneText: event.target.value
+            roundData: data
         })
     }
 
     findPlayerToSendTo = () => {
-        console.log(this.props.playerPosition)
+        console.log('playerPosition: ', this.props.playerPosition)
         let positionNumber = this.props.playerPosition + (this.props.currentRound - 1)
-        console.log('current pos', this.props.playerIdList[positionNumber])
-        if (positionNumber > this.props.playerIdList.length){
-            console.log('greater than', this.props.playerIdList[positionNumber - (this.props.playerIdList + 1)])
-            return this.props.playerIdList[positionNumber - (this.props.playerIdList + 1)]
+        console.log('positionNumber:', positionNumber)
+        console.log(positionNumber, 'vs', this.props.playerIdList.length);
+        if (positionNumber >= this.props.playerIdList.length){
+            console.log('wrap');
+            return this.props.playerIdList[positionNumber - (this.props.playerIdList.length)]
         } else {
-            console.log('go down now', this.props.playerIdList[positionNumber])
+            console.log('dont wrap')
             return this.props.playerIdList[positionNumber]
         }
     }
 
     handleClick = () => {
-        const playerToSendToValue = this.findPlayerToSendTo()
-        console.log('send to: ', playerToSendToValue, this.props.playerIdList[playerToSendToValue])
-        // const playerToSendTo = this.props.playerIdList[playerToSendToValue]
-        const playerToSendTo = playerToSendToValue
-
-
-
         this.props.nowDone()
       
         this.props.dispatch(updateRoundData({
             gameId: this.props.gameId, 
             dbdata: {
               roundNumber: this.props.roundNumber,
-              playerId: playerToSendTo,
-              roundInfo: this.state.roundOneText,
+              playerId: this.props.playerId,
+              roundInfo: this.state.roundData,
             }
           }))
     }
@@ -68,7 +62,7 @@ export class GameScreen extends React.Component {
             dbdata: {
               roundNumber: this.props.roundNumber,
               playerId: playerToSendTo,
-              roundInfo: this.state.roundOneText,
+              roundInfo: this.state.roundData,
             }
           }))
     }
@@ -81,13 +75,13 @@ export class GameScreen extends React.Component {
         }
 
         if (this.props.currentRound === 1) {
-            return <><h2>Write somthing for someone to draw</h2><input onChange={this.handleChange} type="textbox" className="initalinput" placeholder="a dog with a trumpet"></input><div className="Game-DoneButton" onClick={this.handleClick}>Done</div></>
+            return <><h2>Write somthing for someone to draw</h2><input onChange={(e) => this.handleChange(e.target.value)} type="textbox" className="initalinput" placeholder="a dog with a trumpet"></input><div className="Game-DoneButton" onClick={this.handleClick}>Done</div></>
         }
 
 
         return this.props.currentRound % 2 === 0
-            ? <Drawing ready={this.roundDone}/>
-            : <Writing ready={this.roundDone}/>
+            ? <Drawing handleChange={this.handleChange} ready={this.roundDone}/>
+            : <Writing handleChange={this.handleChange} ready={this.roundDone}/>
     }
 }
 

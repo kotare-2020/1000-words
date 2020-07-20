@@ -37,7 +37,6 @@ class Writing extends React.Component {
     }
 
     render() {
-        console.log(this.props.JSON)
         return (
             <>
             <div className="center">

@@ -6,8 +6,9 @@ import { setPlayers } from '../actions/players'
 class HostLobby extends React.Component {
     state = {
         connected: false,
-        players: ["ben", "rubin", "nick", "marta", "andy"],
+        players: [],
         lobby: "error",
+        
 
     }
     

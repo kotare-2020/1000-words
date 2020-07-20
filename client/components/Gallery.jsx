@@ -1,92 +1,140 @@
 import React from 'react'
 import { connect } from 'react-redux'
 //import { fetchRounds } from '../actions/allRounds'
-import { getAllRounds } from "../apis/apis"
+import { getAllRounds, getPlayersInlobby} from "../apis/apis"
 
 class Gallery extends React.Component {
-    state = {
-        index: 0,
-        slideshow: false,
-        gamedata: [{player: ""}],
+  state = {
+    gameid: 1,
+    index: 0,
+    slideshow: false,
+    gamedata: [{ player: "" }],
+    currentround: [],
+    playersInGame: [],
+ 
+  }
 
-    }
+  
+  componentDidMount() {
 
-    componentDidMount() {
-      getAllRounds(1)
+//this . state . index
+    setTimeout(() => {
+      // console.log(`the keuys are ${Object.keys(this.state.gamedata[0])} asf`)
+     let roundarr = []
+      for (const key of Object.keys(this.state.gamedata[this.state.index])) {
+       roundarr.push(this.state.gamedata[this.state.index][key])
+      }
+      roundarr.shift()
+        this.setState({
+          currentround: roundarr
+        })
+    }, 100);
+
+
+
+    getAllRounds(this.state.gameid)
       .then(res => {
         this.setState({
           gamedata: res
-        })  
-        console.log(res)
+        })
+      
       })
       .catch(err => {
         console.log(err)
       })
 
-      }
-      onPrev = () => {
-        this.setState({
-          index: index - 1
-        })
-      }
-      onNext = () => {
-        this.setState({
-          index: index + 1
-        })
-      }
-    startSlides = () => {
-      this.setState({
-        slideshow: true
+
+    getPlayersInlobby(1)
+    .then(res => {
+    let usernames = []
+      res.body.map(user=>{
+       usernames.push(user.player_name)
       })
-    }
+      console.log(usernames)
+      this.setState({playersInGame: usernames})
+  
+    })
+    .catch(err => {
+        console.log(err)
+    })
 
-    render () {
-      
-        return (
-            <div className="gallery-image-container">
-              <button onClick={this.startSlides}>ready</button>
+  }
+  func = () => {
+    let roundarr = []
+    for (const key of Object.keys(this.state.gamedata[this.state.index - 1])) {
+      roundarr.push(this.state.gamedata[this.state.index][key])
+     }
+     roundarr.shift()
+       this.setState({
+         currentround: roundarr
+       })
+  }
+  onPrev = () => {
+  
+  }
+  onNext = () => {
+    
+  }
 
-                <div>{this.state.gamedata[this.state.index].player} Wrote: </div>
-                <div>{this.state.gamedata[this.state.index].round1}</div>
-                { console.log(this.state.gamedata[0].keys)  }
-                {this.state.gamedata.map((round, i)=> {
-                  return <UserCard data={round} round={i + 1}/>
-                })}
-                
-                <img className="gallery-image center" width="500"/>
-                <button className="gallery-image-nav gallery-image-prev" onClick={this.onPrev}>{"<"}</button>
-                <button className="gallery-image-nav gallery-image-next" onClick={this.onNext}>{">"}</button>
-                <div className="gallery-image-text"></div>
-            </div>
-        )
-    }
+  render() {
+
+    return (
+      <div className="gallery-image-container">
+        <center>
+    
+        {this.state.currentround.map((round, i) => {
+     
+          return <UserCard data={round} round={i + 1} users={this.state.playersInGame}/>
+        }) }
+
+
+        <button className="gallery-image-nav gallery-image-prev" onClick={this.onPrev}>{"<"}</button>
+        <button className="gallery-image-nav gallery-image-next" onClick={this.onNext}>{">"}</button>
+       
+        </center>
+      </div>
+    )
+  }
 }
 
 class UserCard extends React.Component {
-   
+
   render() {
-    if((this.props.round % 2) == 1) {
+  
+    if(this.props.round == 1) {
+   
+    return(<div>
+   
+      <h2>{this.props.users[this.props.round - 1]} wrote</h2>
+      <p>{this.props.data}</p>
+      </div>)
+    }
+    if(this.props.round > this.props.users.length) {
+      return("")
+    }
+    if ((this.props.round % 2) == 1) {
       return (<div>
-          <h2>{this.props.data.player} drew it like this</h2>
-      <h3>{this.props.data.round1}</h3>
-        </div>)
+      
+        <h2>{this.props.users[this.props.round - 1]} drew it like this</h2>
+        <p>{this.props.data}</p>
+      </div>)
     }
     else {
       return (<div>
-          <h2>{this.props.data.player} thought it was</h2>
-      <h3>{this.props.data.round1}</h3>
+        <h2>{this.props.users[this.props.round - 1]} thought it was</h2>
+        <p>{this.props.data}</p>
       </div>)
     }
-  
+
   }
 }
 
 
 function mapStateToProps(globalState) {
-    return {
-      rounds: globalState.rounds
-    }
+  return {
+    rounds: globalState.rounds
   }
+}
 
 
 

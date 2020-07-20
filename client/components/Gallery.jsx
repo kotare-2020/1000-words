@@ -132,12 +132,14 @@ class UserCard extends React.Component {
 
   render() {
 
-    console.log(this.props.index)
+    // console.log(this.props.index)
+    console.log("normal: ", this.props.round - 1)
+    console.log("with index", this.props.round - 1 + (this.props.index))
     if(this.props.round == 1) {
    
     return(<div>
    
-      <h2>{this.props.users[this.props.round - 1 ]} wrote</h2>
+      <h2>{this.props.users[this.props.round - 1 + this.props.index]} wrote</h2>
       <p>{this.props.data}</p>
       </div>)
     }
@@ -147,14 +149,14 @@ class UserCard extends React.Component {
     if ((this.props.round % 2) == 0) {
       return (<div>
       
-        <h2>{this.props.users[this.props.round - 1]} drew it like this</h2>
+        <h2>{this.props.users[this.props.round - 1 + this.props.index]} drew it like this</h2>
         <p>{this.props.data}</p>
         <Viewspace/>
       </div>)
     }
     else {
       return (<div>
-        <h2>{this.props.users[this.props.round - 1]} thought it was</h2>
+        <h2>{this.props.users[this.props.round - 1 + this.props.index]} thought it was</h2>
         <p>{this.props.data}</p>
       </div>)
     }

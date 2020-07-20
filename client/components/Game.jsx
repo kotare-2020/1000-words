@@ -95,7 +95,7 @@ class GameScreen extends React.Component {
             dbdata: {
               roundNumber: this.props.roundNumber,
               playerId: this.props.playerId,
-              roundOneText: this.state.drawing,
+              roundInfo: this.state.roundOneText,
             }
           }))
     }

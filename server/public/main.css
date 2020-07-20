@@ -120,7 +120,8 @@ button {
     font-family: 'Amatic SC', cursive;
     text-align: -webkit-center;
 
-    background-image: url("./images/background2.png");
+    background: rgb(174,238,214);
+  background: radial-gradient(circle, rgba(8, 82, 167, 0.767) 49%, rgba(34, 109, 116, 0.787) 100%), url('./images/background7.jpg');
     background-size: 60%;
     animation: 120s linear 1s infinite running bgSlide;
     /* opacity: 0.5; */

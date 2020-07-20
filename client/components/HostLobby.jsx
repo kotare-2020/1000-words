@@ -7,7 +7,7 @@ class HostLobby extends React.Component {
     state = {
         connected: false,
         players: [
-            // "ben", "rubin", "nick", "marta", "andy"
+            "ben", "rubin", "nick", "marta", "andy"
         ],
         lobby: "error",
         

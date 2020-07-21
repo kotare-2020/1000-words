@@ -135,7 +135,7 @@ button {
 .HostJoin-HostButton {
     background-color: #3aadda;
     font-family: 'Amatic SC', cursive;
-    border: none;
+    border: 1pt solid black;
     padding: 10px;
     margin: 10px;
     border-radius: 4px;
@@ -147,7 +147,7 @@ button {
 
     background-color: #f7bdbc;
     font-family: 'Amatic SC', cursive;
-    border: none;
+    border: 1pt solid black;
     padding: 10px;
     margin: 10px;
     border-radius: 4px;

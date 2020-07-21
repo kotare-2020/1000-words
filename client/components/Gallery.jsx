@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 //import { fetchRounds } from '../actions/allRounds'
-import { getAllRounds, getPlayersInlobby} from "../apis/apis"
+import { getAllRounds, getPlayersInlobby } from "../apis/apis"
 import GalleryImg from "./GalleryImg"
 import Coppy from "./Coppy"
 
@@ -12,7 +12,7 @@ class Gallery extends React.Component {
     slideshow: false,
     gamedata: [{ player: "" }],
     currentround: [],
-    playersInGame: [],
+    playersInGame: [[],[],[],[],[]],
     gameMatrix: [],
   }
 
@@ -21,89 +21,121 @@ class Gallery extends React.Component {
     getAllRounds(this.props.gameid)
       .then(res => {
         let roundarr = []
-       
-        console.log(res)
+
         let newmatrix = [];
-        res.map(row=>{
+        res.map(row => {
           newmatrix.push(Object.values(row).slice(1))
         })
         newmatrix = newmatrix
-        console.log(newmatrix)
+       
 
 
-        
+
 
         for (const key of Object.keys(res[this.state.index])) {
-         
-         roundarr.push(res[this.state.index][key])
+
+          roundarr.push(res[this.state.index][key])
         }
         roundarr.shift()
         this.setState({
-            currentround: roundarr,
-            gamedata: res,
+          currentround: roundarr,
+          gamedata: res,
         })
-        
-      
+
+
       })
       .catch(err => {
         console.log(err)
       })
 
     getPlayersInlobby(this.props.gameid)
-    .then(res => {
-    let usernames = []
-      res.body.map(user=>{
-       usernames.push(user.player_name)
-      })
-       
-     
-      this.setState({playersInGame: usernames.concat(usernames)})
-  
-    })
-    .catch(err => {
-        console.log(err)
-    })
+      .then(res => {
+        let usernames = []
+        res.body.map(user => {
+          usernames.push(user.player_name)
+        })
 
+
+        this.setState({ playersInGame: usernames })
+        this.arrangePlayerNames()
+      })
+      .catch(err => {
+        console.log(err)
+      })
+
+    
   }
 
 
-  
+  solve = (writerIndex, targetRound, totalPlayers) =>  {
+    var targetPlayerIndex = writerIndex + targetRound - 1
+    if (targetPlayerIndex >= totalPlayers) {
+      targetPlayerIndex = targetPlayerIndex % totalPlayers
+    }
+
+    return targetPlayerIndex
+  }
+
+
+  arrangePlayerNames = () => {
+
+    var arr = this.state.playersInGame.map(p => p).reverse()
+    console.log(this.state.playersInGame.map(p => p).reverse())
+    let newarr = []
+    let matrix = []
+    for (let j = 0; j < arr.length + 1; j++) {
+
+      for (let i = 0; i < arr.length; i++) {
+        newarr.push(arr[this.solve(j, i, arr.length)])
+      }
+      // console.log(newarr)
+      newarr = []
+      matrix.push(newarr)
+    }
+    matrix.pop()
+    this.setState({
+      playersInGame: matrix.map(p => p).reverse()
+    })
+    console.log("new matrix", matrix.map(p => p).reverse())
+
+  }
+
   func = () => {
     let roundarr = []
     for (const key of Object.keys(this.state.gamedata[this.state.index - 1])) {
       roundarr.push(this.state.gamedata[this.state.index][key])
-     }
-     roundarr.shift()
-       this.setState({
-         currentround: roundarr
-       })
+    }
+    roundarr.shift()
+    this.setState({
+      currentround: roundarr
+    })
   }
   onPrev = () => {
     let roundarr = []
     for (const key of Object.keys(this.state.gamedata[this.state.index - 1])) {
       roundarr.push(this.state.gamedata[this.state.index][key])
-     }
-     roundarr.shift()
-       this.setState({
-         currentround: roundarr,
-         index: this.state.index - 1
-       })
+    }
+    roundarr.shift()
+    this.setState({
+      currentround: roundarr,
+      index: this.state.index - 1
+    })
 
-  
+
   }
   onNext = () => {
     window.scrollTo(0, 0);
     let roundarr = []
-   
+
     for (const key of Object.keys(this.state.gamedata[this.state.index + 1])) {
       roundarr.push(this.state.gamedata[this.state.index][key])
-     }
-     roundarr.shift()
-       this.setState({
-         currentround: roundarr,
-         index: this.state.index + 1
-       })
- 
+    }
+    roundarr.shift()
+    this.setState({
+      currentround: roundarr,
+      index: this.state.index + 1
+    })
+
   }
 
 
@@ -114,29 +146,29 @@ class Gallery extends React.Component {
       <div className="gallery-image-container">
         <center>
 
-    
-     
-          {console.log(this.state.playersInGame)}
-        {(Object.values(this.state.gamedata[this.state.index]).slice(1)).map((round, i) => {
-         
-          // console.log("array name: ", i)
-       
-          
-          return <UserCard data={round} round={i + 1} users={this.state.playersInGame} index={this.state.index}/>
-        }) }
-        {(this.state.index > 0) ? 
-        <button className="gallery-image-nav gallery-image-prev" onClick={this.onPrev}>{"<"}</button> 
-        : 
-        <button className="gallery-image-nav gallery-image-prev" disabled>{"<"}</button>
-        }
+          {/* {console.log(this.state.playersInGame)} */}
+          {(Object.values(this.state.gamedata[this.state.index]).slice(1)).map((round, i) => {
 
-        {(this.state.index < (this.state.playersInGame.length / 2) - 1) ? 
-        <button className="gallery-image-nav gallery-image-next" onClick={this.onNext}>{">"}</button> 
-        : 
-        <button className="gallery-image-nav gallery-image-next" disabled>{">"}</button>
-        }
-        
-       
+            // console.log("array name: ", i)
+            console.log(this.state.index)
+            console.log(this.state.playersInGame)
+            console.log(this.state.index, this.state.playersInGame[this.state.index])
+
+            return <UserCard data={round} round={i + 1} users={this.state.playersInGame[this.state.index]} index={this.state.index} />
+          })}
+          {(this.state.index > 0) ?
+            <button className="gallery-image-nav gallery-image-prev" onClick={this.onPrev}>{"<"}</button>
+            :
+            <button className="gallery-image-nav gallery-image-prev" disabled>{"<"}</button>
+          }
+
+          {(this.state.index < (this.state.playersInGame.length) - 1) ?
+            <button className="gallery-image-nav gallery-image-next" onClick={this.onNext}>{">"}</button>
+            :
+            <button className="gallery-image-nav gallery-image-next" disabled>{">"}</button>
+          }
+
+
         </center>
       </div>
     )
@@ -146,32 +178,32 @@ class Gallery extends React.Component {
 class UserCard extends React.Component {
 
   render() {
+    console.log("inside prop", this.props.users)
+    console.log(this.props.index)
+    if (this.props.round == 1) {
 
-  
-    if(this.props.round == 1) {
-   
-    return(<div>
-   
-      <p>{this.props.users[this.props.round - 1 + this.props.index]} wrote this:</p>
-      <h2>{this.props.data}</h2>
+      return (<div>
+
+        <p>{this.props.users[this.props.round - 1 ]} wrote this:</p>
+        <h2>{this.props.data}</h2>
       </div>)
     }
-    if(this.props.round > this.props.users.length / 2) {    //    do / 2
-      return("")
+    if (this.props.round > this.props.users.length) {    //    do / 2
+      return ("")
     }
     if ((this.props.round % 2) == 0) {
       return (<div>
-        
-        <p>{this.props.users[this.props.round - 1 + this.props.index]} drew it like this:</p>
-        
-        
-        <GalleryImg data={this.props.data} custmId={"viewingSpace" + this.props.round}/>
+
+        <p>{this.props.users[this.props.round - 1 ]} drew it like this:</p>
+
+
+        <GalleryImg data={this.props.data} custmId={"viewingSpace" + this.props.round} />
         {/* <Coppy data={this.props.data}/> */}
       </div>)
     }
     else {
       return (<div>
-        <p>{this.props.users[this.props.round - 1 + this.props.index]} thought it was:</p>
+        <p>{this.props.users[this.props.round - 1 ]} thought it was:</p>
         <h2>{this.props.data}</h2>
       </div>)
     }

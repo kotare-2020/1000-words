@@ -111,7 +111,7 @@ class Gallery extends React.Component {
   render() {
 
     return (
-      <div className="gallery-image-container">
+      <div className="gallery-image-container center">
         <center>
 
     

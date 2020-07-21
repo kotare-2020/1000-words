@@ -114,7 +114,6 @@ button {
    
     height: 100vh;
     width: auto;
-    padding: 1.5em;
     padding-top: 2em;
     margin-top: -50px;
     font-size: 2em;
@@ -170,6 +169,7 @@ button {
     /* height: 1000px; */
     width: auto;
     padding: 2em;
+    margin-top: 10vh;
     font-size: 2em;
     font-family: 'Amatic SC', cursive;
     text-align: -webkit-center;
@@ -213,6 +213,7 @@ button {
 .HostLobby-players {
     padding: 10px;
     margin-bottom: 50px;
+    margin-top: 30vh;
 }
 
 .start {
@@ -231,6 +232,10 @@ button {
 
 .Game-h1-Round {
     margin: -20px;
+}
+
+.Game-h2 {
+    margin-top: 15vh;
 }
 
 /* --- Canvas --- */
@@ -273,6 +278,10 @@ button {
     margin-right: auto;
 }
 
+.Gallery-view {
+    padding: 20px;
+}
+
 
 
 /* .button {
@@ -311,6 +320,7 @@ input[type=text]:hover{
 }
 .inputWraper{
     margin-bottom: 2rem;
+    margin-top: 20vh;
 }
 .inputWraperb{
     margin-bottom: 2rem;
@@ -366,6 +376,7 @@ input[type=text]:hover{
 .gameInfoWrap{
     text-align: center;
     margin-bottom: -3%;
+    margin-top: 30vh;
 }
 .gamewrap{
 
@@ -378,4 +389,8 @@ margin-right: auto;
     border-style: none;
     width: 50vw;
     margin-bottom: 15px;
+}
+
+.text-area {
+    max-width: 300px;
 }

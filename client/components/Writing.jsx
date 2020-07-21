@@ -42,9 +42,10 @@ class Writing extends React.Component {
         return (
             <>
             <div className="center">
-                <textarea name="writing" rows="5" cols="50" className="Writing_textInput center" defaultValue="Describe what you see!" onChange={this.handleChange}></textarea>
+                <textarea className="text-area" name="writing" rows="5" cols="35" className="Writing_textInput center" placeholder="Describe what you see!" onChange={this.handleChange}></textarea>
                 </div>
                 <div className="control-container center">
+                <ViewSpace />
                 <ViewSpace />
                 </div>
                 <div className="center">

@@ -151,7 +151,9 @@ class UserCard extends React.Component {
       
         <h2>{this.props.users[this.props.round - 1 + this.props.index]} drew it like this</h2>
         <p>{this.props.data}</p>
+        <div className="Gallery-view">
         <Viewspace/>
+        </div>
       </div>)
     }
     else {

@@ -17,7 +17,7 @@ class ViewSpace extends React.Component {
     render() {
         return (
             <>
-                <div className=" Writing-box center">
+                <div className=" Writing-box">
                     <div id="container">
                         <div id="viewingSpace" className="container center"></div>
                     </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import BackButton from './BackButton'
 import { getGameIdApi, getPlayersInlobby, addPlayerApi, createRound} from "../apis/apis";
 import { HashRouter as Router, Route, Link, Redirect } from "react-router-dom";
 import { connect } from 'react-redux'
@@ -91,7 +92,7 @@ class JoinGame extends React.Component {
                 <button onClick={this.handleSubmit} className="join-button button ">Join</button>
             </form>
                 <Link to="/lobby" ><div id="next" style={{ display: "none" }}>to lobby</div></Link>
-
+                <BackButton/>
             </>
         );
     }

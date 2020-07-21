@@ -26,7 +26,7 @@ class Drawing extends React.Component {
 
     getRoundDataApi(findPlayerToSendTo(), this.props.currentRound - 1, this.props.gameId)
       .then(res => {
-        let drawing = res["round" + (this.props.currentRound - 1)].replace("\\", "")
+        let drawing = res["round" + (this.props.currentRound - 1)]
 
         console.log("without replace: ", res)
         // console.log("with replace: ", res.round2.replace("\\", ""))

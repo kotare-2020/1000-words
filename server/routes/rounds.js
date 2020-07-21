@@ -16,7 +16,7 @@ router.get('/:id', (req, res) => {
 router.get('/:gameId/:roundNum', (req, res) => {
     db.getSingleRound(req.params.gameId, req.params.roundNum)
         .then(round => {
-            res.send(round)
+            res.json(round)
         })
         .catch(error => {
             console.log(error.message);
@@ -27,7 +27,7 @@ router.get('/:gameId/:roundNum', (req, res) => {
 
 router.patch('/:id', (req, res) => {
     const roundData = req.body
-    console.log('patch is hit');
+    // console.log('patch is hit');
     // const roundNumber = req.params.id
     db.addRound(roundData, 
         // roundNumber
@@ -43,7 +43,7 @@ router.patch('/:id', (req, res) => {
 })
 
 router.post('/:gameId', (req, res) => {
-    console.log(`route recived`, req.body)
+    // console.log(`route recived`, req.body)
     db.createRound(req.params.gameId, req.body.player)
         .then(round => {
             res.send(round)

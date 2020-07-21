@@ -18,14 +18,14 @@ class IoSocketTest extends React.Component {
                     connected: false
                 })
             })
-            console.log("it seems we have a connection")
+            // console.log("it seems we have a connection")
           });
         socket.on("error", res => {
-            console.log(res)
+            // console.log(res)
             alert(`error ocured: ${res}`)
         })
         socket.on("roomjoin", res => {
-            console.log("room works!")
+            // console.log("room works!")
         })
     }
     joingame = () => {

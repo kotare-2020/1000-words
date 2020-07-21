@@ -14,7 +14,7 @@ class PlayerLobby extends React.Component {
     componentDidMount() {
 
         socket.on("error", res => {
-            console.log("err", res)
+            // console.log("err", res)
             // alert(`error ocured: ${res}`)
         })
         socket.on("joinlobby", res => {
@@ -44,11 +44,11 @@ class PlayerLobby extends React.Component {
         })
         socket.on("gamestart", res => {
             this.props.dispatch(setPlayers(this.state.players))
-            console.log("recived game start", res)
+            // console.log("recived game start", res)
             document.getElementById("gamestart").click()
         })
         setTimeout(() => {
-            console.log(this.state.lobby)
+            // console.log(this.state.lobby)
             if(this.state.lobby == "error") this.props.history.push("/")
         }, 100);
 

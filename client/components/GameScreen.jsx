@@ -36,7 +36,6 @@ export class GameScreen extends React.Component {
 
     handleClick = () => {
         this.props.nowDone()
-
         this.props.dispatch(updateRoundData({
             gameId: this.props.gameId,
             dbdata: {
@@ -67,6 +66,11 @@ export class GameScreen extends React.Component {
         }))
     }
 
+    handleSubmit = () => {
+        event.preventDefault()
+        this.handleClick()
+    }
+
     render() {
         //console.log(this.userfinnished)
 
@@ -75,7 +79,13 @@ export class GameScreen extends React.Component {
         }
 
         if (this.props.currentRound === 1) {
-            return <><h2>Write something for the next player to draw!</h2><input onChange={(e) => this.handleChange(e.target.value)} type="textbox" className="initalinput" placeholder="e.g. a dog with a trumpet"></input><br></br><button className="green" onClick={this.handleClick}>Done</button></>
+            return <><h2>Write something for the next player to draw!</h2>
+            <form onSubmit={this.handleSubmit}>
+            <input required onChange={(e) => this.handleChange(e.target.value)} type="textbox" className="initalinput" placeholder="e.g. a dog with a trumpet"></input>
+            <br></br>
+            <button className="green" onClick={this.handleSubmit}>Done</button>
+            </form>
+            </>
         }
 
 

@@ -16,7 +16,7 @@ router.get('/:id', (req, res) => {
 router.get('/:gameId/:roundNum', (req, res) => {
     db.getSingleRound(req.params.gameId, req.params.roundNum)
         .then(round => {
-            res.send(round)
+            res.json(round)
         })
         .catch(error => {
             console.log(error.message);

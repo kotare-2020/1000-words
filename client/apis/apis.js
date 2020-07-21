@@ -28,21 +28,21 @@ export function addPlayerApi(player) {
 
 export function getGameIdApi(id) {
     console.log(`${game}/${id}`)
-    return request  
+    return request
         .get(`${game}/${id}`)
-        // .then(res => res.body)
+    // .then(res => res.body)
 }
 
 export function getPlayersInlobby(id) {
     console.log(`${players}/${id}`)
     return request
         .get(`${players}/${id}`)
-        // .then(res => res.body)
+    // .then(res => res.body)
 
 }
 
 export function addRoundDataApi(data) {
-    return request 
+    return request
         .patch(`${round}/${data.gameId}`)
         .send(data.dbdata)
         .then(res => {
@@ -50,19 +50,35 @@ export function addRoundDataApi(data) {
         })
 }
 
-export function addRoundDataApi(data) {
-    return request 
-        .patch(`${round}/${data.gameId}`)
-        .send(data.dbdata)
-        .then(res => {
-            return res.body
-        })
+export function getRoundDataApi(playerId, currentRound, gameId) {
+    return request
+        .get(`/api/rounds/${gameId}/${currentRound}`)
+        .then(res => { return res.body })
+        .then(body => body.filter(player => {
+            if (player.player_id == playerId) {
+                return player
+            }
+        }))
 }
+
+
+// router.get('/:gameId/:roundNum', (req, res) => {
+//     db.getSingleRound(req.params.gameId, req.params.roundNum)
+//         .then(round => {
+//             res.send(round)
+//         })
+//         .catch(error => {
+//             console.log(error.message);
+
+//             res.status(500).send(error.messge)
+//         })
+// })
+
 
 export function createRound(data) {
     console.log(data);
     console.log("this is from the api");
-    return request 
+    return request
         .post(`${round}/${data.game}`)
         .send(data)
         .then(res => {

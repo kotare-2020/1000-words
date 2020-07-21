@@ -24,9 +24,9 @@ handleClick = () => {
      // this.postToDataBase()
   }
 
-  componentDidMount(){
-    console.log(this.props)
-  }
+  // componentDidMount(){
+  //   console.log(this.props)
+  // }
 
   saveDrawing = (drawing) => {
     this.props.handleChange(drawing)
@@ -54,7 +54,7 @@ handleClick = () => {
         <h2>Draw This: Writing goes here!</h2>
         </div>
         <div className = "control-container center">
-          <Canvas saveDrawing={this.saveDrawing}/>
+          <Canvas saveDrawing={this.saveDrawing} playerPosition={this.props.playerPosition}/>
         </div>
         <div className="flex-center">
         <button className="Drawing-DoneButton" onClick={this.handleClick}>Done</button>

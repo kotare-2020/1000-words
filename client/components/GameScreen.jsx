@@ -87,8 +87,8 @@ export class GameScreen extends React.Component {
 
 
         return this.props.currentRound % 2 === 0
-            ? <Drawing handleChange={this.handleChange} ready={this.roundDone} />
-            : <Writing handleChange={this.handleChange} ready={this.roundDone} />
+            ? <Drawing handleChange={this.handleChange} ready={this.roundDone} playerPosition={this.props.playerPosition}/>
+            : <Writing handleChange={this.handleChange} ready={this.roundDone} playerPosition={this.props.playerPosition}/>
     }
 }
 

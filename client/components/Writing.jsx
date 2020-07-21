@@ -45,7 +45,7 @@ class Writing extends React.Component {
                 <textarea name="writing" rows="5" cols="50" className="Writing_textInput center" placeholder="Describe what you see!" onChange={this.handleChange}></textarea>
                 </div>
                 <div className="control-container center">
-                <ViewSpace />
+                <ViewSpace playerPosition={this.props.playerPosition}/>
                 </div>
                 <div className="center">
                 <button onClick={this.handleClick} className="Writing_button center green">DONE</button>

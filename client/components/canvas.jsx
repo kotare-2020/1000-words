@@ -1,17 +1,39 @@
 import { connect } from 'react-redux'
 import React from 'react'
+import { getRoundDataApi } from '../apis/apis'
 
 
 class Canvas extends React.Component {
 
     state = {
-        canvas: ""
+        canvas: "",
+        // writing: ""
     }
 
     // stage = null
 
-
+    
     componentDidMount() {
+
+          
+        
+        
+        const findPlayerToSendTo = () => {
+            // console.log('playerPosition: ', this.props.playerPosition)
+            let positionNumber = this.props.playerPosition + (this.props.currentRound - 1)
+            // console.log('positionNumber:', positionNumber)
+            // console.log(positionNumber, 'vs', this.props.playerIdList.length);
+            if (positionNumber >= this.props.playerIdList.length) {
+                // console.log('wrap');
+                return this.props.playerIdList[positionNumber - (this.props.playerIdList.length)]
+            } else {
+                // console.log('dont wrap')
+                return this.props.playerIdList[positionNumber]
+            }
+        }
+
+        var json = getRoundDataApi(findPlayerToSendTo(), this.props.currentRound, this.props.gameId)
+
         var width = 300;
         var height = 400;
         // first we need Konva core things: stage and layer
@@ -46,7 +68,7 @@ class Canvas extends React.Component {
 
         this.stage.on('mouseup touchend', () => {
             isPaint = false;
-            console.log(this.stage.toJSON()) // this will be where the change is
+            // console.log(this.stage.toJSON()) // this will be where the change is
             this.props.saveDrawing(this.stage.toJSON())
         });
 
@@ -87,4 +109,15 @@ class Canvas extends React.Component {
 }
 
 
-export default connect ()(Canvas) 
+const mapStateToProps = (state) => {
+    return {
+        players: state.players,
+        playerId: state.playerId,
+        gameId: state.game,
+        roundNumber: state.currentRound,
+        currentRound: state.currentRound,
+        playerIdList: state.playerIdList
+    }
+}
+
+export default connect(mapStateToProps)(Canvas)

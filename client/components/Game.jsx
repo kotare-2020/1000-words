@@ -20,13 +20,13 @@ class Game extends React.Component {
     }
 
     userfinnished = () => {
-        console.log("this user clicked done")
+        // console.log("this user clicked done")
         this.setState({ done: true })
         socket.emit("imdone", this.state.gameid)
     }
   
     componentDidMount(){
-
+        
         getPlayersInlobby(this.props.gameId)
         .then(playersInfo => playersInfo.body.map(playerInfo => playerInfo.player_id))
         .then(playerIdList => this.props.dispatch(setPlayerIdList(playerIdList)))
@@ -37,15 +37,15 @@ class Game extends React.Component {
         if(this.state.gameid == 0) this.props.history.push("/")
 
         socket.on("playerfinnished", res => {
-            console.log(`user ${res} finnished`)
+            // console.log(`user ${res} finnished`)
             this.setState({
                 finnished: [...this.state.finnished, res]
             })
-            console.log(this.props.players.length == this.state.finnished.length)
-            console.log(this.props.players.length, this.state.finnished.length)
+            // console.log(this.props.players.length == this.state.finnished.length)
+            // console.log(this.props.players.length, this.state.finnished.length)
 
             if(this.props.players.length == this.state.finnished.length && this.props.players.length >= 5 ) {
-                console.log("all users done")
+                // console.log("all users done")
                 
                 this.props.dispatch(incrementCurrentRound())
 

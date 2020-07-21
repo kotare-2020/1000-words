@@ -16,8 +16,8 @@ class JoinGame extends React.Component {
 
         getGameIdApi(document.getElementById("gameid").value)
             .then((res) => {
-
-
+                if(document.getElementById("name").value.length > 1){ console.log("acceptable")
+                
                 if (res.body.game) {
                     getPlayersInlobby(document.getElementById("gameid").value)
                         .then((data) => {
@@ -60,26 +60,36 @@ class JoinGame extends React.Component {
 
                 }
                 else this.setState({ error: "Lobby does not exist" })
+            }
+            else this.setState({ error: "user name does not contain enough characters" })
             })
+            
             .catch((err) => {
                 console.log("join game component has an error ", err);
             })
 
     };
 
+    handleSubmit = () => {
+        event.preventDefault()
+        this.validategame()
+    }
+
     render() {
         return (
             <>
                 {(this.state.error == "no error") ? "" : <div className="errorResponse"><h3>{this.state.error}</h3></div>}
                 <div className="inputWraper">
-                    <label className="inputtitle">game id</label><br></br>
-                    <input id="gameid" type="text" name="lobby" placeholder="Game id" />
                 </div>
+            <form onSubmit={this.handleSubmit}>
+                    <label className="inputtitle">game id</label><br></br>
+                    <input required id="gameid" type="text" name="lobby" placeholder="Game id"/>
                 <div className="inputWraperb">
                     <label className="inputtitle">User Name</label><br></br>
-                    <input id="name" type="text" name="player" placeholder="Name" />
+                    <input required id="name" type="text" name="player" placeholder="Name"/>
                 </div>
-                <div onClick={this.validategame} className="join-button button ">Join</div>
+                <button onClick={this.handleSubmit} className="join-button button ">Join</button>
+            </form>
                 <Link to="/lobby" ><div id="next" style={{ display: "none" }}>to lobby</div></Link>
 
             </>

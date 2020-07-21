@@ -60,7 +60,7 @@ class PlayerLobby extends React.Component {
                 <br></br>
                 <div className="gameInfoWrap">
                     <div className="gametitle">Game code: {this.state.lobby}</div>
-                    {(this.state.players.length >= 5) ? <h1>Waiting for the host to start game</h1> : <h1>Currently waiting for players...</h1>}
+                    {(this.state.players.length >= 5) ? <h1>Waiting for the host to start the game...</h1> : <h1>Waiting for all players to join...</h1>}
                 </div>
                 <br></br>
                 

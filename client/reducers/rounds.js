@@ -1,4 +1,4 @@
-import INCREMENT_CURRENT_ROUND from '../actions/currentRound' 
+import {INCREMENT_CURRENT_ROUND} from '../actions/currentRound' 
 
 const initialState = 0
 

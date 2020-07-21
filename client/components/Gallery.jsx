@@ -18,7 +18,8 @@ class Gallery extends React.Component {
   
   componentDidMount() {
 
-    getAllRounds(this.state.gameid)
+    getAllRounds(this.props.gameid)
+    // getAllRounds(this.props.gameid)
       .then(res => {
         let roundarr = []
        
@@ -38,8 +39,7 @@ class Gallery extends React.Component {
         console.log(err)
       })
 
-
-    getPlayersInlobby(1)
+    getPlayersInlobby(this.props.gameid)
     .then(res => {
     let usernames = []
       res.body.map(user=>{
@@ -55,6 +55,9 @@ class Gallery extends React.Component {
     })
 
   }
+
+
+  
   func = () => {
     let roundarr = []
     for (const key of Object.keys(this.state.gamedata[this.state.index - 1])) {
@@ -92,6 +95,8 @@ class Gallery extends React.Component {
        })
  
   }
+
+
 
   render() {
 
@@ -148,8 +153,8 @@ class UserCard extends React.Component {
       return (<div>
         
         <h2>{this.props.users[this.props.round - 1 + this.props.index]} drew it like this</h2>
-        {this.props.data}
-
+        
+        
         <GalleryImg data={this.props.data} custmId={"viewingSpace" + this.props.round}/>
         {/* <Coppy data={this.props.data}/> */}
       </div>)
@@ -167,7 +172,8 @@ class UserCard extends React.Component {
 
 function mapStateToProps(globalState) {
   return {
-    rounds: globalState.rounds
+    gameid: globalState.game,
+    rounds: globalState.rounds,
   }
 }
 

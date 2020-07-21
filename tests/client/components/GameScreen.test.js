@@ -10,9 +10,9 @@ test('send player to', () => {
 
     const expected = 159
 
-    console.log({playerPosition})
-    console.log({currentRound})
-    console.log({playerIdList})
+    // console.log({playerPosition})
+    // console.log({currentRound})
+    // console.log({playerIdList})
 
     const wrapper = shallow(<GameScreen playerPosition={playerPosition} currentRound={currentRound} playerIdList={playerIdList}/>)
     const actual = wrapper.instance().findPlayerToSendTo()
@@ -27,9 +27,9 @@ test('send player to', () => {
 
     const expected = 155
 
-    console.log({playerPosition})
-    console.log({currentRound})
-    console.log({playerIdList})
+    // console.log({playerPosition})
+    // console.log({currentRound})
+    // console.log({playerIdList})
 
     const wrapper = shallow(<GameScreen playerPosition={playerPosition} currentRound={currentRound} playerIdList={playerIdList}/>)
     const actual = wrapper.instance().findPlayerToSendTo()
@@ -44,9 +44,9 @@ test('send player to', () => {
 
     const expected = 156
 
-    console.log({playerPosition})
-    console.log({currentRound})
-    console.log({playerIdList})
+    // console.log({playerPosition})
+    // console.log({currentRound})
+    // console.log({playerIdList})
 
     const wrapper = shallow(<GameScreen playerPosition={playerPosition} currentRound={currentRound} playerIdList={playerIdList}/>)
     const actual = wrapper.instance().findPlayerToSendTo()
@@ -61,9 +61,9 @@ test('send player to', () => {
 
     const expected = 157
 
-    console.log({playerPosition})
-    console.log({currentRound})
-    console.log({playerIdList})
+    // console.log({playerPosition})
+    // console.log({currentRound})
+    // console.log({playerIdList})
 
     const wrapper = shallow(<GameScreen playerPosition={playerPosition} currentRound={currentRound} playerIdList={playerIdList}/>)
     const actual = wrapper.instance().findPlayerToSendTo()
@@ -78,9 +78,9 @@ test('send player to', () => {
 
     const expected = 158
 
-    console.log({playerPosition})
-    console.log({currentRound})
-    console.log({playerIdList})
+    // console.log({playerPosition})
+    // console.log({currentRound})
+    // console.log({playerIdList})
 
     const wrapper = shallow(<GameScreen playerPosition={playerPosition} currentRound={currentRound} playerIdList={playerIdList}/>)
     const actual = wrapper.instance().findPlayerToSendTo()

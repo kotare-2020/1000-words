@@ -51,7 +51,7 @@ class JoinGame extends React.Component {
                                     })
                                     .catch(err => {
                                         this.setState({ error: "DB error" })
-                                        console.log(err)
+                                        console.log("join game component has an error ", err)
                                     })
                             }
                             else this.setState({ error: "Lobby is full" })
@@ -62,7 +62,7 @@ class JoinGame extends React.Component {
                 else this.setState({ error: "Lobby dose not exist" })
             })
             .catch((err) => {
-                console.log(err);
+                console.log("join game component has an error ", err);
             })
 
     };

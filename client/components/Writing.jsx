@@ -9,6 +9,10 @@ class Writing extends React.Component {
         writing: ""
     }
 
+    
+
+
+
     handleChange = (event) => {
         this.props.handleChange(event.target.value)
 
@@ -19,7 +23,7 @@ class Writing extends React.Component {
 
     handleClick = () => {
         // send input 
-        console.log(this.props.JSON)
+        // console.log(this.props.JSON)
         this.props.ready()
         // this.postToDataBase()
     }
@@ -41,14 +45,16 @@ class Writing extends React.Component {
     render() {
         return (
             <>
-            <div className="center">
-                <textarea className="text-area" name="writing" rows="5" cols="35" className="Writing_textInput center" placeholder="Describe what you see!" onChange={this.handleChange}></textarea>
+                <div className="center">
+                    <textarea className="text-area" name="writing" rows="5" cols="35" className="Writing_textInput center" placeholder="Describe what you see!" onChange={this.handleChange}></textarea>
                 </div>
                 <div className="control-container center">
-                <ViewSpace />
+
+                    <ViewSpace playerPosition={this.props.playerPosition} />
+
                 </div>
                 <div className="center">
-                <button onClick={this.handleClick} className="Writing_button center green">DONE</button>
+                    <button onClick={this.handleClick} className="Writing_button center green">DONE</button>
                 </div>
             </>
         )
@@ -65,5 +71,5 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(Writing) 
+export default connect(mapStateToProps)(Writing)
 

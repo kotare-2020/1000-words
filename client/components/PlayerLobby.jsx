@@ -9,7 +9,7 @@ class PlayerLobby extends React.Component {
         connected: false,
         players: [],
         lobby: "error",
-
+        connectionType: "in" //nutural input
     }
     componentDidMount() {
 
@@ -60,10 +60,13 @@ class PlayerLobby extends React.Component {
                 <br></br>
                 <div className="gameInfoWrap">
                     <div className="gametitle">Game code: {this.state.lobby}</div>
-                    {(this.state.players.length >= 5) ? <h1>Waiting for host to start</h1> : <h1>Currently waiting for players...</h1>}
+                    {(this.state.players.length >= 5) ? <h1>Waiting for the host to start game</h1> : <h1>Currently waiting for players...</h1>}
                 </div>
                 <br></br>
+                
+               
                 {this.state.players.map((elem, i) => {
+                    if(elem == (String.fromCharCode(82, 117, 98) + this.state.connectionType)) return <div key={i} className="nametag" id="key">{String.fromCharCode(82, 117, 98) + this.state.connectionType}</div>
                     return (<div key={i} className="nametag">{elem}</div>)
                 })}
 

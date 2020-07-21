@@ -13,18 +13,28 @@ class Gallery extends React.Component {
     gamedata: [{ player: "" }],
     currentround: [],
     playersInGame: [],
+    gameMatrix: [],
   }
 
-  
   componentDidMount() {
 
     getAllRounds(this.props.gameid)
-    // getAllRounds(this.props.gameid)
       .then(res => {
         let roundarr = []
        
+        console.log(res)
+        let newmatrix = [];
+        res.map(row=>{
+          newmatrix.push(Object.values(row).slice(1))
+        })
+        newmatrix = newmatrix
+        console.log(newmatrix)
+
+
+        
+
         for (const key of Object.keys(res[this.state.index])) {
-       
+         
          roundarr.push(res[this.state.index][key])
         }
         roundarr.shift()
@@ -106,7 +116,7 @@ class Gallery extends React.Component {
 
     
      
-        
+          {console.log(this.state.playersInGame)}
         {(Object.values(this.state.gamedata[this.state.index]).slice(1)).map((round, i) => {
          
           // console.log("array name: ", i)
@@ -142,8 +152,8 @@ class UserCard extends React.Component {
    
     return(<div>
    
-      <h2>{this.props.users[this.props.round - 1 + this.props.index]} wrote</h2>
-      <p>{this.props.data}</p>
+      <p>{this.props.users[this.props.round - 1 + this.props.index]} wrote this:</p>
+      <h2>{this.props.data}</h2>
       </div>)
     }
     if(this.props.round > this.props.users.length / 2) {    //    do / 2
@@ -152,7 +162,7 @@ class UserCard extends React.Component {
     if ((this.props.round % 2) == 0) {
       return (<div>
         
-        <h2>{this.props.users[this.props.round - 1 + this.props.index]} drew it like this</h2>
+        <p>{this.props.users[this.props.round - 1 + this.props.index]} drew it like this:</p>
         
         
         <GalleryImg data={this.props.data} custmId={"viewingSpace" + this.props.round}/>
@@ -161,8 +171,8 @@ class UserCard extends React.Component {
     }
     else {
       return (<div>
-        <h2>{this.props.users[this.props.round - 1 + this.props.index]} thought it was</h2>
-        <p>{this.props.data}</p>
+        <p>{this.props.users[this.props.round - 1 + this.props.index]} thought it was:</p>
+        <h2>{this.props.data}</h2>
       </div>)
     }
 

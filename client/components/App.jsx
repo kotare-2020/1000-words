@@ -53,9 +53,9 @@ class App extends React.Component {
               <Route exact path="/canvas" component={drawcanvas} />
               <Route exact path="/hostLobby" component={HostLobby} />
               <Route exact path="/game" component={Game} />
-              <Route exact path="/gallery" component={Gallery} />
               <Route exact path="/Writing" component={Writing} />
               <Route exact path="/Drawing" component={Drawing} />
+              <Route exact path="/gallery" component={Gallery} />
 
               {/* <Route exact path="/apis" component={APIs} /> */}
             </div>

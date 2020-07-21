@@ -48,7 +48,7 @@ class Game extends React.Component {
                 console.log("all users done")
                 
                 this.props.dispatch(incrementCurrentRound())
-                
+
                 this.setState({
                     round: this.state.round + 1,
                     done: false,
@@ -57,6 +57,12 @@ class Game extends React.Component {
                 
             }
         })
+    }
+
+    componentDidUpdate() {
+        if(this.state.round > this.props.playerIdList.length) {
+            this.props.history.push("/Gallery")
+        }
     }
 
     

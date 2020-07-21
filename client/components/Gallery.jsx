@@ -14,7 +14,7 @@ class Gallery extends React.Component {
     currentround: [],
     playersInGame: [],
   }
-  
+    
   
   componentDidMount() {
     this.setState({

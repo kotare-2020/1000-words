@@ -21,15 +21,15 @@ export class GameScreen extends React.Component {
     }
 
     findPlayerToSendTo = () => {
-        console.log('playerPosition: ', this.props.playerPosition)
+        console.log('playerPosition: ', this.props.playerPosition) // remove
         let positionNumber = this.props.playerPosition + (this.props.currentRound - 1)
-        console.log('positionNumber:', positionNumber)
-        console.log(positionNumber, 'vs', this.props.playerIdList.length);
+        console.log('positionNumber:', positionNumber) // remove
+        console.log(positionNumber, 'vs', this.props.playerIdList.length); // remove
         if (positionNumber >= this.props.playerIdList.length){
-            console.log('wrap');
+            console.log('wrap'); // remove
             return this.props.playerIdList[positionNumber - (this.props.playerIdList.length)]
         } else {
-            console.log('dont wrap')
+            console.log('dont wrap') // remove
             return this.props.playerIdList[positionNumber]
         }
     }

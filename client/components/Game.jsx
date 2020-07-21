@@ -26,7 +26,7 @@ class Game extends React.Component {
     }
   
     componentDidMount(){
-
+        
         getPlayersInlobby(this.props.gameId)
         .then(playersInfo => playersInfo.body.map(playerInfo => playerInfo.player_id))
         .then(playerIdList => this.props.dispatch(setPlayerIdList(playerIdList)))

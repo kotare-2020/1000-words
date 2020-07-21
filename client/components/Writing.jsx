@@ -9,7 +9,7 @@ class Writing extends React.Component {
         writing: ""
     }
 
-    
+
 
 
 
@@ -45,16 +45,18 @@ class Writing extends React.Component {
     render() {
         return (
             <>
-                <div className="center">
-                    <textarea className="text-area" name="writing" rows="5" cols="35" className="Writing_textInput center" placeholder="Describe what you see!" onChange={this.handleChange}></textarea>
-                </div>
-                <div className="control-container center">
+                <div className="Writing-page">
+                    <div className="center">
+                        <textarea className="text-area" name="writing" rows="5" cols="35" className="Writing_textInput center" placeholder="Describe what you see!" onChange={this.handleChange}></textarea>
+                    </div>
+                    <div className="control-container center">
 
-                    <ViewSpace playerPosition={this.props.playerPosition} />
+                        <ViewSpace playerPosition={this.props.playerPosition} />
 
-                </div>
-                <div className="center">
-                    <button onClick={this.handleClick} className="Writing_button center green">DONE</button>
+                    </div>
+                    <div className="center">
+                        <button onClick={this.handleClick} className="Writing_button center green">DONE</button>
+                    </div>
                 </div>
             </>
         )

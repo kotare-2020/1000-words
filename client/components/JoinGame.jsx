@@ -59,7 +59,7 @@ class JoinGame extends React.Component {
                         })
 
                 }
-                else this.setState({ error: "Lobby dose not exist" })
+                else this.setState({ error: "Lobby does not exist" })
             })
             .catch((err) => {
                 console.log("join game component has an error ", err);

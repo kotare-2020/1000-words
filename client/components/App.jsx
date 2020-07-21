@@ -47,6 +47,7 @@ class App extends React.Component {
           <div className="game-screen">
             <div className="game-content">
               <Route exact path="/" component={HostJoin} />
+              <div className="game-noscroll">
               <Route exact path="/create" component={CreateGame} />
               <Route exact path="/join" component={JoinGame} />
               <Route exact path="/lobby" component={PlayerLobby} />
@@ -55,6 +56,8 @@ class App extends React.Component {
               <Route exact path="/game" component={Game} />
               <Route exact path="/Writing" component={Writing} />
               <Route exact path="/Drawing" component={Drawing} />
+              </div>
+
               <Route exact path="/gallery" component={Gallery} />
 
               {/* <Route exact path="/apis" component={APIs} /> */}

@@ -27,9 +27,20 @@ label {
     /* top: 0; */
     height: 100%;
     width: 100%;
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     align-items: center;
+}
+
+.game-noscroll {
+    position: fixed;
+    /* top: 0; */
+    height: 100%;
+    width: 100%;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .dev-menu {
@@ -214,7 +225,7 @@ button {
 .HostLobby-players {
     padding: 10px;
     margin-bottom: 50px;
-    margin-top: 30vh;
+    /* margin-top: 30vh; */
 }
 
 .start {
@@ -270,6 +281,10 @@ button {
 
 .Writing-box {
     padding-left: 12px;
+}
+
+.Writing-page {
+    margin-top: 5vh;
 }
 
 /* --- Gallery --- */

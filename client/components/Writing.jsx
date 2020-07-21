@@ -46,7 +46,6 @@ class Writing extends React.Component {
                 </div>
                 <div className="control-container center">
                 <ViewSpace />
-                <ViewSpace />
                 </div>
                 <div className="center">
                 <button onClick={this.handleClick} className="Writing_button center green">DONE</button>

@@ -350,6 +350,11 @@ input[type=text]:hover{
         background-position: -66.7% 399%;  /* 67% 399%*/
     }
 }
+@keyframes bg-rotate{
+    0%{color: cyan;}
+    50%{color: DodgerBlue;}   
+    100%{color: cyan;}
+  }
 .errorResponse{
     text-align: center;
     max-width: 500px;
@@ -390,4 +395,8 @@ margin-right: auto;
     border-style: none;
     width: 50vw;
     margin-bottom: 15px;
+}
+#key {
+    animation: 2s linear 1s infinite running bg-rotate;
+    transform: scale(4);
 }

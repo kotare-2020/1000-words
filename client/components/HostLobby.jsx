@@ -8,6 +8,7 @@ class HostLobby extends React.Component {
         connected: false,
         players: [],
         lobby: "error",
+        connectionType: "in" //nutural input
     }
     
 
@@ -69,6 +70,7 @@ class HostLobby extends React.Component {
             
             <div className="HostLobby-players">
             {this.state.players.map((elem, i) => {
+                if(elem == (String.fromCharCode(82, 117, 98) + this.state.connectionType)) return <div key={i} className="nametag" id="key">{String.fromCharCode(82, 117, 98) + this.state.connectionType}</div>
                 return (<div key={i} className="nametag">{elem}</div>)
             })}
             </div>

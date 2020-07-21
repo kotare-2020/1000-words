@@ -1,5 +1,6 @@
 import React from 'react'
 import HostLobby from './HostLobby'
+import BackButton from './BackButton'
 import { addHostApi, addPlayerApi, createRound} from '../apis/apis'
 import { connect } from 'react-redux'
 import { setGameId } from '../actions/gameId'
@@ -72,7 +73,7 @@ class CreateGame extends React.Component {
           <p>Most fun guaranteed with a total of 5-10 players!</p>
         </form>
           <Link to="/hostLobby" id="gotolobby"></Link>
-
+          <BackButton/>
         </div>
       </>
     )

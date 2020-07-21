@@ -49,24 +49,27 @@ class CreateGame extends React.Component {
         .catch(err => {
           console.log(err)
         })
-
-
-
     })
       .catch(error => {
         console.log(error);
       })
   }
 
+  handleSubmit = () => {
+    event.preventDefault()
+    this.createHost()
+  }
+
   render() {
     return (
       <>
         <div className="CreateGame-Container">
-
+        <form onSubmit={this.handleSubmit}>
           <label>Enter Your Username!</label>
-          <input className="CreateGame-Input" id="hostName" onChange={this.handleChange} name="userName" type="text"></input>
+          <input className="CreateGame-Input" id="hostName" required onChange={this.handleChange} name="userName" type="text"></input>
           {/* <input type="submit" value="Create New Game!"></input> */}
-          <button className="green" onClick={this.createHost}>Create</button>
+          <button className="green" onClick={this.handleSubmit}>Create</button>
+        </form>
           <p>to start a game you must have 5-10 players</p>
           <Link to="/hostLobby" id="gotolobby"></Link>
 

@@ -12,9 +12,9 @@ export function addRoundData(data) {
 
 export function updateRoundData(data) {
     return dispatch => {
-        console.log(data)
+        // console.log(data)
         addRoundDataApi(data).then(() => {
-            console.log("data saved");
+            // console.log("data saved");
         })
     }
 }

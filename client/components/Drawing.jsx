@@ -11,7 +11,7 @@ class Drawing extends React.Component {
     drawing: null,
 }
 handleClick = () => {
-    console.log("user clicked done")
+    // console.log("user clicked done")
     // this.props.dispatch(updateRoundData({
     //   gameId: this.props.gameId, 
     //   dbdata: {

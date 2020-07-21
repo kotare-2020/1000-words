@@ -21,15 +21,15 @@ export class GameScreen extends React.Component {
     }
 
     findPlayerToSendTo = () => {
-        console.log('playerPosition: ', this.props.playerPosition)
+        // console.log('playerPosition: ', this.props.playerPosition)
         let positionNumber = this.props.playerPosition + (this.props.currentRound - 1)
-        console.log('positionNumber:', positionNumber)
-        console.log(positionNumber, 'vs', this.props.playerIdList.length);
+        // console.log('positionNumber:', positionNumber)
+        // console.log(positionNumber, 'vs', this.props.playerIdList.length);
         if (positionNumber >= this.props.playerIdList.length) {
-            console.log('wrap');
+            // console.log('wrap');
             return this.props.playerIdList[positionNumber - (this.props.playerIdList.length)]
         } else {
-            console.log('dont wrap')
+            // console.log('dont wrap')
             return this.props.playerIdList[positionNumber]
         }
     }
@@ -49,7 +49,7 @@ export class GameScreen extends React.Component {
 
     roundDone = () => {
         const playerToSendToValue = this.findPlayerToSendTo()
-        console.log('send to: ', playerToSendToValue, this.props.playerIdList[playerToSendToValue])
+        // console.log('send to: ', playerToSendToValue, this.props.playerIdList[playerToSendToValue])
         // const playerToSendTo = this.props.playerIdList[playerToSendToValue]
         const playerToSendTo = playerToSendToValue
 

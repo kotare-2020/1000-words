@@ -5,8 +5,8 @@ const players = '/api/players'
 const round = '/api/rounds'
 
 export function addHostApi(host) {
-    console.log('from addHostApi')
-    console.log(host)
+    // console.log('from addHostApi')
+    // console.log(host)
     return request
         .post(game)
         .send(host)
@@ -16,25 +16,25 @@ export function addHostApi(host) {
 }
 
 export function addPlayerApi(player) {
-    console.log('from addPlayerApi')
+    // console.log('from addPlayerApi')
     return request
         .post(players)
         .send(player)
         .then(res => {
-            console.log(res.body)
+            // console.log(res.body)
             return res.body
         })
 }
 
 export function getGameIdApi(id) {
-    console.log(`${game}/${id}`)
+    // console.log(`${game}/${id}`)
     return request
         .get(`${game}/${id}`)
     // .then(res => res.body)
 }
 
 export function getPlayersInlobby(id) {
-    console.log(`${players}/${id}`)
+    // console.log(`${players}/${id}`)
     return request
         .get(`${players}/${id}`)
     // .then(res => res.body)
@@ -54,11 +54,7 @@ export function getRoundDataApi(playerId, currentRound, gameId) {
     return request
         .get(`/api/rounds/${gameId}/${currentRound}`)
         .then(res => { return res.body })
-        .then(body => body.filter(player => {
-            if (player.player_id == playerId) {
-                return player
-            }
-        }))
+        .then(body => body.find(player => player.player_id == playerId))
 }
 
 
@@ -76,8 +72,8 @@ export function getRoundDataApi(playerId, currentRound, gameId) {
 
 
 export function createRound(data) {
-    console.log(data);
-    console.log("this is from the api");
+    // console.log(data);
+    // console.log("this is from the api");
     return request
         .post(`${round}/${data.game}`)
         .send(data)
@@ -86,8 +82,8 @@ export function createRound(data) {
         })
 }
 export function getAllRounds(data) {
-    console.log("get all rounds api");
-    return request 
+    // console.log("get all rounds api");
+    return request
         .get(`${round}/${data}`)
         .then(res => {
             return res.body

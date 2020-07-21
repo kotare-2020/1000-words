@@ -8,7 +8,7 @@ module.exports = {
 }
 
 function getAllRounds(id, db = connection) {
-    console.log("get all rounds recived ", id)
+    // console.log("get all rounds recived ", id)
     return db('rounds')
         .join("players", "rounds.player", "players.player_id")
         .where('game_id', id)
@@ -25,12 +25,12 @@ function getSingleRound(gameId, roundNum ,db = connection) {
 
 function addRound(roundData ,db = connection) {
     let obj = {}
-    console.log("1st", obj);
+    // console.log("1st", obj);
     obj['round' + roundData.roundNumber] = roundData.roundInfo
         if((roundData.roundNumber)%2 != 1) {
             obj['round' + roundData.roundNumber] = roundData.roundInfo
             // obj['round' + roundData.roundNumber] = JSON.stringify(roundData.roundInfo) // this is the working code
-            console.log(obj);
+            // console.log(obj);
         }
     return db('rounds')
     .where('player', roundData.playerId,)

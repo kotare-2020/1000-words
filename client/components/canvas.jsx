@@ -6,24 +6,48 @@ import { getRoundDataApi } from '../apis/apis'
 class Canvas extends React.Component {
 
     state = {
-        canvas: ""
+        canvas: "",
+        // writing: ""
     }
 
     // stage = null
 
     
     componentDidMount() {
+
+            // const findPlayerToSendTo = () => {
+            //     let positionNumber = this.props.playerPosition + (this.props.currentRound - 1)
+            //     if (positionNumber >= this.props.playerIdList.length) {
+            //         return this.props.playerIdList[positionNumber - (this.props.playerIdList.length)]
+            //     } else {
+            //         return this.props.playerIdList[positionNumber]
+            //     }
+            // }
+    
+            // console.log("this is the player", findPlayerToSendTo())
+    
+            // getRoundDataApi(findPlayerToSendTo(), this.props.currentRound - 1, this.props.gameId)
+            //     .then(res => {
+            //         let drawing = res[0].round2.replace("\\", "")
+            //         console.log("inside ", drawing)
+            //         this.setState({
+            //             writing: res[0].round2
+            //         })
+            //         return res[0].round2
+            //     })
+    
+        
         
         const findPlayerToSendTo = () => {
-            console.log('playerPosition: ', this.props.playerPosition)
+            // console.log('playerPosition: ', this.props.playerPosition)
             let positionNumber = this.props.playerPosition + (this.props.currentRound - 1)
-            console.log('positionNumber:', positionNumber)
-            console.log(positionNumber, 'vs', this.props.playerIdList.length);
+            // console.log('positionNumber:', positionNumber)
+            // console.log(positionNumber, 'vs', this.props.playerIdList.length);
             if (positionNumber >= this.props.playerIdList.length) {
-                console.log('wrap');
+                // console.log('wrap');
                 return this.props.playerIdList[positionNumber - (this.props.playerIdList.length)]
             } else {
-                console.log('dont wrap')
+                // console.log('dont wrap')
                 return this.props.playerIdList[positionNumber]
             }
         }
@@ -64,7 +88,7 @@ class Canvas extends React.Component {
 
         this.stage.on('mouseup touchend', () => {
             isPaint = false;
-            console.log(this.stage.toJSON()) // this will be where the change is
+            // console.log(this.stage.toJSON()) // this will be where the change is
             this.props.saveDrawing(this.stage.toJSON())
         });
 

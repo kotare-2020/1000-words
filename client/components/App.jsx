@@ -23,9 +23,9 @@ class App extends React.Component {
   componentDidMount() {
     document.body.style.backgroundColor = this.colors[Math.floor(Math.random() * this.colors.length)]
     socket.on('connect', () => {
-      console.log("connected to websocket server")
+      // console.log("connected to websocket server")
       socket.on("disconnect", () => {
-        console.log("connection to websocket server was lost")
+        // console.log("connection to websocket server was lost")
       })
 
     });

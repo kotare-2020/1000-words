@@ -47,7 +47,7 @@ class HostLobby extends React.Component {
             })
         })
         setTimeout(() => {
-            console.log(this.state.lobby)
+            // console.log(this.state.lobby)
             if(this.state.lobby == "error") this.props.history.push("/")
         }, 100);
         //    socket.on("gamestart", res => {

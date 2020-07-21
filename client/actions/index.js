@@ -14,7 +14,7 @@ export function addHost(host) {
 export function saveHost(host) {
     return dispatch => {
         addHostApi(host).then(() => {
-            console.log("game created");
+            // console.log("game created");
             
         })
     }
@@ -30,7 +30,7 @@ export function addPlayer(player) {
 export function savePlayer(player) {
     return dispatch => {
         addPlayerApi(host).then(() => {
-            console.log("user created");
+            // console.log("user created");
             
         })
     }

@@ -7,25 +7,23 @@ class ViewSpace extends React.Component {
     componentDidMount() {
 
         const findPlayerToSendTo = () => {
-            // console.log('playerPosition: ', this.props.playerPosition)
             let positionNumber = this.props.playerPosition + (this.props.currentRound - 1)
-            // console.log('positionNumber:', positionNumber)
-            // console.log(positionNumber, 'vs', this.props.playerIdList.length);
             if (positionNumber >= this.props.playerIdList.length) {
-                // console.log('wrap');
                 return this.props.playerIdList[positionNumber - (this.props.playerIdList.length)]
             } else {
-                // console.log('dont wrap')
                 return this.props.playerIdList[positionNumber]
             }
         }
-        console.log("this is the player", findPlayerToSendTo())
         getRoundDataApi(findPlayerToSendTo(), this.props.currentRound - 1, this.props.gameId)
             .then(res => {
-                let drawing = res[0].round2.replace("\\", "")
-                console.log("inside ", drawing)
-                Konva.Node.create(drawing, 'viewingSpace')
-                return res[0].round2
+                let drawing = res["round" + (this.props.currentRound-1) ].replace("\\", "")
+
+                console.log("without replace: ", res)
+                // console.log("with replace: ", res.round2.replace("\\", ""))
+                // console.log("they're Equal ", res.round2 == res[0].round2.replace("\\", ""))
+
+                Konva.Node.create(drawing, `viewingSpace${this.props.currentRound}`)
+                return 
             })
 
 
@@ -50,7 +48,7 @@ class ViewSpace extends React.Component {
             <>
                 <div className=" Writing-box">
                     <div id="container">
-                        <div id="viewingSpace" className="container center"></div>
+                        <div id={`viewingSpace${this.props.currentRound}`} className="container center"></div>
                     </div>
                 </div>
             </>

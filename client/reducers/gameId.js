@@ -1,6 +1,6 @@
 import { SET_GAME_ID } from '../actions/gameId'
 
-const initialState = 0
+const initialState = 20
 
 const reducer = (state = initialState, action) => {
     switch(action.type) {

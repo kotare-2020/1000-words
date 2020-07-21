@@ -15,27 +15,7 @@ class Canvas extends React.Component {
     
     componentDidMount() {
 
-            // const findPlayerToSendTo = () => {
-            //     let positionNumber = this.props.playerPosition + (this.props.currentRound - 1)
-            //     if (positionNumber >= this.props.playerIdList.length) {
-            //         return this.props.playerIdList[positionNumber - (this.props.playerIdList.length)]
-            //     } else {
-            //         return this.props.playerIdList[positionNumber]
-            //     }
-            // }
-    
-            // console.log("this is the player", findPlayerToSendTo())
-    
-            // getRoundDataApi(findPlayerToSendTo(), this.props.currentRound - 1, this.props.gameId)
-            //     .then(res => {
-            //         let drawing = res[0].round2.replace("\\", "")
-            //         console.log("inside ", drawing)
-            //         this.setState({
-            //             writing: res[0].round2
-            //         })
-            //         return res[0].round2
-            //     })
-    
+          
         
         
         const findPlayerToSendTo = () => {

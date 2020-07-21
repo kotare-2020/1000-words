@@ -148,20 +148,10 @@ class UserCard extends React.Component {
       return (<div>
         
         <h2>{this.props.users[this.props.round - 1 + this.props.index]} drew it like this</h2>
-<<<<<<< HEAD
-        <p>{this.props.data}</p>
-        <div className="Gallery-view">
-        <Viewspace/>
-        </div>
-||||||| merged common ancestors
-        <p>{this.props.data}</p>
-        <Viewspace/>
-=======
         {this.props.data}
 
         <GalleryImg data={this.props.data} custmId={"viewingSpace" + this.props.round}/>
         {/* <Coppy data={this.props.data}/> */}
->>>>>>> 9968abcce87c41fb2beee3d2674f9f1e3d474afc
       </div>)
     }
     else {

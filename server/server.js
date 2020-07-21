@@ -18,10 +18,13 @@ app.use("/api/players", players)
 app.use("/api/rounds", rounds)
 
 io.on('connection', function(socket){
-   
-    console.log(socket.id, "connected")
+
+    // console.log(socket, "connected")
+    console.log("connected")
+    // console.log("rooms", socket.rooms)
     
     io.to(socket.id).emit("sup ")
+
     io.emit('welcome')
     socket.on('disconnect', () => {
         console.log('user disconnected')

@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 class ViewSpace extends React.Component {
 
     componentDidMount() {
+
         const findPlayerToSendTo = () => {
             // console.log('playerPosition: ', this.props.playerPosition)
             let positionNumber = this.props.playerPosition + (this.props.currentRound - 1)
@@ -42,11 +43,12 @@ class ViewSpace extends React.Component {
 
 
 
+
     }
     render() {
         return (
             <>
-                <div className=" Writing-box center">
+                <div className=" Writing-box">
                     <div id="container">
                         <div id="viewingSpace" className="container center"></div>
                     </div>

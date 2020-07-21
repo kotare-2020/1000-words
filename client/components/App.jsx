@@ -13,6 +13,7 @@ import Canvas from './canvas'
 import drawcanvas from "./canvas"
 import SocketTest from "./SocketTest"
 import Game from "./Game"
+import Gallery from "./Gallery"
 
 
 class App extends React.Component {
@@ -41,7 +42,7 @@ class App extends React.Component {
 
         <Router>
           <div className="dev-menu">
-            dev menu | <Link to="/">home</Link> | <Link to="/game">game</Link> | <Link to="/canvas">canvas</Link> | <Link to="/Writing">Writing</Link> | <Link to="/Drawing">Drawing</Link>
+            dev menu | <Link to="/">home</Link> | <Link to="/game">game</Link> | <Link to="/canvas">canvas</Link> | <Link to="/Writing">Writing</Link> | <Link to="/Drawing">Drawing</Link> | <Link to="/Gallery">gallery</Link> 
           </div>
           <div className="game-screen">
             <div className="game-content">
@@ -54,6 +55,7 @@ class App extends React.Component {
               <Route exact path="/game" component={Game} />
               <Route exact path="/Writing" component={Writing} />
               <Route exact path="/Drawing" component={Drawing} />
+              <Route exact path="/gallery" component={Gallery} />
 
               {/* <Route exact path="/apis" component={APIs} /> */}
             </div>

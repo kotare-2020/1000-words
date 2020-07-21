@@ -23,8 +23,7 @@ label {
 }
 
 .game-screen {
-    top: 0;
-    position: fixed;
+  
     height: 100%;
     width: 100%;
     display: flex;
@@ -40,6 +39,7 @@ label {
 
 .game-content {
     width: 100%;
+    margin-top: 50px;
 }
 
 .control-container {
@@ -114,13 +114,13 @@ button {
    
     height: 100vh;
     width: auto;
-    padding: 1.5em;
-    padding-top: 5em;
+    padding-top: 2em;
+    margin-top: -50px;
     font-size: 2em;
     font-family: 'Amatic SC', cursive;
     text-align: -webkit-center;
 
-    background-image: url("./images/background2.png");
+    background-image: url("./images/background5.jpg");
     background-size: 60%;
     animation: 120s linear 1s infinite running bgSlide;
     /* opacity: 0.5; */
@@ -155,12 +155,21 @@ button {
     max-width: 50vw;
 }
 
+/* .HostJoin-h1 {
+    text-decoration: underline;
+}
+
+.HostJoin-p1 {
+    color: #3aadda;
+} */
+
 /* --- CreateGame --- */
 
 .CreateGame-Container {
     /* height: 1000px; */
     width: auto;
     padding: 2em;
+    margin-top: 10vh;
     font-size: 2em;
     font-family: 'Amatic SC', cursive;
     text-align: -webkit-center;
@@ -204,6 +213,7 @@ button {
 .HostLobby-players {
     padding: 10px;
     margin-bottom: 50px;
+    margin-top: 30vh;
 }
 
 .start {
@@ -214,6 +224,18 @@ button {
 
 .Game-DoneButton {
     padding: 1.5em;
+}
+
+.Game-Margin {
+    margin-top: -50px;
+}
+
+.Game-h1-Round {
+    margin: -20px;
+}
+
+.Game-h2 {
+    margin-top: 15vh;
 }
 
 /* --- Canvas --- */
@@ -248,6 +270,18 @@ button {
 .Writing-box {
     padding-left: 12px;
 }
+
+/* --- Gallery --- */
+
+.Gallery-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Gallery-view {
+    padding: 20px;
+}
+
 
 
 /* .button {
@@ -286,6 +320,7 @@ input[type=text]:hover{
 }
 .inputWraper{
     margin-bottom: 2rem;
+    margin-top: 20vh;
 }
 .inputWraperb{
     margin-bottom: 2rem;
@@ -341,6 +376,7 @@ input[type=text]:hover{
 .gameInfoWrap{
     text-align: center;
     margin-bottom: -3%;
+    margin-top: 30vh;
 }
 .gamewrap{
 
@@ -349,5 +385,8 @@ margin-right: auto;
 }
 .initalinput {
     padding: 1.5em;
-    border-radius: 4px
+    border-radius: 4px;
+    border-style: none;
+    width: 50vw;
+    margin-bottom: 15px;
 }

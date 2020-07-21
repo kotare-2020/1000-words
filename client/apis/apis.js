@@ -85,3 +85,11 @@ export function createRound(data) {
             return res.body
         })
 }
+export function getAllRounds(data) {
+    console.log("get all rounds api");
+    return request 
+        .get(`${round}/${data}`)
+        .then(res => {
+            return res.body
+        })
+}

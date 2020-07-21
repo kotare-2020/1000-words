@@ -88,7 +88,9 @@ class JoinGame extends React.Component {
                     <label className="inputtitle">User Name</label><br></br>
                     <input required id="name" type="text" name="player" placeholder="Name"/>
                 </div>
+                <div className="center">
                 <button onClick={this.handleSubmit} className="join-button button ">Join</button>
+                </div>
             </form>
                 <Link to="/lobby" ><div id="next" style={{ display: "none" }}>to lobby</div></Link>
 

@@ -6,6 +6,8 @@ const HostJoin = () => {
             <div className="HostJoin-Container center">
                 <div>
                     <h1 className="HostJoin-h1">1000 Words</h1>
+                    <p className="HostJoin-p0">You know what they say - A picture says more than a thousand words! Gather your friends and play this hilarious drawing game. Watch everyone’s written prompt unravel into a story of its own!
+</p>
                     <p className="HostJoin-p1">Host or Join a game!</p>
                 </div>
                 <div>

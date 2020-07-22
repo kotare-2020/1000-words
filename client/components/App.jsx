@@ -37,7 +37,7 @@ class App extends React.Component {
     return (
         <Router>
           <div className="dev-menu">
-            dev menu | <Link to="/">home</Link> | <Link to="/game">game</Link> | <Link to="/canvas">canvas</Link> | <Link to="/Writing">Writing</Link> | <Link to="/Drawing">Drawing</Link> | <Link to="/Gallery">gallery</Link> 
+          <Link to="/">home</Link>
           </div>
           <Route exact path="/gallery" component={Gallery} />
           <Route exact path="/" component={HostJoin} />

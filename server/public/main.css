@@ -13,6 +13,8 @@ body {
 a {
     color: black;
     text-decoration: none;
+    font-size: 30px;
+    padding-left: 12px;
 }
 
 h1, h2, h3 {
@@ -153,7 +155,7 @@ button {
 }
 
 .HostJoin-Container {
-   
+    background-image: radial-gradient(circle, rgba(91, 158, 235, 0.562) 100%, rgba(206, 148, 233, 0.473) 49%), url("./images/background5.jpg");
     height: 100vh;
     width: auto;
     padding-top: 2em;

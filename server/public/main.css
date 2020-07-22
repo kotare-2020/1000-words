@@ -23,12 +23,24 @@ label {
 }
 
 .game-screen {
-  
+    /* position: fixed; */
+    /* top: 0; */
     height: 100%;
     width: 100%;
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     align-items: center;
+}
+
+.game-noscroll {
+    position: fixed;
+    /* top: 0; */
+    height: 100%;
+    width: 100%;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .dev-menu {
@@ -135,7 +147,7 @@ button {
 .HostJoin-HostButton {
     background-color: #3aadda;
     font-family: 'Amatic SC', cursive;
-    border: none;
+    border: 1pt solid black;
     padding: 10px;
     margin: 10px;
     border-radius: 4px;
@@ -147,7 +159,7 @@ button {
 
     background-color: #f7bdbc;
     font-family: 'Amatic SC', cursive;
-    border: none;
+    border: 1pt solid black;
     padding: 10px;
     margin: 10px;
     border-radius: 4px;
@@ -218,7 +230,7 @@ button {
 .HostLobby-players {
     padding: 10px;
     margin-bottom: 50px;
-    margin-top: 30vh;
+    /* margin-top: 30vh; */
 }
 
 .start {
@@ -276,6 +288,10 @@ button {
     padding-left: 12px;
 }
 
+.Writing-page {
+    margin-top: 5vh;
+}
+
 /* --- Gallery --- */
 
 .Gallery-center {
@@ -299,7 +315,8 @@ input[type=text]{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
+    width: 205px;
+    /* width: 80%; */
    height: 7vh;
    transition: transform 0.2s;
 
@@ -328,22 +345,21 @@ input[type=text]:hover{
     margin-top: 20vh;
 }
 .inputWraperb{
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
+    margin-top: 2rem;
 }
 .join-button {
     background-color: #f7bdbc;
     font-family: 'Amatic SC', cursive;
     width: 30vw;
-    height: 5vh;
     border: none;
     padding: 10px;
     margin: 10px;
+    border-radius: 4px;
   
     font-size: 1.5em;
+    width: 300px;
     max-width: 50vw;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
     margin-top: 5vh;
 }
 @keyframes bgSlide {

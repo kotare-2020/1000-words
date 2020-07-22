@@ -60,7 +60,7 @@ class JoinGame extends React.Component {
                         })
 
                 }
-                else this.setState({ error: "Lobby dose not exist" })
+                else this.setState({ error: "Lobby does not exist" })
             }
             else this.setState({ error: "user name does not contain enough characters" })
             })
@@ -89,10 +89,14 @@ class JoinGame extends React.Component {
                     <label className="inputtitle">User Name</label><br></br>
                     <input required id="name" type="text" name="player" placeholder="Name"/>
                 </div>
+                <div className="center">
                 <button onClick={this.handleSubmit} className="join-button button ">Join</button>
+                </div>
             </form>
+            <div className="center">
                 <Link to="/lobby" ><div id="next" style={{ display: "none" }}>to lobby</div></Link>
                 <BackButton/>
+                </div>
             </>
         );
     }

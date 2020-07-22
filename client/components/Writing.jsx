@@ -9,7 +9,7 @@ class Writing extends React.Component {
         writing: ""
     }
 
-    
+
 
 
 
@@ -50,6 +50,7 @@ class Writing extends React.Component {
     render() {
         return (
             <>
+            <div className="Writing-page">
                 <div className="center">
                     <textarea className="text-area" name="writing" rows="5" cols="35" className="Writing_textInput center" placeholder="Describe what you see!" required onChange={this.handleChange}></textarea>
                 </div>
@@ -60,6 +61,7 @@ class Writing extends React.Component {
                 </div>
                 <div className="center">
                     <button onClick={this.handleSubmit} className="Writing_button center green">DONE</button>
+                </div>
                 </div>
             </>
         )

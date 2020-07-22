@@ -70,7 +70,7 @@ class CreateGame extends React.Component {
           <input className="CreateGame-Input" id="hostName" required onChange={this.handleChange} name="userName" type="text"></input>
           {/* <input type="submit" value="Create New Game!"></input> */}
           <button className="green" onClick={this.handleSubmit}>Create New Game!</button>
-          <p>Most fun guaranteed with a total of 5-10 players!</p>
+          <p className="P-createGame" >Most fun guaranteed with a total of 5-10 players!</p>
         </form>
           <Link to="/hostLobby" id="gotolobby"></Link>
         </div>

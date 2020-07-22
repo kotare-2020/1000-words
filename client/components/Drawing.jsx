@@ -23,74 +23,84 @@ class Drawing extends React.Component {
         return this.props.playerIdList[positionNumber]
       }
     }
-
+    
     getRoundDataApi(findPlayerToSendTo(), this.props.currentRound - 1, this.props.gameId)
       .then(res => {
         let drawing = res["round" + (this.props.currentRound - 1)]
-
-        console.log("without replace: ", res)
-        // console.log("with replace: ", res.round2.replace("\\", ""))
-        // console.log("they're Equal ", res.round2 == res[0].round2.replace("\\", ""))
-
+        if (drawing == null) {
+          getRoundDataApi(findPlayerToSendTo(), this.props.currentRound - 1, this.props.gameId)
+            .then(res => {
+              let drawing = res["round" + (this.props.currentRound - 1)]
+              if (drawing == null) {
+                console.log("done goofed twice now")
+              }
+              console.log("second attempt: ", res)
+              this.setState({
+                writing: drawing
+              })
+              return
+            })
+        }
+        console.log("firs attempt: ", res)
         this.setState({
-          writing: drawing
-        })
-        return
+        writing: drawing
       })
-  }
+        return
+  })
+}
 
-  handleClick = () => {
-    // console.log("user clicked done")
-    // this.props.dispatch(updateRoundData({
-    //   gameId: this.props.gameId, 
-    //   dbdata: {
-    //     roundNumber: this.props.roundNumber,
-    //     playerId: this.props.playerId,
-    //     roundInfo: this.state.drawing,
-    //   }
-    // }))
-    this.props.ready()
-    // this.postToDataBase()
-  }
+handleClick = () => {
+  // console.log("user clicked done")
+  // this.props.dispatch(updateRoundData({
+  //   gameId: this.props.gameId, 
+  //   dbdata: {
+  //     roundNumber: this.props.roundNumber,
+  //     playerId: this.props.playerId,
+  //     roundInfo: this.state.drawing,
+  //   }
+  // }))
+  this.props.ready()
+  // this.postToDataBase()
+}
 
-  // componentDidMount(){
-  //   console.log(this.props)
-  // }
+// componentDidMount(){
+//   console.log(this.props)
+// }
 
-  saveDrawing = (drawing) => {
-    this.props.handleChange(drawing)
-    this.setState({ drawing: drawing })
-  }
+saveDrawing = (drawing) => {
+  this.props.handleChange(drawing)
+  this.setState({ drawing: drawing })
+}
 
-  // postToDataBase = () => {
-  //     addRoundDataApi({
-  //         gameId: this.props.gameId,
-  //         dbdata: {
-  //         roundNumber: this.props.roundNumber,
-  //         roundInfo: this.state.drawing,
-  //         playerId: this.props.playerId,
-  //     }
-  // })
-  //     .catch((error) => {
-  //         console.log(error)
-  //     })
-  // }
+// postToDataBase = () => {
+//     addRoundDataApi({
+//         gameId: this.props.gameId,
+//         dbdata: {
+//         roundNumber: this.props.roundNumber,
+//         roundInfo: this.state.drawing,
+//         playerId: this.props.playerId,
+//     }
+// })
+//     .catch((error) => {
+//         console.log(error)
+//     })
+// }
 
-  render() {
-    return (
-      <>
-        <div className="flex-center">
-          <h2>{this.state.writing}</h2>
-        </div>
-        <div className="control-container center">
-          <Canvas saveDrawing={this.saveDrawing} playerPosition={this.props.playerPosition} />
-        </div>
-        <div className="flex-center">
-          <button className="Drawing-DoneButton" onClick={this.handleClick}>Done</button>
-        </div>
-      </>
-    )
-  }
+render() {
+  return (
+    <>
+      <div className="flex-center">
+        <h2>{this.state.writing}</h2>
+      </div>
+      <div className="control-container center">
+        <Canvas saveDrawing={this.saveDrawing} playerPosition={this.props.playerPosition} />
+      </div>
+      <div className="flex-center">
+        <button className="Drawing-DoneButton" onClick={this.handleClick}>Done</button>
+      </div>
+    </>
+  )
+}
 
 }
 

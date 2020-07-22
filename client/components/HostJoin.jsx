@@ -1,7 +1,15 @@
 import React from 'react'
 import { HashRouter as Router, Route, Link } from 'react-router-dom'
-const HostJoin = () => {
+import { connect } from 'react-redux'
+import { resetRound} from '../actions/currentRound'
+class HostJoin extends React.Component {
+componentDidMount(){
+    socket.emit("disconect", this.props.gameid)
+    this.props.dispatch(resetRound())
+}
+    render() {
     return (
+        
         <>
             <div className="HostJoin-Container center">
                 <div>
@@ -20,4 +28,14 @@ const HostJoin = () => {
         </>
     )
 }
-export default HostJoin
+
+}
+
+function mapStateToProps(globalState) {
+    return {
+      gameid: globalState.game,
+   
+    }
+  }
+  
+export default connect(mapStateToProps)(HostJoin)

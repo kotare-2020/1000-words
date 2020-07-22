@@ -17,13 +17,24 @@ class ViewSpace extends React.Component {
         getRoundDataApi(findPlayerToSendTo(), this.props.currentRound - 1, this.props.gameId)
             .then(res => {
                 let drawing = res["round" + (this.props.currentRound-1) ]
-
-                console.log("without replace: ", res)
-                // console.log("with replace: ", res.round2.replace("\\", ""))
-                // console.log("they're Equal ", res.round2 == res[0].round2.replace("\\", ""))
-
-                Konva.Node.create(drawing, `viewingSpace${this.props.currentRound}`)
-                return 
+                //if this request fails, try once more
+                if(drawing == null){
+                   return getRoundDataApi(findPlayerToSendTo(), this.props.currentRound - 1, this.props.gameId)
+                    .then(res => {
+                        let drawing = res["round" + (this.props.currentRound-1) ]
+                        console.log("2nd request: ", res)
+                        
+                        if (drawing != null) Konva.Node.create(drawing, `viewingSpace${this.props.currentRound}`)
+                        else console.log("get request failed twice. :(")
+                        return 
+                    })
+                } else { 
+                    Konva.Node.create(drawing, `viewingSpace${this.props.currentRound}`)
+                    return 
+                }
+            })
+            .catch(err=>{
+                console.log(err)
             })
 
 

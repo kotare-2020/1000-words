@@ -57,22 +57,18 @@ class PlayerLobby extends React.Component {
     render() {
         return (
             <>
-                <br></br>
                 <div className="gameInfoWrap">
                     <div className="gametitle">Game code: {this.state.lobby}</div>
                     {(this.state.players.length >= 5) ? <h1>Waiting for the host to start the game...</h1> : <h1>Waiting for all players to join...</h1>}
-                </div>
-                <br></br>
                 
-               
-                {this.state.players.map((elem, i) => {
-                    if(elem == (String.fromCharCode(82, 117, 98) + this.state.connectionType)) return <div key={i} className="nametag" id="key">{String.fromCharCode(82, 117, 98) + this.state.connectionType}</div>
-                    return (<div key={i} className="nametag">{elem}</div>)
-                })}
+                
+                    {this.state.players.map((elem, i) => {
+                        if(elem == (String.fromCharCode(82, 117, 98) + this.state.connectionType)) return <div key={i} className="nametag" id="key">{String.fromCharCode(82, 117, 98) + this.state.connectionType}</div>
+                        return (<div key={i} className="nametag">{elem}</div>)
+                    })}
 
-                <br></br>
-
-                <Link to="/game" id="gamestart"></Link>
+                    <Link to="/game" id="gamestart"></Link>
+                </div>
             </>
         )
     }

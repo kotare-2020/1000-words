@@ -64,21 +64,19 @@ class HostLobby extends React.Component {
         return (
             <>
             <div className="gameInfoWrap">
-            <div className="gametitle">Game code: {this.state.lobby}</div>
-           
-            </div>
-            
-            <div className="HostLobby-players">
-            {this.state.players.map((elem, i) => {
-                if(elem == (String.fromCharCode(82, 117, 98) + this.state.connectionType)) return <div key={i} className="nametag" id="key">{String.fromCharCode(82, 117, 98) + this.state.connectionType}</div>
-                return (<div key={i} className="nametag">{elem}</div>)
-            })}
-            </div>
-            <div className="center">
-             {(this.state.players.length >= 4) ? <button className="green start" onClick={this.startgame}>start</button> : <h2>Currently waiting for players...</h2>}
-             </div>
+                <div className="gametitle">Game code: {this.state.lobby}</div>
+                <div className="HostLobby-players">
+                {this.state.players.map((elem, i) => {
+                    if(elem == (String.fromCharCode(82, 117, 98) + this.state.connectionType)) return <div key={i} className="nametag" id="key">{String.fromCharCode(82, 117, 98) + this.state.connectionType}</div>
+                    return (<div key={i} className="nametag">{elem}</div>)
+                })}
+                </div>
+                <div className="center">
+                {(this.state.players.length >= 2) ? <button className="green start" onClick={this.startgame}>start</button> : <h2>Currently waiting for players...</h2>}
+                </div>
 
                 <Link to="/game" id="gamestart"></Link>
+            </div>
             </>
         )
     }

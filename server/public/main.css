@@ -13,17 +13,31 @@ body {
 a {
     color: black;
     text-decoration: none;
+    font-size: 30px;
+    padding-left: 12px;
 }
 
 h1, h2, h3 {
     margin-top: 0;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 h1 {
     font-size: 2.5em;
 }
 
+p {
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+.P-createGame {
+    padding-top: 30px;
+}
+
+.padding {
+    padding-top: 120px
+}
 
 label {
     font-size: 1.25em;
@@ -39,10 +53,10 @@ label {
 .game-noscroll {
    
     position: fixed;
-    padding-top: 20px;
+    padding-top: 10px;
     height: 100%;
     width: 100%;
-    /* display: flex; */
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
@@ -141,11 +155,11 @@ button {
 }
 
 .HostJoin-Container {
-   
+    background-image: radial-gradient(circle, rgba(91, 158, 235, 0.562) 100%, rgba(206, 148, 233, 0.473) 49%), url("./images/background5.jpg");
     height: 100vh;
     width: auto;
     padding-top: 2em;
-    margin-top: -50px;
+    /* margin-top: -50px; */
     font-size: 2em;
     font-family: 'Amatic SC', cursive;
     text-align: -webkit-center;
@@ -207,8 +221,11 @@ button {
 }
 
 .HostJoin-p0 {
-    font-size: 0.8em;
+    /* font-size: 0.8em; */
     margin: 0.1em;
+    padding-left: 35px;
+    padding-right: 35px;
+    margin-bottom: 10px;
 }
 
 /* .HostJoin-h1 {
@@ -364,9 +381,29 @@ input[type=text]{
   box-sizing: border-box!important;
   border: none!important;
   background-color: #ffffff!important;
-  border-radius: 4px
-
+  border-radius: 4px;
+  margin-top: 20px;
 }
+
+  .roundinput {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 205px;
+    /* width: 80%; */
+   height: 7vh;
+   transition: transform 0.2s;
+
+  padding: 12px 20px!important;
+ 
+  box-sizing: border-box!important;
+  border: none!important;
+  background-color: #ffffff!important;
+  border-radius: 4px;
+  margin-top: -35px !important;
+}
+
+
 input:focus, textarea:focus, select:focus{
     /* outline: none; */
     transform: scale(1.02)
@@ -441,20 +478,20 @@ input[type=text]:hover{
 .gameInfoWrap{
     text-align: center;
     margin-bottom: -3%;
-    margin-top: 30vh;
+    /* margin-top: 30vh; */
 }
 .gamewrap{
 
 margin-left: auto;
 margin-right: auto;
 }
-.initalinput {
+/* .initalinput {
     padding: 1.5em;
     border-radius: 4px;
     border-style: none;
     width: 50vw;
     margin-bottom: 15px;
-}
+} */
 #key {
     animation: 2s linear 1s infinite running bg-rotate;
     transform: scale(4);
@@ -533,3 +570,6 @@ margin-top: 25%;
     transform: translateZ(-600px) scale(3);
     z-index: 2;
   }
+  /* .gameTextInput {
+      margin-top: -10%;
+  } */

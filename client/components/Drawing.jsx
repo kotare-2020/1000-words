@@ -93,7 +93,7 @@ render() {
       <h2>{this.state.writing}</h2>
     
       <div className="control-container center">
-        <Canvas saveDrawing={this.saveDrawing} playerPosition={this.props.playerPosition} />
+        <Canvas saveDrawing={this.saveDrawing} playerPosition={this.props.playerPosition} on/>
       </div>
       <div className="flex-center">
         <button className="Drawing-DoneButton" onClick={this.handleClick}>Done</button>

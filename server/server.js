@@ -67,6 +67,10 @@ io.on('connection', function(socket){
         // console.log(socket.id, "create", res)
         socket.join(res);
     }) 
+    socket.on("disconect", res => {
+        // console.log(socket.id, "create", res)
+        socket.leave(res)
+    }) 
     socket.on('chat message', function(msg){
     // console.log('msg', msg)
     io.emit('chat message', msg);

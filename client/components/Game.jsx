@@ -44,7 +44,7 @@ class Game extends React.Component {
             // console.log(this.props.players.length == this.state.finnished.length)
             // console.log(this.props.players.length, this.state.finnished.length)
 
-            if(this.props.players.length == this.state.finnished.length && this.props.players.length >= 4 ) {
+            if(this.props.players.length == this.state.finnished.length && this.props.players.length >= 2 ) {
                 // console.log("all users done")
                 
                 this.props.dispatch(incrementCurrentRound())
@@ -71,7 +71,7 @@ class Game extends React.Component {
         return (
             <div className="game-screen">
                 <h2>{`Your game: ${this.state.gameid}`}</h2>
-                <h1>{`Round ${this.state.round} ${((this.state.round % 2) == 1) ? "write" : "draw"}`}</h1>
+                <h1>{`Round ${this.state.round}: ${((this.state.round % 2) == 1) ? "write" : "draw"}`}</h1>
                 <GameScreen isDone={this.state.done} currentRound={this.state.round} playerPosition={this.state.playerPosition} nowDone={this.userfinnished}/>
             </div>
         )

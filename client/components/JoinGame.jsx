@@ -84,10 +84,10 @@ class JoinGame extends React.Component {
                 <div className="inputWraper">
                 </div>
             <form onSubmit={this.handleSubmit}>
-                    <label className="">game id</label><br></br>
+                    <label className="">game id</label>
                     <input required id="gameid" type="text" name="lobby" placeholder="Game id"/>
                 <div className="inputWraperb">
-                    <label className="">User Name</label><br></br>
+                    <label className="">User Name</label>
                     <input required id="name" type="text" name="player" placeholder="Name"/>
                 </div>
                 <div className="center">

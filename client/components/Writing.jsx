@@ -52,7 +52,7 @@ class Writing extends React.Component {
             <>
             <div className="Writing-page">
                 <div className="center">
-                    <textarea className="text-area" name="writing" rows="5" cols="35" className="Writing_textInput center" placeholder="Describe what you see!" required onChange={this.handleChange}></textarea>
+                    <input name="writing" className="roundinput" placeholder="Describe what you see!" required onChange={this.handleChange}></input>
                 </div>
                 <div className="control-container center">
 

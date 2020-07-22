@@ -111,7 +111,6 @@ class Gallery extends React.Component {
     })
   }
   onPrev = () => {
-   
     let roundarr = []
     for (const key of Object.keys(this.state.gamedata[this.state.index - 1])) {
       roundarr.push(this.state.gamedata[this.state.index][key])
@@ -181,7 +180,9 @@ class UserCard extends React.Component {
     if (this.props.round == 1) {
 
       return (<div className="animate__animated animate__flipInX ">
-       
+           <div class="parallax__layer parallax__layer--base">
+        <div class="title">Base Layer</div>
+      </div>
         <p className="nameplate">{this.props.users[this.props.round - 1 ]} wrote this:</p>
         <h2 className="textplate">{this.props.data}</h2>
       </div>)

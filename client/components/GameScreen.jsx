@@ -35,7 +35,6 @@ export class GameScreen extends React.Component {
     }
 
     handleClick = () => {
-        this.props.nowDone()
         this.props.dispatch(updateRoundData({
             gameId: this.props.gameId,
             dbdata: {
@@ -43,7 +42,11 @@ export class GameScreen extends React.Component {
                 playerId: this.props.playerId,
                 roundInfo: this.state.roundData,
             }
-        }))
+        }, () => {
+            this.props.nowDone()
+        })
+        
+        )
     }
 
     roundDone = () => {
@@ -90,7 +93,7 @@ export class GameScreen extends React.Component {
 
 
         return this.props.currentRound % 2 === 0
-            ? <Drawing handleChange={this.handleChange} ready={this.roundDone} playerPosition={this.props.playerPosition}/>
+            ? <Drawing handleChange={this.handleChange} ready={this.roundDone} playerPosition={this.props.playerPosition} />
             : <Writing handleChange={this.handleChange} ready={this.roundDone} playerPosition={this.props.playerPosition}/>
     }
 }

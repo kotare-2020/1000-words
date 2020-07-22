@@ -12,7 +12,7 @@ import GameScreen from './GameScreen'
 class Game extends React.Component {
 
     state = {
-        gameid: this.props.gameId,       //fix this later
+        gameid: this.props.gameId, 
         round: 1,
         done: false,
         finnished: [],
@@ -69,78 +69,14 @@ class Game extends React.Component {
     render() {
 
         return (
-            <>
-              
-                <div className="Game-h2 center"><h2>{`Your game: ${this.state.gameid}`}</h2></div>
-                <center>
-                    <div className="gamewrap">
-                        {/* <p onClick={this.userfinnished}>simulate done</p> */}
-                        <span><h1 className="Game-h1-Round">{`Round ${this.state.round} ${((this.state.round % 2) == 1) ? "write" : "draw"}`}</h1></span>
-
-                        <GameScreen isDone={this.state.done} currentRound={this.state.round} playerPosition={this.state.playerPosition} nowDone={this.userfinnished}/>
-
-                    </div>
-                </center>
-            </>
+            <div className="game-screen">
+                <h2>{`Your game: ${this.state.gameid}`}</h2>
+                <h1>{`Round ${this.state.round} ${((this.state.round % 2) == 1) ? "write" : "draw"}`}</h1>
+                <GameScreen isDone={this.state.done} currentRound={this.state.round} playerPosition={this.state.playerPosition} nowDone={this.userfinnished}/>
+            </div>
         )
     }
 }
-
-// class GameScreen extends React.Component {
-
-//     state = {
-//         roundOneText: "",
-//     }
-
-//     handleChange = (event) => {
-//         this.setState({
-//             roundOneText: event.target.value
-//         })
-//     }
-
-//     // findPlayerToSendTo = () => {
-//     //     console.log(this.props.playerIdList);
-//     //     let positionNumber = this.props.playerPosition + (this.props.currentRound - 1)
-//     //     if (positionNumber > this.props.playerIdList.length){
-//     //         return this.props.playerIdList[positionNumber - (this.props.playerIdList + 1)]
-//     //     } else {
-//     //         return this.props.playerIdList[positionNumber]
-//     //     }
-//     // }
-
-//     handleClick = () => {
-//         // const playerToSendTo = this.props.playerIdList[this.findPlayerToSendTo()]
-
-
-
-//         this.props.nowDone()
-//         this.props.dispatch(updateRoundData({
-//             gameId: this.props.gameId, 
-//             dbdata: {
-//               roundNumber: this.props.roundNumber,
-//               playerId: this.props.playerId,
-//               roundInfo: this.state.roundOneText,
-//             }
-//           }))
-//     }
-
-//     render() {
-//         //console.log(this.userfinnished)
-      
-//         if (this.props.isDone) {
-//             return <div><h2>Your all done!</h2><p>waiting on other players</p></div>
-//         }
-
-//         if (this.props.currentRound === 1) {
-//             return <><h2>Write somthing for someone to draw</h2><input onChange={this.handleChange} type="textbox" className="initalinput" placeholder="a dog with a trumpet"></input><div className="Game-DoneButton" onClick={this.handleClick}>Done</div></>
-//         }
-
-
-//         return this.props.currentRound % 2 === 0
-//             ? <Drawing ready={this.props.nowDone}/>
-//             : <Writing ready={this.props.nowDone}/>
-//     }
-// }
 
 const mapStateToProps = (state) => {
     return {

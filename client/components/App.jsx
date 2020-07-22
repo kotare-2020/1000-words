@@ -35,36 +35,23 @@ class App extends React.Component {
 
 
     return (
-
-      <>
-
-
-
         <Router>
           <div className="dev-menu">
             dev menu | <Link to="/">home</Link> | <Link to="/game">game</Link> | <Link to="/canvas">canvas</Link> | <Link to="/Writing">Writing</Link> | <Link to="/Drawing">Drawing</Link> | <Link to="/Gallery">gallery</Link> 
           </div>
-          <div className="game-screen">
-            <div className="game-content">
-              <Route exact path="/" component={HostJoin} />
-              <div className="game-noscroll">
-              <Route exact path="/create" component={CreateGame} />
-              <Route exact path="/join" component={JoinGame} />
-              <Route exact path="/lobby" component={PlayerLobby} />
-              <Route exact path="/canvas" component={drawcanvas} />
-              <Route exact path="/hostLobby" component={HostLobby} />
-              <Route exact path="/game" component={Game} />
-              <Route exact path="/Writing" component={Writing} />
-              <Route exact path="/Drawing" component={Drawing} />
-              </div>
-
-              <Route exact path="/gallery" component={Gallery} />
-
-              {/* <Route exact path="/apis" component={APIs} /> */}
-            </div>
+          <Route exact path="/gallery" component={Gallery} />
+          <Route exact path="/" component={HostJoin} />
+          <div className="game-noscroll">
+            <Route exact path="/create" component={CreateGame} />
+            <Route exact path="/join" component={JoinGame} />
+            <Route exact path="/lobby" component={PlayerLobby} />
+            <Route exact path="/canvas" component={drawcanvas} />
+            <Route exact path="/hostLobby" component={HostLobby} />
+            <Route exact path="/game" component={Game} />
+            <Route exact path="/Writing" component={Writing} />
+            <Route exact path="/Drawing" component={Drawing} />
           </div>
         </Router>
-      </>
     )
   }
 }

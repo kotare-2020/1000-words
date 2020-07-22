@@ -89,9 +89,9 @@ saveDrawing = (drawing) => {
 render() {
   return (
     <>
-      <div className="flex-center">
-        <h2>{this.state.writing}</h2>
-      </div>
+      
+      <h2>{this.state.writing}</h2>
+    
       <div className="control-container center">
         <Canvas saveDrawing={this.saveDrawing} playerPosition={this.props.playerPosition} />
       </div>

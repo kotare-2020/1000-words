@@ -382,6 +382,26 @@ input[type=text]{
   border-radius: 4px;
   margin-top: 20px;
 }
+
+  .roundinput {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 205px;
+    /* width: 80%; */
+   height: 7vh;
+   transition: transform 0.2s;
+
+  padding: 12px 20px!important;
+ 
+  box-sizing: border-box!important;
+  border: none!important;
+  background-color: #ffffff!important;
+  border-radius: 4px;
+  margin-top: -35px !important;
+}
+
+
 input:focus, textarea:focus, select:focus{
     /* outline: none; */
     transform: scale(1.02)
@@ -548,3 +568,6 @@ margin-top: 25%;
     transform: translateZ(-600px) scale(3);
     z-index: 2;
   }
+  /* .gameTextInput {
+      margin-top: -10%;
+  } */

@@ -2,16 +2,16 @@
 exports.up = function(knex) {
   return knex.schema.createTable('rounds', (table) => {
       table.integer('player')
-      table.text('round1')
-      table.text('round2')
-      table.text('round3')
-      table.text('round4')
-      table.text('round5')
-      table.text('round6')
-      table.text('round7')
-      table.text('round8')
-      table.text('round9')
-      table.text('round10')
+      table.string('round1', 50000)
+      table.string('round2', 50000)
+      table.string('round3', 50000)
+      table.string('round4', 50000)
+      table.string('round5', 50000)
+      table.string('round6', 50000)
+      table.string('round7', 50000)
+      table.string('round8', 50000)
+      table.string('round9', 50000)
+      table.string('round10', 50000)
   })
 };
 

@@ -310,7 +310,8 @@ input[type=text]{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
+    width: 205px;
+    /* width: 80%; */
    height: 7vh;
    transition: transform 0.2s;
 
@@ -352,10 +353,8 @@ input[type=text]:hover{
     border-radius: 4px;
   
     font-size: 1.5em;
+    width: 300px;
     max-width: 50vw;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
     margin-top: 5vh;
 }
 @keyframes bgSlide {

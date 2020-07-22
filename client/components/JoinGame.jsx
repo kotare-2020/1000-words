@@ -93,8 +93,10 @@ class JoinGame extends React.Component {
                 <button onClick={this.handleSubmit} className="join-button button ">Join</button>
                 </div>
             </form>
+            <div className="center">
                 <Link to="/lobby" ><div id="next" style={{ display: "none" }}>to lobby</div></Link>
                 <BackButton/>
+                </div>
             </>
         );
     }

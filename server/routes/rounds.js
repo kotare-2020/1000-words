@@ -29,9 +29,7 @@ router.patch('/:id', (req, res) => {
     const roundData = req.body
     // console.log('patch is hit');
     // const roundNumber = req.params.id
-    db.addRound(roundData, 
-        // roundNumber
-        )
+    db.addRound(roundData)
         .then(() => {
             res.sendStatus(200)
         })

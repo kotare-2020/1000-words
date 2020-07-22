@@ -44,16 +44,19 @@ class Game extends React.Component {
             // console.log(this.props.players.length == this.state.finnished.length)
             // console.log(this.props.players.length, this.state.finnished.length)
 
-            if(this.props.players.length == this.state.finnished.length && this.props.players.length >= 2 ) {
+            if(this.props.players.length == this.state.finnished.length && this.props.players.length >= 4 ) {
                 // console.log("all users done")
+                setTimeout(() => {
+                    this.props.dispatch(incrementCurrentRound())
+                    this.setState({
+                        round: this.state.round + 1,
+                        done: false,
+                        finnished: [],
+                    })
+                }, 3000);
                 
-                this.props.dispatch(incrementCurrentRound())
 
-                this.setState({
-                    round: this.state.round + 1,
-                    done: false,
-                    finnished: [],
-                })
+               
                 
             }
         })

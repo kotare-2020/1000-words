@@ -43,7 +43,9 @@ export class GameScreen extends React.Component {
                 roundInfo: this.state.roundData,
             }
         }, () => {
-            this.props.nowDone()
+            
+                this.props.nowDone()
+         
         })
         
         )

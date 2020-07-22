@@ -80,22 +80,23 @@ class JoinGame extends React.Component {
         return (
             <>
                 {(this.state.error == "no error") ? "" : <div className="errorResponse"><h3>{this.state.error}</h3></div>}
+                <div className="Game-Container">
                 <div className="inputWraper">
                 </div>
             <form onSubmit={this.handleSubmit}>
-                    <label className="inputtitle">game id</label><br></br>
+                    <label className="">game id</label><br></br>
                     <input required id="gameid" type="text" name="lobby" placeholder="Game id"/>
                 <div className="inputWraperb">
-                    <label className="inputtitle">User Name</label><br></br>
+                    <label className="">User Name</label><br></br>
                     <input required id="name" type="text" name="player" placeholder="Name"/>
                 </div>
                 <div className="center">
-                <button onClick={this.handleSubmit} className="join-button button ">Join</button>
+                <button onClick={this.handleSubmit} className="green">Join</button>
                 </div>
             </form>
             <div className="center">
                 <Link to="/lobby" ><div id="next" style={{ display: "none" }}>to lobby</div></Link>
-                <BackButton/>
+                </div>
                 </div>
             </>
         );

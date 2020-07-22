@@ -6,6 +6,7 @@ body {
     overflow-x: hidden;
     font-family: 'Amatic SC', cursive;
     font-size: 16px;
+    text-align: center;
     /* background-color: #F0F0F0; */
 }
 
@@ -14,33 +15,41 @@ a {
     text-decoration: none;
 }
 
+h1, h2, h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
 h1 {
     font-size: 2.5em;
 }
+
 
 label {
     font-size: 1.25em;
 }
 
 .game-screen {
-    /* position: fixed; */
-    /* top: 0; */
-    height: 100%;
-    width: 100%;
-    /* display: flex; */
+    display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .game-noscroll {
     position: fixed;
-    /* top: 0; */
+    padding-top: 20px;
     height: 100%;
     width: 100%;
     /* display: flex; */
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    /* pointer-events: none; */
+}
+
+.drawing-noscroll {
+    margin-top: -65px;
 }
 
 .dev-menu {
@@ -49,10 +58,10 @@ label {
     top: 0;
 }
 
-.game-content {
+/* .game-content {
     width: 100%;
     margin-top: 50px;
-}
+} */
 
 .control-container {
     /* border: red solid 2px; */
@@ -93,9 +102,9 @@ button {
     margin: 10px;
     border-radius: 4px;
     font-size: 20pt;
-    max-width: 50vw;
+    /* max-width: 50vw; */
     cursor: pointer;
-    width: 300px;
+    width: 205px;
     height: 60px;
 }
 
@@ -113,6 +122,14 @@ button {
 
 .green {
     background-color: #88c083;
+}
+
+.pink {
+    background-color: #f7bdbc;
+}
+
+.blue {
+    background-color: #3aadda;
 }
 
 /* --- Components --- */
@@ -136,6 +153,27 @@ button {
     background-size: 60%;
     animation: 120s linear 1s infinite running bgSlide;
     /* opacity: 0.5; */
+}
+
+.Game-Container {
+   
+    height: 100vh;
+    width: auto;
+    /* padding-top: 2em; */
+    margin-top: -50px;
+    font-size: 2em;
+    font-family: 'Amatic SC', cursive;
+    text-align: -webkit-center;
+    margin-bottom: 2rem;
+    margin-top: 20vh;
+
+        /* height: 1000px;
+        width: auto;
+        padding: 2em;
+        margin-top: 10vh;
+        font-size: 2em;
+        font-family: 'Amatic SC', cursive;
+        text-align: -webkit-center; */
 }
 
 @media only screen and (max-width: 600px) {
@@ -203,7 +241,7 @@ button {
     max-width: 50vw;
 }
 
-.CreateGame-Input {
+/* .CreateGame-Input {
     background-color: #F0F0F0;
     font-family: 'Amatic SC', cursive;
     border: none;
@@ -212,7 +250,7 @@ button {
     border-radius: 4px;
     font-size: 1em;
     max-width: 50vw;
-}
+} */
 
 /* --- HostLobby --- */
 
@@ -340,10 +378,10 @@ input[type=text]:hover{
     margin-left: 10%;
     font-size: 2em;   
 }
-.inputWraper{
+/* .inputWraper{
     margin-bottom: 2rem;
     margin-top: 20vh;
-}
+} */
 .inputWraperb{
     /* margin-bottom: 2rem; */
     margin-top: 2rem;
@@ -391,7 +429,7 @@ input[type=text]:hover{
     margin-left: 2.5%;
     margin-bottom: 1%;
     font-size: 2em;
-   float: left;
+   display: inline-block;
 }
 .gametitle {
     font-size: 2.5em;

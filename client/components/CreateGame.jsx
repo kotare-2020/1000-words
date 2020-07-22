@@ -64,7 +64,7 @@ class CreateGame extends React.Component {
   render() {
     return (
       <>
-        <div className="CreateGame-Container">
+        <div className="Game-Container">
         <form onSubmit={this.handleSubmit}>
           <label>Enter Your Username!</label>
           <input className="CreateGame-Input" id="hostName" required onChange={this.handleChange} name="userName" type="text"></input>
@@ -73,7 +73,6 @@ class CreateGame extends React.Component {
           <p>Most fun guaranteed with a total of 5-10 players!</p>
         </form>
           <Link to="/hostLobby" id="gotolobby"></Link>
-          <BackButton/>
         </div>
       </>
     )

@@ -150,22 +150,20 @@ class Gallery extends React.Component {
           {(Object.values(this.state.gamedata[this.state.index]).slice(1)).map((round, i) => {
 
             // console.log("array name: ", i)
-            console.log(this.state.index)
-            console.log(this.state.playersInGame)
-            console.log(this.state.index, this.state.playersInGame[this.state.index])
-
+         
             return <UserCard data={round} round={i + 1} users={this.state.playersInGame[this.state.index]} index={this.state.index} />
           })}
           {(this.state.index > 0) ?
-            <button className="gallery-image-nav gallery-image-prev" onClick={this.onPrev}>{"<"}</button>
+            <button className="gallary-button" onClick={this.onPrev}>{"<"}</button>
             :
-            <button className="gallery-image-nav gallery-image-prev" disabled>{"<"}</button>
+            <button className="gallary-button" disabled>{"<"}</button>
           }
 
           {(this.state.index < (this.state.playersInGame.length) - 1) ?
-            <button className="gallery-image-nav gallery-image-next" onClick={this.onNext}>{">"}</button>
+
+            <button className="gallary-button" onClick={this.onNext}>{">"}</button>
             :
-            <button className="gallery-image-nav gallery-image-next" disabled>{">"}</button>
+            <button className="gallary-button" disabled>{">"}</button>
           }
 
 
@@ -178,23 +176,22 @@ class Gallery extends React.Component {
 class UserCard extends React.Component {
 
   render() {
-    console.log("inside prop", this.props.users)
-    console.log(this.props.index)
+   
     if (this.props.round == 1) {
 
-      return (<div>
+      return (<div className="animate__animated animate__flipInX ">
 
-        <p>{this.props.users[this.props.round - 1 ]} wrote this:</p>
-        <h2>{this.props.data}</h2>
+        <p className="nameplate">{this.props.users[this.props.round - 1 ]} wrote this:</p>
+        <h2 className="textplate">{this.props.data}</h2>
       </div>)
     }
     if (this.props.round > this.props.users.length) {    //    do / 2
       return ("")
     }
     if ((this.props.round % 2) == 0) {
-      return (<div>
+      return (<div className="">
 
-        <p>{this.props.users[this.props.round - 1 ]} drew it like this:</p>
+        <p className="nameplate">{this.props.users[this.props.round - 1 ]} drew it like this:</p>
 
 
         <GalleryImg data={this.props.data} custmId={"viewingSpace" + this.props.round} />
@@ -202,9 +199,9 @@ class UserCard extends React.Component {
       </div>)
     }
     else {
-      return (<div>
-        <p>{this.props.users[this.props.round - 1 ]} thought it was:</p>
-        <h2>{this.props.data}</h2>
+      return (<div className="">
+        <p className="nameplate">{this.props.users[this.props.round - 1 ]} thought it was:</p>
+        <h2 className="textplate">{this.props.data}</h2>
       </div>)
     }
 

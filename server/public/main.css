@@ -36,6 +36,7 @@ label {
 }
 
 .game-noscroll {
+   
     position: fixed;
     padding-top: 20px;
     height: 100%;
@@ -457,3 +458,77 @@ margin-right: auto;
     animation: 2s linear 1s infinite running bg-rotate;
     transform: scale(4);
 }
+.gallery-img {
+    margin-left: auto;
+    margin-right: auto;
+}
+.nameplate {
+font-size: 2em;
+margin: 0px;
+margin-top: 25%;
+}
+.textplate {
+    font-size: 5em;
+    margin: 0px;
+    margin-bottom: 25%;
+}
+.gallary-button {
+    width: 25%;
+}
+.gallary-button:hover {
+  transform: scale(1.1);
+
+}
+.parallax {
+    height: 500px; /* fallback for older browsers */
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-perspective: 300px;
+    perspective: 300px;
+  }
+
+  .parallax__group {
+    position: relative;
+    height: 500px; /* fallback for older browsers */
+    height: 100vh;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+
+  .parallax__layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  
+  .parallax__group {
+    -webkit-transition: -webkit-transform 0.5s;
+    transition: transform 0.5s;
+  }
+
+  .parallax__layer--fore {
+    -webkit-transform: translateZ(90px) scale(.7);
+    transform: translateZ(90px) scale(.7);
+    z-index: 1;
+  }
+
+  .parallax__layer--base {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    z-index: 4;
+  }
+
+  .parallax__layer--back {
+    -webkit-transform: translateZ(-300px) scale(2);
+    transform: translateZ(-300px) scale(2);
+    z-index: 3;
+  }
+
+  .parallax__layer--deep {
+    -webkit-transform: translateZ(-600px) scale(3);
+    transform: translateZ(-600px) scale(3);
+    z-index: 2;
+  }

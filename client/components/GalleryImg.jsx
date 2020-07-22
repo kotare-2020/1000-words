@@ -40,8 +40,8 @@ class GalleryImg extends React.Component {
         return (
             <>
          
-                <div className=" Writing-box center">
-                    <div id="container">
+                <div className="  center">
+                    <div id="container" className="gallery-img">
                         <div id={this.props.custmId} className="container center"></div>
                     </div>
                 </div>

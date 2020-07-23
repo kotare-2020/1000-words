@@ -72,7 +72,7 @@ class HostLobby extends React.Component {
                 })}
                 </div>
                 <div className="center">
-                {(this.state.players.length >= 2) ? <button className="green start" onClick={this.startgame}>start</button> : <h2>Currently waiting for players...</h2>}
+                {(this.state.players.length >= 4) ? <button className="green start" onClick={this.startgame}>start</button> : <h2>Currently waiting for players...</h2>}
                 </div>
 
                 <Link to="/game" id="gamestart"></Link>

@@ -10,11 +10,12 @@ export function addRoundData(data) {
     }
 }
 
-export function updateRoundData(data) {
+export function updateRoundData(data, callback) {
     return dispatch => {
         // console.log(data)
-        addRoundDataApi(data).then(() => {
-            // console.log("data saved");
-        })
+        addRoundDataApi(data)
+            .then(() => {
+                if (callback) callback()
+            })
     }
 }

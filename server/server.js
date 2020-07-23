@@ -10,7 +10,7 @@ var app = express();
 const server = http.Server(app);
 var io = require('socket.io')(server);
 
-app.use(express.json())
+app.use(express.json({extended:true, limit:"1mb"}))
 app.use(express.static(path.join(__dirname, './public')))
 app.use(express.urlencoded({extended:true, limit:"1mb"}))
 

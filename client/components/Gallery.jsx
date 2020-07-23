@@ -28,10 +28,6 @@ class Gallery extends React.Component {
         })
         newmatrix = newmatrix
        
-
-
-
-
         for (const key of Object.keys(res[this.state.index])) {
 
           roundarr.push(res[this.state.index][key])
@@ -181,7 +177,7 @@ class UserCard extends React.Component {
     if (this.props.round == 1) {
 
       return (<div className="animate__animated animate__flipInX ">
-       
+
         <p className="nameplate">{this.props.users[this.props.round - 1 ]} wrote this:</p>
         <h2 className="textplate">{this.props.data}</h2>
       </div>)

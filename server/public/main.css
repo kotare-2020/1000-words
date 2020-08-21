@@ -493,7 +493,7 @@ margin-right: auto;
     margin-bottom: 15px;
 } */
 #key {
-    animation: 2s linear 1s infinite running bg-rotate;
+    animation: 2s linear 0s infinite running bg-rotate;
     transform: scale(4);
 }
 .gallery-img {
